@@ -93,7 +93,8 @@ button:focus-visible, input:focus-visible {
 }
 
 .wordmark { display: flex; align-items: center; flex: none; }
-.wordmark img { height: 40px; width: auto; display: block; }
+.wordmark img { height: 40px; width: auto; }
+.mark-light { display: block; }
 .mark-dark { display: none; }
 html[data-theme="dark"] .mark-light { display: none; }
 html[data-theme="dark"] .mark-dark { display: block; }
