@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Construct</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%231f1f1f'/%3E%3C/svg%3E">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("construct.theme");
+        if (theme === "dark" || theme === "light") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="css/workbench.css">
+</head>
+<body>
+  <div class="workbench">
+    <header class="titlebar">
+      <div class="wordmark" role="img" aria-label="Project Construct">
+        <!-- Dark wordmark is a preview only and is not locked. -->
+        <img class="mark mark-light" alt="" src="assets/project-construct-wordmark.svg">
+        <img class="mark mark-dark" alt="" src="assets/project-construct-wordmark-dark-preview.svg">
+      </div>
+      <p class="preview-note">Dark wordmark preview — not locked</p>
+      <div class="titlebar-actions">
+        <button type="button" id="theme-toggle" aria-label="Switch to dark theme">Dark</button>
+        <button type="button" id="run" title="Run the open file (Ctrl+Enter or Cmd+Enter)">
+          <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true">
+            <path d="M1 1.2 L8.5 6 L1 10.8 Z" fill="currentColor"></path>
+          </svg>
+          Run
+        </button>
+      </div>
+    </header>
+    <div class="body">
+      <nav class="activity" aria-label="Activity">
+        <button type="button" id="activity-library" aria-pressed="true" aria-label="Library" title="Library">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+            <path d="M5 19.5 V7.2 H8.2 V19.5"></path>
+            <path d="M9.6 19.5 V4.8 H12.8 V19.5"></path>
+            <path d="M14.2 19.5 V8.4 H17.4 V19.5"></path>
+            <path d="M4 19.5 H20"></path>
+          </svg>
+        </button>
+        <button type="button" id="activity-search" aria-pressed="false" aria-label="Search" title="Search">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="10.5" cy="10.5" r="5.25"></circle>
+            <path d="M14.6 14.6 L19 19"></path>
+          </svg>
+        </button>
+      </nav>
+      <aside class="sidebar" id="sidebar">
+        <div class="side-label" id="side-label">Library</div>
+        <div class="side-body" id="side-body"></div>
+      </aside>
+      <div class="main">
+        <div class="editor-wrap">
+          <div class="tabs" id="tabs"></div>
+          <div id="editor"></div>
+          <div id="editor-empty" hidden>Open a file from the library.</div>
+        </div>
+        <div id="panel-resizer" role="separator" aria-orientation="horizontal" aria-label="Resize console"></div>
+        <section class="bottom" id="bottom">
+          <div class="console-pane">
+            <div class="pane-tabs" role="tablist">
+              <button type="button" id="tab-output" role="tab" aria-selected="true" aria-controls="output-view">Output</button>
+              <button type="button" id="tab-problems" role="tab" aria-selected="false" aria-controls="problems-view">Problems</button>
+            </div>
+            <div id="output-view" role="tabpanel">
+              <div id="console-log" role="log" aria-label="Console"></div>
+              <form id="repl-form" autocomplete="off">
+                <label for="repl-input">&gt;</label>
+                <input id="repl-input" spellcheck="false" autocomplete="off" aria-label="Python console input" placeholder="Loading Python…" disabled>
+              </form>
+            </div>
+            <div id="problems-view" role="tabpanel" hidden></div>
+          </div>
+          <aside class="graph-pane" id="graph-pane" hidden aria-label="Graph">
+            <div class="pane-tabs graph-head">
+              <span>Graph</span>
+              <button type="button" id="graph-close">Close</button>
+            </div>
+            <div id="graph-body"></div>
+          </aside>
+        </section>
+        <footer class="statusbar">
+          <span id="status-mode">Python · loading</span>
+          <span id="status-pos">Ln 1, Col 1</span>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.57.0/min/vs/loader.js"></script>
+  <script src="js/runtime.js"></script>
+  <script src="js/workbench.js"></script>
+</body>
+</html>
