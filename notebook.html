@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Construct</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="notebook">
+  <header class="topbar">
+    <a class="wordmark-link" href="./">
+      <img class="wordmark" src="assets/project-construct-wordmark.svg" alt="Project Construct" height="40">
+    </a>
+    <a class="library-link" href="./">Library</a>
+  </header>
+  <iframe class="lite-frame" id="lite" title="Jupyter notebook"></iframe>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var path = params.get("path") || "";
+      var safe = /^[A-Za-z0-9._/-]+\.ipynb$/.test(path) && path.indexOf("..") === -1;
+      var frame = document.getElementById("lite");
+      if (!safe) {
+        frame.remove();
+        var note = document.createElement("p");
+        note.className = "notebook-missing";
+        note.appendChild(document.createTextNode("That notebook is not in the library. "));
+        var back = document.createElement("a");
+        back.href = "./";
+        back.textContent = "Return to the library";
+        note.appendChild(back);
+        note.appendChild(document.createTextNode("."));
+        document.body.appendChild(note);
+        return;
+      }
+      document.title = path + " · Project Construct";
+      var encoded = path.split("/").map(encodeURIComponent).join("/");
+      frame.src = "lite/lab/index.html?path=" + encoded;
+    })();
+  </script>
+</body>
+</html>

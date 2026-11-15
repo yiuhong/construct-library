@@ -1,0 +1,20 @@
+{
+  "lessons": [
+    {
+      "path": "welcome.ipynb",
+      "title": "welcome.ipynb",
+      "summary": "Fair-coin expectation (intro)"
+    },
+    {
+      "path": "expectation.ipynb",
+      "title": "expectation.ipynb",
+      "summary": "Expected value, with a bar chart"
+    },
+    {
+      "path": "variance.ipynb",
+      "title": "variance.ipynb",
+      "summary": "Variance of a fair coin"
+    }
+  ],
+  "materials": []
+}

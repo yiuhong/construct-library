@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.jupyterlite.doit.db
+*.egg-info/
