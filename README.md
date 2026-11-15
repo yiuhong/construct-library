@@ -18,7 +18,7 @@ python3 -m http.server 8080
 
 Open the printed local URL (for example `http://127.0.0.1:8080/`).
 
-The library page lists the starter lessons. Open one, wait for the Python runtime to finish downloading, click the code cell, and press Shift+Enter. Printed output and plots appear under the cell that produced them.
+The library page lists the starter lessons. Open one and the Python (Pyodide) kernel starts on its own. Wait for the Python runtime to finish downloading, click the code cell, and press Shift+Enter. Printed output and plots appear under the cell that produced them.
 
 The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyodide/v314.0.6/full/pyodide.mjs) (Python 3.14.2) from that release’s CDN. A cell that imports matplotlib also downloads matplotlib 3.10.8 and numpy 2.4.6 from the same release. Later visits reuse the browser cache.
 
