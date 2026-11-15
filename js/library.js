@@ -1,7 +1,7 @@
 (function () {
-  var lessonsRoot = document.querySelector("[data-lessons]");
+  var catalog = document.querySelector("[data-catalog]");
+  var nav = document.querySelector("[data-cat-tabs]");
   var materialsRoot = document.querySelector("[data-materials]");
-  if (!lessonsRoot) return;
 
   function notebookIcon() {
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -51,11 +51,100 @@
     return link;
   }
 
+  function slug(text) {
+    return String(text || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function groupsFrom(data) {
+    var source = Array.isArray(data.groups) ? data.groups : [];
+    var groups = [];
+    source.forEach(function (group) {
+      if (!group) return;
+      var lessons = (group.lessons || []).filter(function (item) {
+        return item && item.path;
+      });
+      if (!lessons.length) return;
+      var title = group.title || "Lessons";
+      var id = slug(group.id || title);
+      if (!id) return;
+      groups.push({ id: id, title: title, lessons: lessons });
+    });
+    return groups;
+  }
+
+  function panels() {
+    if (!catalog) return [];
+    return Array.prototype.slice.call(catalog.querySelectorAll("[data-group-panel]"));
+  }
+
+  function tabs() {
+    if (!nav) return [];
+    return Array.prototype.slice.call(nav.querySelectorAll(".cat-tab"));
+  }
+
+  function activate() {
+    var tabList = tabs();
+    var panelList = panels();
+    if (!tabList.length || !panelList.length) return;
+    var hash = location.hash.replace(/^#/, "");
+    var known = panelList.some(function (panel) {
+      return panel.getAttribute("data-group-panel") === hash;
+    });
+    var current = known ? hash : tabList[0].getAttribute("data-group");
+    tabList.forEach(function (tab) {
+      var on = tab.getAttribute("data-group") === current;
+      tab.classList.toggle("is-selected", on);
+      if (on) tab.setAttribute("aria-current", "page");
+      else tab.removeAttribute("aria-current");
+    });
+    panelList.forEach(function (panel) {
+      panel.hidden = panel.getAttribute("data-group-panel") !== current;
+    });
+  }
+
+  function renderGroups(groups) {
+    if (!catalog || !nav || !groups.length) return;
+    nav.textContent = "";
+    panels().forEach(function (panel) {
+      panel.remove();
+    });
+    var anchor = nav;
+    groups.forEach(function (group) {
+      var tab = document.createElement("a");
+      tab.className = "cat-tab";
+      tab.href = "#" + group.id;
+      tab.setAttribute("data-group", group.id);
+      tab.textContent = group.title;
+      nav.appendChild(tab);
+
+      var panel = document.createElement("div");
+      panel.className = "lessons";
+      panel.id = "panel-" + group.id;
+      panel.setAttribute("data-group-panel", group.id);
+      panel.setAttribute("aria-label", group.title);
+      tab.setAttribute("aria-controls", panel.id);
+      group.lessons.forEach(function (item) {
+        panel.appendChild(lessonLink(item));
+      });
+      anchor.insertAdjacentElement("afterend", panel);
+      anchor = panel;
+    });
+    activate();
+  }
+
   function safeHref(href) {
     if (typeof href !== "string") return "";
     if (href.indexOf("..") !== -1 || href.indexOf("://") !== -1 || href.charAt(0) === "/") return "";
     return href;
   }
+
+  window.addEventListener("hashchange", activate);
+  activate();
+
+  if (!catalog) return;
 
   fetch("library.json")
     .then(function (response) {
@@ -63,11 +152,7 @@
       return response.json();
     })
     .then(function (data) {
-      lessonsRoot.textContent = "";
-      (data.lessons || []).forEach(function (item) {
-        if (!item || !item.path) return;
-        lessonsRoot.appendChild(lessonLink(item));
-      });
+      renderGroups(groupsFrom(data));
 
       var materials = data.materials || [];
       if (!materialsRoot || !materials.length) return;
@@ -94,12 +179,15 @@
         link.appendChild(text);
         list.appendChild(link);
       });
+      if (!list.children.length) return;
       materialsRoot.appendChild(heading);
       materialsRoot.appendChild(list);
     })
     .catch(function () {
-      if (!lessonsRoot.children.length) {
-        lessonsRoot.textContent = "The lesson list could not be loaded. Serve this folder with a local web server.";
-      }
+      if (panels().length) return;
+      var note = document.createElement("p");
+      note.className = "lede";
+      note.textContent = "The lesson list could not be loaded. Serve this folder with a local web server.";
+      catalog.appendChild(note);
     });
 })();

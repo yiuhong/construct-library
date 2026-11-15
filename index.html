@@ -13,24 +13,35 @@
     </a>
   </header>
   <main class="library-main">
-    <h1>A math-first lesson library.</h1>
-    <p class="lede">Lessons open as Jupyter notebooks you can run in the browser — write in cells, press Shift+Enter, and see printed output and plots under the cell that produced them.</p>
-    <section class="catalog" aria-labelledby="lessons-heading">
+    <h1>A hands-on library for mathematical and computational psychology and neuroscience.</h1>
+    <p class="lede">Lessons start with the basic mathematics and move on to their applications in computational modelling. Each one opens as a Jupyter notebook you can run in the browser — write in a cell, press Shift+Enter, and see printed output and plots under the cell that produced them.</p>
+    <section class="catalog" aria-labelledby="lessons-heading" data-catalog>
       <h2 class="kicker" id="lessons-heading">Lessons</h2>
-      <div class="lessons" data-lessons>
+      <nav class="cat-tabs" aria-label="Lesson groups" data-cat-tabs>
+        <a class="cat-tab is-selected" href="#getting-started" data-group="getting-started" aria-current="page" aria-controls="panel-getting-started">Getting started</a>
+        <a class="cat-tab" href="#basic-mathematics" data-group="basic-mathematics" aria-controls="panel-basic-mathematics">Basic mathematics</a>
+      </nav>
+      <div class="lessons" id="panel-getting-started" data-group-panel="getting-started" aria-label="Getting started">
+        <a class="lesson" href="notebook.html?path=jupyter-basics.ipynb">
+          <svg class="lesson-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="#f37626" d="M3 1.2h6.1L13 5.1v9.7H3z"/><path fill="#fff" d="M9.1 1.4V5h3.6"/><path fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" d="M5 8.1h6M5 10.2h6M5 12.3h3.6"/></svg>
+          <span><span class="lesson-name">Jupyter Notebook basics</span><span class="lesson-summary">Cells, Shift+Enter, and where output appears</span></span>
+          <span class="lesson-open">Open notebook</span>
+        </a>
+      </div>
+      <div class="lessons" id="panel-basic-mathematics" data-group-panel="basic-mathematics" aria-label="Basic mathematics" hidden>
         <a class="lesson" href="notebook.html?path=welcome.ipynb">
           <svg class="lesson-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="#f37626" d="M3 1.2h6.1L13 5.1v9.7H3z"/><path fill="#fff" d="M9.1 1.4V5h3.6"/><path fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" d="M5 8.1h6M5 10.2h6M5 12.3h3.6"/></svg>
-          <span><span class="lesson-name">welcome.ipynb</span><span class="lesson-summary">Fair-coin expectation (intro)</span></span>
+          <span><span class="lesson-name">Fair-coin expectation</span><span class="lesson-summary">A short first calculation</span></span>
           <span class="lesson-open">Open notebook</span>
         </a>
         <a class="lesson" href="notebook.html?path=expectation.ipynb">
           <svg class="lesson-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="#f37626" d="M3 1.2h6.1L13 5.1v9.7H3z"/><path fill="#fff" d="M9.1 1.4V5h3.6"/><path fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" d="M5 8.1h6M5 10.2h6M5 12.3h3.6"/></svg>
-          <span><span class="lesson-name">expectation.ipynb</span><span class="lesson-summary">Expected value, with a bar chart</span></span>
+          <span><span class="lesson-name">Expected value</span><span class="lesson-summary">The mean of a distribution, with a bar chart</span></span>
           <span class="lesson-open">Open notebook</span>
         </a>
         <a class="lesson" href="notebook.html?path=variance.ipynb">
           <svg class="lesson-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="#f37626" d="M3 1.2h6.1L13 5.1v9.7H3z"/><path fill="#fff" d="M9.1 1.4V5h3.6"/><path fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" d="M5 8.1h6M5 10.2h6M5 12.3h3.6"/></svg>
-          <span><span class="lesson-name">variance.ipynb</span><span class="lesson-summary">Variance of a fair coin</span></span>
+          <span><span class="lesson-name">Variance</span><span class="lesson-summary">Spread around the expected value, for a fair coin</span></span>
           <span class="lesson-open">Open notebook</span>
         </a>
       </div>
