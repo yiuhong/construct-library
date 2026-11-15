@@ -1,19 +1,36 @@
 {
-  "lessons": [
+  "groups": [
     {
-      "path": "welcome.ipynb",
-      "title": "welcome.ipynb",
-      "summary": "Fair-coin expectation (intro)"
+      "id": "getting-started",
+      "title": "Getting started",
+      "lessons": [
+        {
+          "path": "jupyter-basics.ipynb",
+          "title": "Jupyter Notebook basics",
+          "summary": "Cells, Shift+Enter, and where output appears"
+        }
+      ]
     },
     {
-      "path": "expectation.ipynb",
-      "title": "expectation.ipynb",
-      "summary": "Expected value, with a bar chart"
-    },
-    {
-      "path": "variance.ipynb",
-      "title": "variance.ipynb",
-      "summary": "Variance of a fair coin"
+      "id": "basic-mathematics",
+      "title": "Basic mathematics",
+      "lessons": [
+        {
+          "path": "welcome.ipynb",
+          "title": "Fair-coin expectation",
+          "summary": "A short first calculation"
+        },
+        {
+          "path": "expectation.ipynb",
+          "title": "Expected value",
+          "summary": "The mean of a distribution, with a bar chart"
+        },
+        {
+          "path": "variance.ipynb",
+          "title": "Variance",
+          "summary": "Spread around the expected value, for a fair coin"
+        }
+      ]
     }
   ],
   "materials": []

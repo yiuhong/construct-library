@@ -121,6 +121,46 @@ h1 {
   color: var(--label);
 }
 
+.cat-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 0 0 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cat-tabs .cat-tab,
+.cat-tabs .cat-tab:visited {
+  margin: 0;
+  padding: 0 0 10px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--label);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.cat-tabs .cat-tab.is-selected,
+.cat-tabs .cat-tab.is-selected:visited {
+  margin-bottom: -1px;
+  border-bottom-color: var(--ink);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.cat-tabs .cat-tab:hover,
+.cat-tabs .cat-tab:hover:visited {
+  color: var(--ink);
+}
+
+.cat-tabs .cat-tab:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
 .lessons {
   margin: 0;
   padding: 0;
@@ -139,6 +179,10 @@ h1 {
 
 .lesson:last-child {
   border-bottom: 1px solid var(--line);
+}
+
+.catalog .cat-tabs ~ .lessons .lesson:first-child {
+  border-top: 0;
 }
 
 .lesson:hover .lesson-open {
@@ -219,5 +263,9 @@ h1 {
 
   .lesson-open {
     grid-column: 2;
+  }
+
+  .cat-tabs {
+    gap: 22px;
   }
 }
