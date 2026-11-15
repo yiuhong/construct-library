@@ -229,6 +229,24 @@ h1 {
   line-height: 1.4;
 }
 
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer p + p {
+  margin-top: 6px;
+}
+
+.kernel-note {
+  margin: 0;
+  flex: 0 0 auto;
+  padding: 10px var(--pad);
+  border-bottom: 1px solid var(--line);
+  color: var(--lede);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .lite-frame {
   flex: 1 1 auto;
   width: 100%;

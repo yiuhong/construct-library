@@ -13,6 +13,7 @@
     </a>
     <a class="library-link" href="./">Library</a>
   </header>
+  <p class="kernel-note" id="kernel-note">If a kernel picker appears, choose Python (Pyodide).</p>
   <iframe class="lite-frame" id="lite" title="Jupyter notebook"></iframe>
   <script>
     (function () {
@@ -22,6 +23,8 @@
       var frame = document.getElementById("lite");
       if (!safe) {
         frame.remove();
+        var hint = document.getElementById("kernel-note");
+        if (hint) hint.remove();
         var note = document.createElement("p");
         note.className = "notebook-missing";
         note.appendChild(document.createTextNode("That notebook is not in the library. "));

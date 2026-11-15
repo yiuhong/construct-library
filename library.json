@@ -10,27 +10,6 @@
           "summary": "Cells, Shift+Enter, and where output appears"
         }
       ]
-    },
-    {
-      "id": "basic-mathematics",
-      "title": "Basic mathematics",
-      "lessons": [
-        {
-          "path": "welcome.ipynb",
-          "title": "Fair-coin expectation",
-          "summary": "A short first calculation"
-        },
-        {
-          "path": "expectation.ipynb",
-          "title": "Expected value",
-          "summary": "The mean of a distribution, with a bar chart"
-        },
-        {
-          "path": "variance.ipynb",
-          "title": "Variance",
-          "summary": "Spread around the expected value, for a fair coin"
-        }
-      ]
     }
   ],
   "materials": []
