@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Construct</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="library">
+  <header class="topbar">
+    <a class="wordmark-link" href="./">
+      <img class="wordmark" src="assets/project-construct-wordmark.svg" alt="Project Construct" height="40">
+    </a>
+  </header>
+  <main class="library-main">
+    <h1>A math-first lesson library.</h1>
+    <p class="lede">Lessons open as Jupyter notebooks you can run in the browser — write in cells, press Shift+Enter, and see printed output and plots under the cell that produced them.</p>
+    <section class="catalog" aria-labelledby="lessons-heading">
+      <h2 class="kicker" id="lessons-heading">Lessons</h2>
+      <div class="lessons" data-lessons>
+        <a class="lesson" href="notebook.html?path=welcome.ipynb">
+          <svg class="lesson-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="#f37626" d="M3 1.2h6.1L13 5.1v9.7H3z"/><path fill="#fff" d="M9.1 1.4V5h3.6"/><path fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" d="M5 8.1h6M5 10.2h6M5 12.3h3.6"/></svg>
+          <span><span class="lesson-name">welcome.ipynb</span><span class="lesson-summary">Fair-coin expectation (intro)</span></span>
+          <span class="lesson-open">Open notebook</span>
+        </a>
+        <a class="lesson" href="notebook.html?path=expectation.ipynb">
+          <svg class="lesson-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="#f37626" d="M3 1.2h6.1L13 5.1v9.7H3z"/><path fill="#fff" d="M9.1 1.4V5h3.6"/><path fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" d="M5 8.1h6M5 10.2h6M5 12.3h3.6"/></svg>
+          <span><span class="lesson-name">expectation.ipynb</span><span class="lesson-summary">Expected value, with a bar chart</span></span>
+          <span class="lesson-open">Open notebook</span>
+        </a>
+        <a class="lesson" href="notebook.html?path=variance.ipynb">
+          <svg class="lesson-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="#f37626" d="M3 1.2h6.1L13 5.1v9.7H3z"/><path fill="#fff" d="M9.1 1.4V5h3.6"/><path fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" d="M5 8.1h6M5 10.2h6M5 12.3h3.6"/></svg>
+          <span><span class="lesson-name">variance.ipynb</span><span class="lesson-summary">Variance of a fair coin</span></span>
+          <span class="lesson-open">Open notebook</span>
+        </a>
+      </div>
+    </section>
+    <section class="catalog" data-materials hidden></section>
+  </main>
+  <footer class="site-footer">Notebooks run in JupyterLite, in this browser. No server or install required.</footer>
+  <script src="js/library.js"></script>
+  <script>
+    (function () {
+      var slot = document.querySelector("[data-materials]");
+      if (!slot) return;
+      var observer = new MutationObserver(function () {
+        slot.hidden = slot.childElementCount === 0;
+      });
+      observer.observe(slot, { childList: true });
+    })();
+  </script>
+</body>
+</html>
