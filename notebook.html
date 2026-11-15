@@ -11,20 +11,26 @@
     <a class="wordmark-link" href="./">
       <img class="wordmark" src="assets/project-construct-wordmark.svg" alt="Project Construct" height="40">
     </a>
-    <a class="library-link" href="./">Library</a>
+    <span class="topbar-actions">
+      <button type="button" class="replay-tour" id="replay-tour" hidden>Replay tour</button>
+      <a class="library-link" href="./">Library</a>
+    </span>
   </header>
-  <p class="kernel-note" id="kernel-note">If a kernel picker appears, choose Python (Pyodide).</p>
   <iframe class="lite-frame" id="lite" title="Jupyter notebook"></iframe>
   <script>
     (function () {
+      var basicsName = "jupyter-basics.ipynb";
       var params = new URLSearchParams(window.location.search);
       var path = params.get("path") || "";
       var safe = /^[A-Za-z0-9._/-]+\.ipynb$/.test(path) && path.indexOf("..") === -1;
       var frame = document.getElementById("lite");
-      if (!safe) {
+      var replay = document.getElementById("replay-tour");
+      var basics = safe && path.split("/").pop() === basicsName;
+      var replayQueued = false;
+
+      function showMissing() {
         frame.remove();
-        var hint = document.getElementById("kernel-note");
-        if (hint) hint.remove();
+        if (replay) replay.remove();
         var note = document.createElement("p");
         note.className = "notebook-missing";
         note.appendChild(document.createTextNode("That notebook is not in the library. "));
@@ -34,10 +40,56 @@
         note.appendChild(back);
         note.appendChild(document.createTextNode("."));
         document.body.appendChild(note);
+      }
+
+      function signalReplay() {
+        var win = frame.contentWindow;
+        if (!win) {
+          replayQueued = true;
+          return;
+        }
+        try {
+          win.__constructBasicsTourReplay = true;
+          win.postMessage(
+            { source: "construct-library", action: "replay-tour" },
+            window.location.origin
+          );
+          replayQueued = false;
+        } catch (err) {
+          replayQueued = true;
+        }
+      }
+
+      function injectTour() {
+        var doc;
+        try {
+          doc = frame.contentDocument;
+        } catch (err) {
+          return;
+        }
+        if (!doc || doc.getElementById("construct-basics-tour")) return;
+        var script = doc.createElement("script");
+        script.id = "construct-basics-tour";
+        script.src = new URL("js/basics-tour.js", window.location.href).href;
+        (doc.head || doc.documentElement).appendChild(script);
+        if (replayQueued) signalReplay();
+      }
+
+      if (!safe) {
+        showMissing();
         return;
       }
+
+      if (basics && replay) {
+        replay.hidden = false;
+        replay.addEventListener("click", signalReplay);
+      }
+
       document.title = path + " · Project Construct";
       var encoded = path.split("/").map(encodeURIComponent).join("/");
+      frame.addEventListener("load", function () {
+        if (basics) injectTour();
+      });
       frame.src = "lite/lab/index.html?path=" + encoded;
     })();
   </script>
