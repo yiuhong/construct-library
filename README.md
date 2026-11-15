@@ -45,5 +45,5 @@ That script creates a local `.venv` and installs the pinned build tools in `requ
 ## Known limits
 
 - The Pyodide kernel runs on the main thread. A tight loop can freeze the tab.
-- Edits in a notebook stay in this browser (IndexedDB). They are not written back to the repository. Clearing site data for the origin restores the published notebooks.
+- Edits in a notebook stay in this browser (IndexedDB). They are not written back to the repository. Notebooks removed from the library are dropped from the file browser on the next visit. Edits to a notebook that is still published, including jupyter-basics.ipynb, are kept. Clearing site data for the origin restores the published notebooks.
 - The runtime is not vendored in the repository. The first notebook needs a network connection to the pinned Pyodide CDN.

@@ -17,6 +17,7 @@
     </span>
   </header>
   <iframe class="lite-frame" id="lite" title="Jupyter notebook"></iframe>
+  <script src="js/removed-notebooks.js"></script>
   <script>
     (function () {
       var basicsName = "jupyter-basics.ipynb";
@@ -90,7 +91,27 @@
       frame.addEventListener("load", function () {
         if (basics) injectTour();
       });
-      frame.src = "lite/lab/index.html?path=" + encoded;
+      var opened = false;
+      var openLite = function () {
+        if (opened) return;
+        opened = true;
+        frame.src = "lite/lab/index.html?path=" + encoded;
+      };
+      var purge =
+        typeof window.constructPurgeRemovedNotebooks === "function"
+          ? window.constructPurgeRemovedNotebooks()
+          : Promise.resolve();
+      var timer = window.setTimeout(openLite, 8000);
+      purge.then(
+        function () {
+          window.clearTimeout(timer);
+          openLite();
+        },
+        function () {
+          window.clearTimeout(timer);
+          openLite();
+        }
+      );
     })();
   </script>
 </body>

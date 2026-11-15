@@ -73,7 +73,42 @@
     return nodes[0] || null;
   }
 
+  var revealedFiles = false;
+
+  function fileBrowser() {
+    return document.getElementById("filebrowser");
+  }
+
+  function menuBar() {
+    return document.getElementById("jp-MainMenu");
+  }
+
+  function revealFileBrowser() {
+    if (boxOf(fileBrowser()) || revealedFiles) return;
+    var tab = document.querySelector('.lm-TabBar-tab[data-id="filebrowser"]');
+    if (!tab) return;
+    revealedFiles = true;
+    tab.click();
+  }
+
   var steps = [
+    {
+      title: "Files",
+      body: "This panel on the left lists the notebooks in the library.",
+      prefer: "side",
+      find: function () {
+        revealFileBrowser();
+        return fileBrowser();
+      }
+    },
+    {
+      title: "Menu bar",
+      body: "File, Edit, View, Run, Kernel, and the other menus are in this bar.",
+      prefer: "below-end",
+      find: function () {
+        return menuBar();
+      }
+    },
     {
       title: "Run",
       body: "This runs the selected cell and moves to the next one.",
@@ -137,6 +172,8 @@
 
   function labReady() {
     if (!boxOf(document.querySelector('.jp-NotebookPanel-toolbar [data-jp-item-name="run"]'))) return false;
+    if (!boxOf(menuBar())) return false;
+    if (!boxOf(fileBrowser())) return false;
     var cells = document.querySelectorAll(".jp-Notebook .jp-Cell");
     var i;
     var settled = false;
@@ -155,6 +192,7 @@
     requestOpen.pending = true;
     var started = Date.now();
     (function tick() {
+      revealFileBrowser();
       if (labReady()) {
         requestOpen.pending = false;
         openTour();
@@ -302,8 +340,13 @@
       var above = { top: rect.top - height - margin, left: rect.left };
       var right = { top: rect.top, left: rect.left + rect.width + margin };
       var leftOf = { top: rect.top, left: rect.left - width - margin };
-      var options =
-        step && step.prefer === "side" ? [right, leftOf, below, above] : [below, above, right, leftOf];
+      var belowEnd = {
+        top: rect.top + rect.height + margin,
+        left: Math.max(margin, viewW - width - margin)
+      };
+      var options = [below, above, right, leftOf];
+      if (step && step.prefer === "side") options = [right, leftOf, below, above];
+      if (step && step.prefer === "below-end") options = [belowEnd, below, right, above];
       var i;
       var placed = false;
       for (i = 0; i < options.length; i++) {
