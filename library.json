@@ -8,6 +8,31 @@
           "path": "jupyter-basics.ipynb",
           "title": "Jupyter Notebook basics",
           "summary": "Cells, Shift+Enter, and where output appears"
+        },
+        {
+          "path": "markdown-and-equations.ipynb",
+          "title": "Markdown and equations",
+          "summary": "Headings, lists, links, and formulas in lesson text"
+        },
+        {
+          "path": "cell-order-and-kernel.ipynb",
+          "title": "Cell order and the kernel",
+          "summary": "Run order, restart, and what the kernel remembers"
+        },
+        {
+          "path": "errors-and-interrupting.ipynb",
+          "title": "Errors and interrupting a run",
+          "summary": "Tracebacks, stopping a cell, and starting again"
+        },
+        {
+          "path": "saving-a-copy.ipynb",
+          "title": "Saving a copy",
+          "summary": "Download the notebook; browser edits stay local"
+        },
+        {
+          "path": "imports-and-plots.ipynb",
+          "title": "Imports and plots",
+          "summary": "numpy, matplotlib, and waiting for the first plot"
         }
       ]
     }

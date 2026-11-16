@@ -26,7 +26,7 @@ The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyod
 
 - `index.html` is the library front door.
 - `notebook.html` keeps the Project Construct title bar around JupyterLite.
-- `content/` holds `jupyter-basics.ipynb`. Python only.
+- `content/` holds the Getting started notebooks, in catalog order: `jupyter-basics.ipynb`, `markdown-and-equations.ipynb`, `cell-order-and-kernel.ipynb`, `errors-and-interrupting.ipynb`, `saving-a-copy.ipynb`, and `imports-and-plots.ipynb`. Python only.
 - `library.json` lists those lessons in groups. Its `materials` array is empty. Notes, readings, and explainers can be added later under `materials/` and listed from that array. The library page shows a Materials section only when the array has entries.
 - `lite/` is the built JupyterLite site (jupyterlite-core 0.8.7 and jupyterlite-pyodide-kernel 0.8.7), with the Lab application only.
 
