@@ -20,13 +20,13 @@
   <script src="js/removed-notebooks.js"></script>
   <script>
     (function () {
-      var basicsName = "jupyter-basics.ipynb";
+      var basicsName = "getting-started/01-jupyter-basics.ipynb";
       var params = new URLSearchParams(window.location.search);
       var path = params.get("path") || "";
       var safe = /^[A-Za-z0-9._/-]+\.ipynb$/.test(path) && path.indexOf("..") === -1;
       var frame = document.getElementById("lite");
       var replay = document.getElementById("replay-tour");
-      var basics = safe && path.split("/").pop() === basicsName;
+      var basics = safe && path.replace(/^\/+/, "") === basicsName;
       var replayQueued = false;
 
       function showMissing() {
