@@ -5,32 +5,32 @@
       "title": "Getting started",
       "lessons": [
         {
-          "path": "jupyter-basics.ipynb",
+          "path": "getting-started/01-jupyter-basics.ipynb",
           "title": "Jupyter Notebook basics",
           "summary": "Cells, Shift+Enter, and where output appears"
         },
         {
-          "path": "markdown-and-equations.ipynb",
+          "path": "getting-started/02-markdown-and-equations.ipynb",
           "title": "Markdown and equations",
           "summary": "Headings, lists, links, and formulas in lesson text"
         },
         {
-          "path": "cell-order-and-kernel.ipynb",
+          "path": "getting-started/03-cell-order-and-kernel.ipynb",
           "title": "Cell order and the kernel",
           "summary": "Run order, restart, and what the kernel remembers"
         },
         {
-          "path": "errors-and-interrupting.ipynb",
+          "path": "getting-started/04-errors-and-interrupting.ipynb",
           "title": "Errors and interrupting a run",
           "summary": "Tracebacks, stopping a cell, and starting again"
         },
         {
-          "path": "saving-a-copy.ipynb",
+          "path": "getting-started/05-saving-a-copy.ipynb",
           "title": "Saving a copy",
           "summary": "Download the notebook; browser edits stay local"
         },
         {
-          "path": "imports-and-plots.ipynb",
+          "path": "getting-started/06-imports-and-plots.ipynb",
           "title": "Imports and plots",
           "summary": "numpy, matplotlib, and waiting for the first plot"
         }

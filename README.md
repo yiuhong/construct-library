@@ -26,7 +26,7 @@ The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyod
 
 - `index.html` is the library front door.
 - `notebook.html` keeps the Project Construct title bar around JupyterLite.
-- `content/` holds the Getting started notebooks, in catalog order: `jupyter-basics.ipynb`, `markdown-and-equations.ipynb`, `cell-order-and-kernel.ipynb`, `errors-and-interrupting.ipynb`, `saving-a-copy.ipynb`, and `imports-and-plots.ipynb`. Python only.
+- `content/getting-started/` holds the Getting started notebooks, in lesson order: `01-jupyter-basics.ipynb`, `02-markdown-and-equations.ipynb`, `03-cell-order-and-kernel.ipynb`, `04-errors-and-interrupting.ipynb`, `05-saving-a-copy.ipynb`, and `06-imports-and-plots.ipynb`. Python only. The folder and the two-digit prefixes keep that order in the JupyterLite file browser. Catalog titles stay unnumbered.
 - `library.json` lists those lessons in groups. Its `materials` array is empty. Notes, readings, and explainers can be added later under `materials/` and listed from that array. The library page shows a Materials section only when the array has entries.
 - `lite/` is the built JupyterLite site (jupyterlite-core 0.8.7 and jupyterlite-pyodide-kernel 0.8.7), with the Lab application only.
 
@@ -45,5 +45,5 @@ That script creates a local `.venv` and installs the pinned build tools in `requ
 ## Known limits
 
 - The Pyodide kernel runs on the main thread. A tight loop can freeze the tab.
-- Edits in a notebook stay in this browser (IndexedDB). They are not written back to the repository. Notebooks removed from the library are dropped from the file browser on the next visit. Edits to a notebook that is still published, including jupyter-basics.ipynb, are kept. Clearing site data for the origin restores the published notebooks.
+- Edits in a notebook stay in this browser (IndexedDB). They are not written back to the repository. Notebooks removed from the library are dropped from the file browser on the next visit. That includes the earlier unnumbered Getting started filenames and numbered copies that sat at the file-browser root. Edits to a notebook that is still published, including getting-started/01-jupyter-basics.ipynb, are kept. Clearing site data for the origin restores the published notebooks.
 - The runtime is not vendored in the repository. The first notebook needs a network connection to the pinned Pyodide CDN.

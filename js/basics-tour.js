@@ -15,7 +15,7 @@
   var nextButton;
   var placedFor = -1;
 
-  function notebookName() {
+  function notebookPath() {
     var path = "";
     try {
       path = new URLSearchParams(window.location.search).get("path") || "";
@@ -23,10 +23,10 @@
       return "";
     }
     if (path.indexOf("..") !== -1) return "";
-    return path.split("/").pop();
+    return path.replace(/^\/+/, "");
   }
 
-  if (notebookName() !== "jupyter-basics.ipynb") return;
+  if (notebookPath() !== "getting-started/01-jupyter-basics.ipynb") return;
 
   function seen() {
     if (sessionSeen) return true;
