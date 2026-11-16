@@ -35,6 +35,163 @@
           "summary": "numpy, matplotlib, and waiting for the first plot"
         }
       ]
+    },
+    {
+      "id": "python-basics",
+      "title": "Python basics",
+      "lessons": [
+        {
+          "path": "python-basics/01-python-as-a-calculator.ipynb",
+          "title": "Python as a calculator",
+          "summary": "Arithmetic, powers, and parentheses"
+        },
+        {
+          "path": "python-basics/02-types-and-variables.ipynb",
+          "title": "Types and variables",
+          "summary": "Names, and int, float, str, and bool"
+        },
+        {
+          "path": "python-basics/03-lists-and-dictionaries.ipynb",
+          "title": "Lists and dictionaries",
+          "summary": "A list in order, and a key that finds a value"
+        },
+        {
+          "path": "python-basics/04-conditionals-and-loops.ipynb",
+          "title": "Conditionals and loops",
+          "summary": "A choice, and a loop that stops"
+        },
+        {
+          "path": "python-basics/05-functions.ipynb",
+          "title": "Functions",
+          "summary": "A named rule that returns a result"
+        },
+        {
+          "path": "python-basics/06-modules-and-help.ipynb",
+          "title": "Modules and help",
+          "summary": "Import a module, and read a short description"
+        }
+      ]
+    },
+    {
+      "id": "basic-mathematics",
+      "title": "Basic mathematics",
+      "sections": [
+        {
+          "title": "Foundations",
+          "lessons": [
+            {
+              "path": "basic-mathematics/01-numbers-and-notation.ipynb",
+              "title": "Numbers and notation",
+              "summary": "Integers, decimals, powers, and absolute value"
+            },
+            {
+              "path": "basic-mathematics/02-variables-and-expressions.ipynb",
+              "title": "Variables and expressions",
+              "summary": "A letter that stands for a number"
+            },
+            {
+              "path": "basic-mathematics/03-functions.ipynb",
+              "title": "Functions",
+              "summary": "A rule from an input to an output"
+            },
+            {
+              "path": "basic-mathematics/04-linear-equations.ipynb",
+              "title": "Linear equations",
+              "summary": "Undo one unknown, one step at a time"
+            }
+          ]
+        },
+        {
+          "title": "Chance and summary",
+          "lessons": [
+            {
+              "path": "basic-mathematics/05-sums-and-averages.ipynb",
+              "title": "Sums and averages",
+              "summary": "A total, and the mean"
+            },
+            {
+              "path": "basic-mathematics/06-probability-basics.ipynb",
+              "title": "Probability basics",
+              "summary": "A number from 0 to 1"
+            },
+            {
+              "path": "basic-mathematics/07-expected-value.ipynb",
+              "title": "Expected value",
+              "summary": "Outcomes weighted by their probabilities"
+            },
+            {
+              "path": "basic-mathematics/08-variance-and-spread.ipynb",
+              "title": "Variance and spread",
+              "summary": "How far the values sit from the mean"
+            }
+          ]
+        },
+        {
+          "title": "Arrays",
+          "lessons": [
+            {
+              "path": "basic-mathematics/09-vectors.ipynb",
+              "title": "Vectors",
+              "summary": "Add a list of numbers, and take a dot product"
+            },
+            {
+              "path": "basic-mathematics/10-matrices-as-tables.ipynb",
+              "title": "Matrices as tables",
+              "summary": "Rows, columns, and one entry"
+            },
+            {
+              "path": "basic-mathematics/11-matrix-operations.ipynb",
+              "title": "Matrix operations",
+              "summary": "Add, multiply, and transpose"
+            },
+            {
+              "path": "basic-mathematics/12-eigenvalues.ipynb",
+              "title": "Eigenvalues",
+              "summary": "A direction that a matrix only stretches"
+            }
+          ]
+        },
+        {
+          "title": "Calculus",
+          "lessons": [
+            {
+              "path": "basic-mathematics/13-limits.ipynb",
+              "title": "Limits",
+              "summary": "The value an expression approaches"
+            },
+            {
+              "path": "basic-mathematics/14-derivatives.ipynb",
+              "title": "Derivatives",
+              "summary": "How fast an output changes"
+            },
+            {
+              "path": "basic-mathematics/15-integrals.ipynb",
+              "title": "Integrals",
+              "summary": "Area under a curve, as a running total"
+            }
+          ]
+        },
+        {
+          "title": "Fitting",
+          "lessons": [
+            {
+              "path": "basic-mathematics/16-optimisation.ipynb",
+              "title": "Optimisation",
+              "summary": "A minimum, by stepping opposite the slope"
+            },
+            {
+              "path": "basic-mathematics/17-likelihood-and-fitting.ipynb",
+              "title": "Likelihood and fitting",
+              "summary": "The parameter a stated rule prefers"
+            },
+            {
+              "path": "basic-mathematics/18-distributions.ipynb",
+              "title": "Distributions",
+              "summary": "Bernoulli, binomial, and normal"
+            }
+          ]
+        }
+      ]
     }
   ],
   "materials": []

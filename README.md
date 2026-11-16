@@ -18,7 +18,7 @@ python3 -m http.server 8080
 
 Open the printed local URL (for example `http://127.0.0.1:8080/`).
 
-The library page lists the starter lessons. Open one and the Python (Pyodide) kernel starts on its own. If a kernel picker appears, choose Python (Pyodide). Wait for the Python runtime to finish downloading, click the code cell, and press Shift+Enter. Printed output and plots appear under the cell that produced them.
+The library page lists the lessons in three categories: Getting started, Python basics, and Basic mathematics. Open one and the Python (Pyodide) kernel starts on its own. If a kernel picker appears, choose Python (Pyodide). Wait for the Python runtime to finish downloading, click the code cell, and press Shift+Enter. Printed output and plots appear under the cell that produced them.
 
 The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyodide/v314.0.6/full/pyodide.mjs) (Python 3.14.2) from that release’s CDN. A cell that imports matplotlib also downloads matplotlib 3.10.8 and numpy 2.4.6 from the same release. Later visits reuse the browser cache.
 
@@ -26,8 +26,12 @@ The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyod
 
 - `index.html` is the library front door.
 - `notebook.html` keeps the Project Construct title bar around JupyterLite.
-- `content/getting-started/` holds the Getting started notebooks, in lesson order: `01-jupyter-basics.ipynb`, `02-markdown-and-equations.ipynb`, `03-cell-order-and-kernel.ipynb`, `04-errors-and-interrupting.ipynb`, `05-saving-a-copy.ipynb`, and `06-imports-and-plots.ipynb`. Python only. The folder and the two-digit prefixes keep that order in the JupyterLite file browser. Catalog titles stay unnumbered.
-- `library.json` lists those lessons in groups. Its `materials` array is empty. Notes, readings, and explainers can be added later under `materials/` and listed from that array. The library page shows a Materials section only when the array has entries.
+- `content/` holds one folder per category. Each folder numbers its notebooks from `01`, so the JupyterLite file browser lists them in lesson order. The numbers start again in the next folder. Catalog titles stay unnumbered. Python only.
+  - `content/getting-started/` has `01-jupyter-basics.ipynb` through `06-imports-and-plots.ipynb`.
+  - `content/python-basics/` has `01-python-as-a-calculator.ipynb` through `06-modules-and-help.ipynb`.
+  - `content/basic-mathematics/` has `01-numbers-and-notation.ipynb` through `18-distributions.ipynb`. On the library page those lessons sit under headings inside the Basic mathematics tab: Foundations, Chance and summary, Arrays, Calculus, and Fitting.
+- `content/check.py` is a small helper. The Python basics and Basic mathematics lessons import it for the short task at the end of each notebook. A match prints a confirmation. The first miss prints a hint. Calling it again, or passing `show=True`, prints the expected result.
+- `library.json` lists the lessons in those groups. A group can include `sections`, and the library page shows each section title as a heading inside that category tab. Its `materials` array is empty. Notes, readings, and explainers can be added later under `materials/` and listed from that array. The library page shows a Materials section only when the array has entries.
 - `lite/` is the built JupyterLite site (jupyterlite-core 0.8.7 and jupyterlite-pyodide-kernel 0.8.7), with the Lab application only.
 
 There is no login and no install for a reader. JupyterHub and any hosted kernel are out of scope.
