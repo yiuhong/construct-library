@@ -58,19 +58,30 @@
       .replace(/^-+|-+$/g, "");
   }
 
+  function lessonList(list) {
+    return (list || []).filter(function (item) {
+      return item && item.path;
+    });
+  }
+
   function groupsFrom(data) {
     var source = Array.isArray(data.groups) ? data.groups : [];
     var groups = [];
     source.forEach(function (group) {
       if (!group) return;
-      var lessons = (group.lessons || []).filter(function (item) {
-        return item && item.path;
+      var lessons = lessonList(group.lessons);
+      var sections = [];
+      (group.sections || []).forEach(function (section) {
+        if (!section) return;
+        var items = lessonList(section.lessons);
+        if (!items.length) return;
+        sections.push({ title: section.title || "", lessons: items });
       });
-      if (!lessons.length) return;
+      if (!lessons.length && !sections.length) return;
       var title = group.title || "Lessons";
       var id = slug(group.id || title);
       if (!id) return;
-      groups.push({ id: id, title: title, lessons: lessons });
+      groups.push({ id: id, title: title, lessons: lessons, sections: sections });
     });
     return groups;
   }
@@ -126,9 +137,26 @@
       panel.setAttribute("data-group-panel", group.id);
       panel.setAttribute("aria-label", group.title);
       tab.setAttribute("aria-controls", panel.id);
-      group.lessons.forEach(function (item) {
-        panel.appendChild(lessonLink(item));
-      });
+      if (group.sections.length) {
+        group.sections.forEach(function (section) {
+          var block = document.createElement("div");
+          block.className = "lesson-section";
+          if (section.title) {
+            var heading = document.createElement("h3");
+            heading.className = "subgroup";
+            heading.textContent = section.title;
+            block.appendChild(heading);
+          }
+          section.lessons.forEach(function (item) {
+            block.appendChild(lessonLink(item));
+          });
+          panel.appendChild(block);
+        });
+      } else {
+        group.lessons.forEach(function (item) {
+          panel.appendChild(lessonLink(item));
+        });
+      }
       anchor.insertAdjacentElement("afterend", panel);
       anchor = panel;
     });

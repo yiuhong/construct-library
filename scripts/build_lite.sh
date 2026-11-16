@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rebuild the static JupyterLite site in lite/ from content/*.ipynb.
+# Rebuild the static JupyterLite site in lite/ from the files under content/.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
