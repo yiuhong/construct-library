@@ -73,6 +73,40 @@
     return nodes[0] || null;
   }
 
+  function onScreen(el) {
+    return !!boxOf(el);
+  }
+
+  function viewMode() {
+    if (window.innerWidth >= 1280) return "desktop";
+    if (window.innerWidth <= 640) return "phone";
+    return "tablet";
+  }
+
+  function kernelNameEl() {
+    var scoped = query('.jp-NotebookPanel-toolbar [data-jp-item-name="kernelName"]');
+    if (scoped.length) return firstBoxed(scoped);
+    return firstBoxed(query(".jp-NotebookPanel-toolbar .jp-KernelName, .jp-KernelName"));
+  }
+
+  function moreCommandsEl() {
+    return firstBoxed(query('.jp-NotebookPanel-toolbar [data-jp-item-name="toolbar-popup-opener"]'));
+  }
+
+  /*
+   * On a phone the kernel name is moved into the toolbar's More commands
+   * button. Point at that button instead of a name that is not on screen.
+   * Desktop and tablet still use the name on the right.
+   */
+  function kernelTarget() {
+    var named = kernelNameEl();
+    if (onScreen(named)) return named;
+    if (window.innerWidth >= 1280) return named;
+    var opener = moreCommandsEl();
+    if (onScreen(opener)) return opener;
+    return null;
+  }
+
   var revealedFiles = false;
 
   function fileBrowser() {
@@ -106,6 +140,10 @@
       title: "Menu bar",
       body: "File, Edit, View, Run, Kernel, and the other menus are in this bar.",
       prefer: "below-end",
+      preferFor: function () {
+        if (window.innerWidth >= 1280) return "below-end";
+        return "below";
+      },
       find: function () {
         return menuBar();
       }
@@ -130,6 +168,15 @@
     {
       title: "Shift+Enter",
       body: "Press Shift+Enter to run the selected cell. That does the same thing as Run.",
+      bodyFor: function () {
+        var hasRun = false;
+        var i;
+        for (i = 0; i < steps.length; i++) {
+          if (steps[i].title === "Run") hasRun = true;
+        }
+        if (hasRun) return "";
+        return "Press Shift+Enter to run the selected cell.";
+      },
       scroll: "center",
       find: function () {
         var cell = firstBoxed(query(".jp-Notebook .jp-Cell.jp-mod-active"));
@@ -162,21 +209,32 @@
     {
       title: "Kernel",
       body: "The name on the right is the kernel. If a kernel picker appears, choose Python (Pyodide).",
+      bodyFor: function (el) {
+        if (el && el.getAttribute && el.getAttribute("data-jp-item-name") === "toolbar-popup-opener") {
+          return "The kernel name is under this button, with the commands that do not fit on the row. If a kernel picker appears, choose Python (Pyodide).";
+        }
+        return "";
+      },
       prefer: "side",
-      find: function () {
-        var scoped = query('.jp-NotebookPanel-toolbar [data-jp-item-name="kernelName"]');
-        if (scoped.length) return firstBoxed(scoped);
-        return firstBoxed(query(".jp-NotebookPanel-toolbar .jp-KernelName, .jp-KernelName"));
-      }
+      preferFor: function (el) {
+        if (el && el.getAttribute && el.getAttribute("data-jp-item-name") === "toolbar-popup-opener") return "below-end";
+        return "side";
+      },
+      find: kernelTarget
     }
   ];
 
   var allSteps = steps.slice();
+  var builtFor = "";
 
   function labReady() {
-    if (!boxOf(document.querySelector('.jp-NotebookPanel-toolbar [data-jp-item-name="run"]'))) return false;
+    if (window.innerWidth >= 1280) {
+      if (!boxOf(document.querySelector('.jp-NotebookPanel-toolbar [data-jp-item-name="run"]'))) return false;
+      if (!boxOf(fileBrowser())) return false;
+    } else if (!boxOf(document.querySelector(".jp-NotebookPanel-toolbar"))) {
+      return false;
+    }
     if (!boxOf(menuBar())) return false;
-    if (window.innerWidth >= 1280 && !boxOf(fileBrowser())) return false;
     var cells = document.querySelectorAll(".jp-Notebook .jp-Cell");
     var i;
     var settled = false;
@@ -197,10 +255,17 @@
     (function tick() {
       revealFileBrowser();
       if (labReady()) {
+        var settleFor = window.innerWidth >= 1280 ? 0 : 600;
+        if (!requestOpen.since) requestOpen.since = Date.now();
+        if (Date.now() - requestOpen.since < settleFor) {
+          window.setTimeout(tick, 200);
+          return;
+        }
         requestOpen.pending = false;
         openTour();
         return;
       }
+      requestOpen.since = 0;
       if (Date.now() - started > 120000) {
         requestOpen.pending = false;
         return;
@@ -216,12 +281,13 @@
       ".basics-tour-ring{position:fixed;z-index:20000;pointer-events:none;box-sizing:border-box;border:2px solid #1a73e8;border-radius:6px;box-shadow:0 0 0 4px rgba(26,115,232,.2);display:none}",
       ".basics-tour-ring.is-on{display:block}",
       ".basics-tour{position:fixed;z-index:20001;box-sizing:border-box;width:280px;max-width:calc(100vw - 24px);padding:12px 14px 10px;background:#fff;color:#1c1c1c;border:1px solid #e4e4e4;border-radius:8px;box-shadow:0 10px 28px rgba(28,28,28,.16);font-family:system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.45}",
+      ".basics-tour.is-narrow{width:min(280px,calc(100vw - 16px));max-width:calc(100vw - 16px)}",
       ".basics-tour-kicker{margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6d6d6d}",
       ".basics-tour-title{margin:0 0 4px;font-size:14px;font-weight:600;line-height:1.3}",
       ".basics-tour-body{margin:0}",
-      ".basics-tour-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}",
+      ".basics-tour-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;flex-wrap:nowrap}",
       ".basics-tour-nav{display:flex;align-items:center;gap:8px}",
-      ".basics-tour button{appearance:none;font:inherit;font-size:13px;line-height:1.3;cursor:pointer;border-radius:4px}",
+      ".basics-tour button{appearance:none;font:inherit;font-size:13px;line-height:1.3;cursor:pointer;border-radius:4px;white-space:nowrap}",
       ".basics-tour [data-act='skip'],.basics-tour [data-act='back']{border:0;background:transparent;padding:4px 2px;color:#5c5c5c}",
       ".basics-tour [data-act='skip']:hover,.basics-tour [data-act='back']:hover{color:#1c1c1c}",
       ".basics-tour [data-act='back']:disabled{opacity:.4;cursor:default}",
@@ -330,8 +396,13 @@
     return boxOf(el);
   }
 
-  function positionCard(rect, step) {
-    var margin = 12;
+  function positionCard(rect, step, el) {
+    var margin = window.innerWidth <= 640 ? 8 : 12;
+    var prefer = step && step.prefer;
+    if (step && step.preferFor) {
+      var chosen = step.preferFor(el);
+      if (chosen) prefer = chosen;
+    }
     var width = card.offsetWidth;
     var height = card.offsetHeight;
     var viewW = window.innerWidth;
@@ -348,8 +419,8 @@
         left: Math.max(margin, viewW - width - margin)
       };
       var options = [below, above, right, leftOf];
-      if (step && step.prefer === "side") options = [right, leftOf, below, above];
-      if (step && step.prefer === "below-end") options = [belowEnd, below, right, above];
+      if (prefer === "side") options = [right, leftOf, below, above];
+      if (prefer === "below-end") options = [belowEnd, below, right, above];
       var i;
       var placed = false;
       for (i = 0; i < options.length; i++) {
@@ -378,38 +449,126 @@
     card.style.left = left + "px";
   }
 
+  function clampRing(rect) {
+    var pad = 4;
+    var edge = 2;
+    var top = rect.top - pad;
+    var left = rect.left - pad;
+    var width = rect.width + pad * 2;
+    var height = rect.height + pad * 2;
+    var maxW = window.innerWidth - edge;
+    var maxH = window.innerHeight - edge;
+    if (left < edge) {
+      width -= edge - left;
+      left = edge;
+    }
+    if (top < edge) {
+      height -= edge - top;
+      top = edge;
+    }
+    if (left + width > maxW) width = Math.max(8, maxW - left);
+    if (top + height > maxH) height = Math.max(8, maxH - top);
+    return { top: top, left: left, width: width, height: height };
+  }
+
+  function stepVisible(step) {
+    if (window.innerWidth >= 1280) {
+      return step.title !== "Files" || !!boxOf(fileBrowser());
+    }
+    return !!targetBox(step, step.find());
+  }
+
+  function applySteps(keepTitle) {
+    var title = keepTitle || "";
+    steps = allSteps.filter(stepVisible);
+    builtFor = viewMode();
+    if (!steps.length) {
+      index = 0;
+      return;
+    }
+    if (!title) {
+      index = 0;
+      return;
+    }
+    var found = -1;
+    var i;
+    for (i = 0; i < steps.length; i++) {
+      if (steps[i].title === title) found = i;
+    }
+    index = found >= 0 ? found : 0;
+  }
+
   function place() {
     if (!running || !card) return;
+    if (builtFor !== viewMode()) {
+      var kept = steps[index] ? steps[index].title : "";
+      applySteps(kept);
+      showStep();
+      return;
+    }
     var step = steps[index];
+    if (!step) return;
     var el = step.find();
     var rect = targetBox(step, el);
+    if (window.innerWidth <= 640 && rect && rect.height > window.innerHeight * 0.5) {
+      rect = {
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: Math.min(120, rect.height)
+      };
+    }
     if (rect) {
-      var pad = 4;
+      var box =
+        window.innerWidth >= 1280
+          ? {
+              top: rect.top - 4,
+              left: rect.left - 4,
+              width: rect.width + 8,
+              height: rect.height + 8
+            }
+          : clampRing(rect);
       ring.classList.add("is-on");
-      ring.style.top = rect.top - pad + "px";
-      ring.style.left = rect.left - pad + "px";
-      ring.style.width = rect.width + pad * 2 + "px";
-      ring.style.height = rect.height + pad * 2 + "px";
+      ring.style.top = box.top + "px";
+      ring.style.left = box.left + "px";
+      ring.style.width = box.width + "px";
+      ring.style.height = box.height + "px";
     } else {
       ring.classList.remove("is-on");
     }
-    positionCard(rect, step);
+    card.classList.toggle("is-narrow", window.innerWidth <= 640);
+    positionCard(rect, step, el);
   }
 
   function showStep() {
+    if (builtFor !== viewMode()) applySteps("");
+    if (!steps.length) {
+      running = false;
+      if (ring) ring.classList.remove("is-on");
+      if (card) card.hidden = true;
+      return;
+    }
     var step = steps[index];
+    var el = step.find();
     card.hidden = false;
+    card.classList.toggle("is-narrow", window.innerWidth <= 640);
     card.setAttribute("data-tour-step", String(index));
     kicker.textContent = index + 1 + " of " + steps.length;
     titleEl.textContent = step.title;
-    bodyEl.textContent = step.body;
+    var text = step.body;
+    if (step.bodyFor) {
+      var custom = step.bodyFor(el);
+      if (custom) text = custom;
+    }
+    bodyEl.textContent = text;
     backButton.disabled = index === 0;
     nextButton.textContent = index === steps.length - 1 ? "Done" : "Next";
     if (placedFor !== index && step.scroll) {
-      var el = step.find();
       var anchor = (el && el.closest && el.closest(".jp-Cell")) || el;
       if (anchor && anchor.scrollIntoView) {
-        anchor.scrollIntoView({ block: step.scroll, inline: "nearest" });
+        var block = step.scroll;
+        if (window.innerWidth <= 640) block = step.band ? "end" : "start";
+        anchor.scrollIntoView({ block: block, inline: "nearest" });
       }
     }
     placedFor = index;
@@ -426,9 +585,7 @@
 
   function openTour() {
     ensureUi();
-    steps = allSteps.filter(function (step) {
-      return step.title !== "Files" || boxOf(fileBrowser());
-    });
+    builtFor = "";
     index = 0;
     placedFor = -1;
     running = true;
