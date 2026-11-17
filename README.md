@@ -8,6 +8,18 @@ The site is published with GitHub Pages at https://yiuhong.github.io/construct-l
 
 The mark above is the light lockup, [`assets/project-construct-wordmark.svg`](assets/project-construct-wordmark.svg). Yiu Hong Ko is a psychology and cognitive neuroscience researcher in Hong Kong and a registered social worker (RSW).
 
+## Cite, license, and contributing
+
+Teaching text, explanations, and figures are [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The legal text is [LICENSE](LICENSE). HTML, CSS, JavaScript, and Python that run the site and the notebooks are [MIT](LICENSE-CODE). [license.html](license.html) says which part is which. A page can mix both. JupyterLite and Pyodide keep their own licenses.
+
+To cite the library, use [cite.html](https://yiuhong.github.io/construct-library/cite.html) (APA 7, BibTeX, and a credit line). A machine-readable citation is [`CITATION.cff`](CITATION.cff) (Citation File Format 1.2.0). It names this library, Yiu Hong Ko, the ORCID iD, version 0.1.0, and https://yiuhong.github.io/construct-library/. The file records the teaching material as CC BY 4.0 and notes that source code is MIT.
+
+Yiu Hong Ko · [ORCID 0000-0003-4436-0166](https://orcid.org/0000-0003-4436-0166) · [yiuhong.ko@gmail.com](mailto:yiuhong.ko@gmail.com) · [yiuhong.github.io](https://yiuhong.github.io/)
+
+Mistakes and ideas go to [GitHub Issues](https://github.com/yiuhong/construct-library/issues). Notes for contributors are in [CONTRIBUTING.md](CONTRIBUTING.md). What changed is in [CHANGELOG.md](CHANGELOG.md).
+
+This is version **0.1.0**, dated 17 November 2026. It is the first versioned release: the repository had no version before it. The version and date live in [`js/site-meta.js`](js/site-meta.js). The footer, the cite page, and the license page repeat the same version and date for visitors without JavaScript.
+
 ## Try it locally
 
 JupyterLite needs a local static server. Opening the files with `file://` will not start the notebooks.
@@ -25,7 +37,7 @@ The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyod
 ## What is in the repository
 
 - `index.html` is the library front door.
-- `notebook.html` keeps the Project Construct title bar around JupyterLite.
+- `notebook.html` keeps the Project Construct title bar around JupyterLite, with the site footer under the notebook.
 - `content/` holds one folder per category. Each folder numbers its notebooks from `01`, so the JupyterLite file browser lists them in lesson order. The numbers start again in the next folder. Catalog titles stay unnumbered. Python only.
   - `content/getting-started/` has `01-jupyter-basics.ipynb` through `06-imports-and-plots.ipynb`.
   - `content/python-basics/` has `01-python-as-a-calculator.ipynb` through `06-modules-and-help.ipynb`.
@@ -33,6 +45,10 @@ The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyod
 - `content/check.py` is a small helper. The Python basics and Basic mathematics lessons import it for the short task at the end of each notebook. A match prints a confirmation. The first miss prints a hint. Calling it again, or passing `show=True`, prints the expected result.
 - `library.json` lists the lessons in those groups. A group can include `sections`, and the library page shows each section title as a heading inside that category tab. Its `materials` array is empty. Notes, readings, and explainers can be added later under `materials/` and listed from that array. The library page shows a Materials section only when the array has entries.
 - `lite/` is the built JupyterLite site (jupyterlite-core 0.8.7 and jupyterlite-pyodide-kernel 0.8.7), with the Lab application only.
+- `cite.html` is the citation, the credit line, and how to reuse a lesson. `license.html` says which license covers teaching material and which covers source code.
+- `CITATION.cff` is the machine-readable citation. `LICENSE` is the CC BY 4.0 legal text. `LICENSE-CODE` is the MIT license for source code.
+- `CHANGELOG.md` records versions, starting at 0.1.0. `CONTRIBUTING.md` is how to report a bug or open a pull request.
+- `js/site-meta.js` holds the version, the date, and the citation strings. `js/cite-page.js` fills the citation blocks on `cite.html`.
 
 There is no login and no install for a reader. JupyterHub and any hosted kernel are out of scope.
 
