@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Check yourself cells in Python basics and Basic mathematics start from a blank. The expected result is stored in `content/check.py` under a short id. A match prints `That matches.` A first miss prints `Not yet.` and the hint. Run that check again, or pass `show=True`, to print the expected result.
 
+### Added
+
+- Computational modelling lessons for model fitting, model comparison, choice and response time, learning and updating, neural and psychometric links, and building your own model. Catalog titles are unnumbered. Each lesson ends with a Check yourself task. Expected results are in `content/check.py` under the ids `mf`, `mc`, `crt`, `lu`, `np`, and `byo`. The public version stays 0.1.0.
+- Four of those lessons play a short animation in the notebook, from Matplotlib's HTML player: Numerical optimisation, An accumulator model, Learning curves, and A psychometric curve. Run the cell, then press play or drag the slider.
+
 ## 0.1.0 — 17 November 2026
 
 First versioned release. The repository had no version before 0.1.0.

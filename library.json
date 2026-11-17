@@ -192,6 +192,142 @@
           ]
         }
       ]
+    },
+    {
+      "id": "model-fitting",
+      "title": "Model fitting in practice",
+      "lessons": [
+        {
+          "path": "model-fitting/01-numerical-optimisation.ipynb",
+          "title": "Numerical optimisation",
+          "summary": "A loss, and a search that walks downhill"
+        },
+        {
+          "path": "model-fitting/02-starting-values-and-local-minima.ipynb",
+          "title": "Starting values and local minima",
+          "summary": "Two starts can stop in two valleys"
+        },
+        {
+          "path": "model-fitting/03-uncertainty-and-a-simple-bootstrap.ipynb",
+          "title": "Uncertainty and a simple bootstrap",
+          "summary": "Spread of a list, and redraws of its mean"
+        },
+        {
+          "path": "model-fitting/04-when-a-fit-fails.ipynb",
+          "title": "When a fit fails",
+          "summary": "A flat loss, or a parameter outside its range"
+        }
+      ]
+    },
+    {
+      "id": "model-comparison",
+      "title": "Model comparison and selection",
+      "lessons": [
+        {
+          "path": "model-comparison/01-nested-model-comparisons.ipynb",
+          "title": "Nested model comparisons",
+          "summary": "A larger model that can copy a smaller one"
+        },
+        {
+          "path": "model-comparison/02-aic-and-bic.ipynb",
+          "title": "AIC and BIC",
+          "summary": "A penalty for an extra parameter"
+        },
+        {
+          "path": "model-comparison/03-cross-validation.ipynb",
+          "title": "Cross-validation",
+          "summary": "Score a point the fit did not use"
+        },
+        {
+          "path": "model-comparison/04-evidence-versus-prediction.ipynb",
+          "title": "Evidence versus prediction",
+          "summary": "A training win can reverse on a new point"
+        }
+      ]
+    },
+    {
+      "id": "choice-and-response-time",
+      "title": "Choice and response time",
+      "lessons": [
+        {
+          "path": "choice-and-response-time/01-signal-detection-in-more-depth.ipynb",
+          "title": "Signal detection in more depth",
+          "summary": "A criterion, d-prime, and a few ROC points"
+        },
+        {
+          "path": "choice-and-response-time/02-an-accumulator-model.ipynb",
+          "title": "An accumulator model",
+          "summary": "A noisy total that stops at a bound"
+        },
+        {
+          "path": "choice-and-response-time/03-accuracy-and-response-time.ipynb",
+          "title": "Accuracy and response time",
+          "summary": "Drift changes speed and which bound is hit"
+        }
+      ]
+    },
+    {
+      "id": "learning-and-updating",
+      "title": "Learning and updating",
+      "lessons": [
+        {
+          "path": "learning-and-updating/01-incremental-learning.ipynb",
+          "title": "Incremental learning",
+          "summary": "A step toward the outcome"
+        },
+        {
+          "path": "learning-and-updating/02-a-basic-bayesian-update.ipynb",
+          "title": "A basic Bayesian update",
+          "summary": "Two hypotheses and one observation"
+        },
+        {
+          "path": "learning-and-updating/03-learning-curves.ipynb",
+          "title": "Learning curves",
+          "summary": "Step size changes how fast the curve rises"
+        }
+      ]
+    },
+    {
+      "id": "neural-and-psychometric-links",
+      "title": "Neural and psychometric links",
+      "lessons": [
+        {
+          "path": "neural-and-psychometric-links/01-a-psychometric-curve.ipynb",
+          "title": "A psychometric curve",
+          "summary": "A logistic map from stimulus to probability"
+        },
+        {
+          "path": "neural-and-psychometric-links/02-encoding-and-decoding.ipynb",
+          "title": "Encoding and decoding",
+          "summary": "A gain from stimulus to response, and back"
+        },
+        {
+          "path": "neural-and-psychometric-links/03-a-behavioural-model-and-a-neural-summary.ipynb",
+          "title": "A behavioural model and a neural summary",
+          "summary": "Signs of a simulated summary and a model"
+        }
+      ]
+    },
+    {
+      "id": "building-your-own-model",
+      "title": "Building your own model",
+      "lessons": [
+        {
+          "path": "building-your-own-model/01-from-a-hypothesis-to-equations.ipynb",
+          "title": "From a hypothesis to equations",
+          "summary": "A sentence turned into a capped product"
+        },
+        {
+          "path": "building-your-own-model/02-simulate-fit-and-recover.ipynb",
+          "title": "Simulate, fit, and recover",
+          "summary": "Simulate a known slope, then fit it back"
+        },
+        {
+          "path": "building-your-own-model/03-report-limitations.ipynb",
+          "title": "Report limitations",
+          "summary": "What a short report still owes the reader"
+        }
+      ]
     }
   ],
   "materials": []

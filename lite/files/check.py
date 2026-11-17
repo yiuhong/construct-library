@@ -12,6 +12,9 @@ import math
 
 # Expected results for Check yourself. Keys are stable ids: pb for Python
 # basics, bm for Basic mathematics, then the lesson number and the check.
+# Computational modelling modules: mf model fitting, mc model comparison,
+# crt choice and response time, lu learning and updating, np neural and
+# psychometric links, byo building your own model.
 _EXPECTED = {
     "pb01-1": 60,
     "pb01-2": 32,
@@ -61,6 +64,46 @@ _EXPECTED = {
     "bm17-2": 2.214,
     "bm18-1": 0.375,
     "bm18-2": 0.8,
+    "mf01-1": 1.786,
+    "mf01-2": 0.357,
+    "mf02-1": 4,
+    "mf02-2": 1.082,
+    "mf03-1": 4,
+    "mf03-2": 6,
+    "mf04-1": 12,
+    "mf04-2": 0.4,
+    "mc01-1": 8,
+    "mc01-2": 0,
+    "mc02-1": 6,
+    "mc02-2": 4.159,
+    "mc03-1": 4.5,
+    "mc03-2": 1,
+    "mc04-1": 8,
+    "mc04-2": 9,
+    "crt01-1": 0.115,
+    "crt01-2": 0.788,
+    "crt02-1": 2,
+    "crt02-2": 1.2,
+    "crt03-1": 6,
+    "crt03-2": 3,
+    "lu01-1": 0.4375,
+    "lu01-2": 0.75,
+    "lu02-1": 0.8,
+    "lu02-2": 0.941,
+    "lu03-1": 0.784,
+    "lu03-2": 3,
+    "np01-1": 0.5,
+    "np01-2": 0.731,
+    "np02-1": 8,
+    "np02-2": 2.5,
+    "np03-1": 2,
+    "np03-2": 1,
+    "byo01-1": 0.6,
+    "byo01-2": 1,
+    "byo02-1": 2.983,
+    "byo02-2": 0.017,
+    "byo03-1": 1.4,
+    "byo03-2": 1,
 }
 
 
