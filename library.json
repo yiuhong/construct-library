@@ -192,6 +192,57 @@
           ]
         }
       ]
+    },
+    {
+      "id": "computational-modelling",
+      "title": "Computational modelling",
+      "lessons": [
+        {
+          "path": "computational-modelling/01-what-a-model-is.ipynb",
+          "title": "What a model is",
+          "summary": "Parameters, a prediction, and residual error"
+        },
+        {
+          "path": "computational-modelling/02-linear-regression-as-a-model.ipynb",
+          "title": "Linear regression as a model",
+          "summary": "Slope, intercept, predictions, and residuals"
+        },
+        {
+          "path": "computational-modelling/03-a-simple-process-model.ipynb",
+          "title": "A simple process model",
+          "summary": "A straight-line race for a choice and a response time"
+        },
+        {
+          "path": "computational-modelling/04-simulating-data.ipynb",
+          "title": "Simulating data from a model",
+          "summary": "Run the model forward and record what it produces"
+        },
+        {
+          "path": "computational-modelling/05-parameter-recovery.ipynb",
+          "title": "Parameter recovery",
+          "summary": "Fit simulated data and compare with the known parameters"
+        },
+        {
+          "path": "computational-modelling/06-likelihood-and-model-fitting.ipynb",
+          "title": "Likelihood and model fitting",
+          "summary": "Use likelihood to pick a rate in a choice model"
+        },
+        {
+          "path": "computational-modelling/07-comparing-models.ipynb",
+          "title": "Comparing models",
+          "summary": "Error, likelihood, and a penalty for extra parameters"
+        },
+        {
+          "path": "computational-modelling/08-hits-false-alarms-and-confidence.ipynb",
+          "title": "Hits, false alarms, and confidence",
+          "summary": "A signal-detection sketch of yes, no, and a stricter cutoff"
+        },
+        {
+          "path": "computational-modelling/09-what-a-good-fit-does-not-prove.ipynb",
+          "title": "What a good fit does not prove",
+          "summary": "Identifiability, overfitting, and a cautious reading of a fit"
+        }
+      ]
     }
   ],
   "materials": []
