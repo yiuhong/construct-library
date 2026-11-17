@@ -1,9 +1,10 @@
 /*
  * Lesson order for the notebook title bar.
- * The sequence matches the library page: groups in catalog order, and,
+ * The sequence matches the library page: groups in catalogue order, and,
  * where a group has sections, the lessons inside those sections. Top-level
  * lessons are used only when the group has no sections, which is how the
- * front door renders a tab.
+ * front door renders a tab. Each entry keeps the catalogue title, so the
+ * title bar can name the previous or next lesson.
  */
 (function (root) {
   function normalise(path) {
@@ -17,16 +18,21 @@
       .replace(/^-+|-+$/g, "");
   }
 
-  function lessonPaths(list) {
-    var paths = [];
+  function lessonEntries(list) {
+    var entries = [];
     (list || []).forEach(function (item) {
-      if (item && item.path) paths.push(normalise(item.path));
+      if (item && item.path) {
+        entries.push({
+          path: normalise(item.path),
+          title: item.title ? String(item.title) : ""
+        });
+      }
     });
-    return paths;
+    return entries;
   }
 
-  function pathsFromCatalog(data) {
-    var paths = [];
+  function lessonsFromCatalog(data) {
+    var lessons = [];
     var groups = data && Array.isArray(data.groups) ? data.groups : [];
     groups.forEach(function (group) {
       if (!group) return;
@@ -35,24 +41,30 @@
       var sections = [];
       (group.sections || []).forEach(function (section) {
         if (!section) return;
-        var items = lessonPaths(section.lessons);
+        var items = lessonEntries(section.lessons);
         if (items.length) sections.push(items);
       });
-      var lessons = lessonPaths(group.lessons);
-      if (!lessons.length && !sections.length) return;
+      var groupLessons = lessonEntries(group.lessons);
+      if (!groupLessons.length && !sections.length) return;
       if (group.sections && group.sections.length) {
         sections.forEach(function (items) {
-          items.forEach(function (path) {
-            paths.push(path);
+          items.forEach(function (lesson) {
+            lessons.push(lesson);
           });
         });
         return;
       }
-      lessons.forEach(function (path) {
-        paths.push(path);
+      groupLessons.forEach(function (lesson) {
+        lessons.push(lesson);
       });
     });
-    return paths;
+    return lessons;
+  }
+
+  function pathsFromCatalog(data) {
+    return lessonsFromCatalog(data).map(function (lesson) {
+      return lesson.path;
+    });
   }
 
   function neighbours(paths, current) {
@@ -78,6 +90,7 @@
   }
 
   var api = {
+    lessonsFromCatalog: lessonsFromCatalog,
     pathsFromCatalog: pathsFromCatalog,
     neighbours: neighbours,
     notebookHref: notebookHref

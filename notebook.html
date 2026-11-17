@@ -17,11 +17,13 @@
           <svg class="lesson-nav-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10.2 3.2 5.4 8l4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span class="lesson-nav-full">Previous lesson</span>
           <span class="lesson-nav-mid">Previous</span>
+          <span class="lesson-nav-tip" aria-hidden="true"></span>
         </a>
         <a class="lesson-nav-link lesson-nav-next" id="lesson-next" hidden aria-label="Next lesson">
           <span class="lesson-nav-full">Next lesson</span>
           <span class="lesson-nav-mid">Next</span>
           <svg class="lesson-nav-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M5.8 3.2 10.6 8l-4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="lesson-nav-tip" aria-hidden="true"></span>
         </a>
         <a class="lesson-nav-link lesson-nav-back" id="lesson-back" href="index.html" hidden aria-label="Back to library">Back to library</a>
       </nav>
@@ -121,22 +123,64 @@
       var lessonNext = document.getElementById("lesson-next");
       var lessonBack = document.getElementById("lesson-back");
 
-      function showLessonNav(info) {
-        if (!lessonNav || !info || !window.constructLessonNav) return;
-        if (lessonPrev) {
-          if (info.previous) {
-            lessonPrev.href = window.constructLessonNav.notebookHref(info.previous);
-            lessonPrev.hidden = false;
-          } else {
-            lessonPrev.hidden = true;
-          }
+      function writeTitle(link) {
+        if (!link) return;
+        var lessonTitle = link.getAttribute("data-lesson-title") || "";
+        if (lessonTitle) link.setAttribute("title", lessonTitle);
+        else link.removeAttribute("title");
+      }
+
+      function armTip(link) {
+        if (!link || link._constructTipArmed) return;
+        link._constructTipArmed = true;
+        link.addEventListener("pointerenter", function (event) {
+          if (event.pointerType === "mouse") link.removeAttribute("title");
+        });
+        link.addEventListener("pointerleave", function () {
+          if (document.activeElement !== link) writeTitle(link);
+        });
+        link.addEventListener("blur", function () {
+          writeTitle(link);
+        });
+      }
+
+      function setLessonLink(link, prefix, pathValue, lessonTitle) {
+        if (!link) return;
+        armTip(link);
+        var tip = link.querySelector(".lesson-nav-tip");
+        if (!pathValue) {
+          link.hidden = true;
+          link.removeAttribute("href");
+          link.removeAttribute("data-lesson-title");
+          link.removeAttribute("title");
+          link.setAttribute("aria-label", prefix);
+          if (tip) tip.textContent = "";
+          return;
         }
-        if (info.next && lessonNext) {
-          lessonNext.href = window.constructLessonNav.notebookHref(info.next);
-          lessonNext.hidden = false;
+        var title = lessonTitle ? String(lessonTitle) : "";
+        link.href = window.constructLessonNav.notebookHref(pathValue);
+        link.hidden = false;
+        link.setAttribute("aria-label", title ? prefix + ": " + title : prefix);
+        if (title) link.setAttribute("data-lesson-title", title);
+        else link.removeAttribute("data-lesson-title");
+        if (tip) tip.textContent = title;
+        if (document.activeElement !== link) writeTitle(link);
+      }
+
+      function showLessonNav(info, titles) {
+        if (!lessonNav || !info || !window.constructLessonNav) return;
+        var byPath = titles || {};
+        setLessonLink(
+          lessonPrev,
+          "Previous lesson",
+          info.previous,
+          info.previous ? byPath[info.previous] : ""
+        );
+        if (info.next) {
+          setLessonLink(lessonNext, "Next lesson", info.next, byPath[info.next]);
           if (lessonBack) lessonBack.hidden = true;
-        } else if (lessonNext) {
-          lessonNext.hidden = true;
+        } else {
+          setLessonLink(lessonNext, "Next lesson", null, "");
           if (lessonBack) lessonBack.hidden = false;
         }
         lessonNav.hidden = false;
@@ -149,9 +193,16 @@
             return response.json();
           })
           .then(function (data) {
+            var lessons = window.constructLessonNav.lessonsFromCatalog(data);
+            var titles = {};
+            lessons.forEach(function (lesson) {
+              if (!Object.prototype.hasOwnProperty.call(titles, lesson.path)) {
+                titles[lesson.path] = lesson.title;
+              }
+            });
             var paths = window.constructLessonNav.pathsFromCatalog(data);
             var info = window.constructLessonNav.neighbours(paths, path);
-            if (info) showLessonNav(info);
+            if (info) showLessonNav(info, titles);
           })
           .catch(function () {});
       }
