@@ -215,6 +215,214 @@
       ]
     },
     {
+      "id": "descriptive-statistics",
+      "title": "Descriptive statistics",
+      "lessons": [
+        {
+          "path": "descriptive-statistics/01-a-table-of-counts.ipynb",
+          "title": "A table of counts",
+          "summary": "Counts of labels, and each count as a proportion"
+        },
+        {
+          "path": "descriptive-statistics/02-mean-and-median.ipynb",
+          "title": "Mean and median",
+          "summary": "Two centres, and an outlier that moves only one"
+        },
+        {
+          "path": "descriptive-statistics/03-range-and-standard-deviation.ipynb",
+          "title": "Range and standard deviation",
+          "summary": "The gap from minimum to maximum, and a typical distance"
+        },
+        {
+          "path": "descriptive-statistics/04-a-display-for-one-variable.ipynb",
+          "title": "A display for one variable",
+          "summary": "Bin counts, and what a wider bin hides"
+        },
+        {
+          "path": "descriptive-statistics/05-one-variable-in-two-groups.ipynb",
+          "title": "One variable in two groups",
+          "summary": "Two group means, drawn as separate dots"
+        },
+        {
+          "path": "descriptive-statistics/06-two-variables-together.ipynb",
+          "title": "Two variables together",
+          "summary": "A scatter, and the sum of paired deviations"
+        },
+        {
+          "path": "descriptive-statistics/07-choosing-a-display.ipynb",
+          "title": "Choosing a display",
+          "summary": "Bar, histogram, or scatter, from the measurements"
+        }
+      ]
+    },
+    {
+      "id": "introductory-statistics",
+      "title": "Introductory statistics",
+      "sections": [
+        {
+          "title": "Probability and sampling",
+          "lessons": [
+            {
+              "path": "introductory-statistics/01-an-event-and-its-complement.ipynb",
+              "title": "An event and its complement",
+              "summary": "A probability, and one minus that probability"
+            },
+            {
+              "path": "introductory-statistics/02-a-sample-and-the-population.ipynb",
+              "title": "A sample and the population",
+              "summary": "A sample mean that need not match the whole list"
+            },
+            {
+              "path": "introductory-statistics/03-two-samples-two-means.ipynb",
+              "title": "Two samples, two means",
+              "summary": "The same list, and two samples with different means"
+            },
+            {
+              "path": "introductory-statistics/04-the-mean-of-the-sample-means.ipynb",
+              "title": "The mean of the sample means",
+              "summary": "Every sample of a fixed size, then the average of their means"
+            }
+          ]
+        },
+        {
+          "title": "Estimation",
+          "lessons": [
+            {
+              "path": "introductory-statistics/05-a-point-estimate.ipynb",
+              "title": "A point estimate",
+              "summary": "The sample mean as a single estimate"
+            },
+            {
+              "path": "introductory-statistics/06-an-interval-around-the-estimate.ipynb",
+              "title": "An interval around the estimate",
+              "summary": "About two standard errors either side of the mean"
+            },
+            {
+              "path": "introductory-statistics/07-the-standard-error.ipynb",
+              "title": "The standard error",
+              "summary": "Sample spread, divided by the square root of the sample size"
+            }
+          ]
+        },
+        {
+          "title": "Comparing groups",
+          "lessons": [
+            {
+              "path": "introductory-statistics/08-a-difference-of-group-means.ipynb",
+              "title": "A difference of group means",
+              "summary": "How far two group centres sit apart"
+            },
+            {
+              "path": "introductory-statistics/09-the-same-difference-as-a-line.ipynb",
+              "title": "The same difference as a line",
+              "summary": "A 0/1 slope that equals the group gap"
+            },
+            {
+              "path": "introductory-statistics/10-residuals-from-the-group-line.ipynb",
+              "title": "Residuals from the group line",
+              "summary": "Observed minus the group prediction"
+            }
+          ]
+        },
+        {
+          "title": "Linear models and GLM",
+          "lessons": [
+            {
+              "path": "introductory-statistics/11-a-line-for-the-mean.ipynb",
+              "title": "A line for the mean",
+              "summary": "Intercept and slope as a mean at each input"
+            },
+            {
+              "path": "introductory-statistics/12-a-group-and-a-slope-in-one-line.ipynb",
+              "title": "A group and a slope in one line",
+              "summary": "One equation with a group term and a slope"
+            },
+            {
+              "path": "introductory-statistics/13-a-yes-or-no-outcome.ipynb",
+              "title": "A yes-or-no outcome",
+              "summary": "A logit link from a line to a probability"
+            },
+            {
+              "path": "introductory-statistics/14-a-count-outcome.ipynb",
+              "title": "A count outcome",
+              "summary": "A log link from a line to a mean count"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glmm",
+      "title": "Mixed models / GLMM",
+      "sections": [
+        {
+          "title": "Clustered data",
+          "lessons": [
+            {
+              "path": "glmm/01-rows-that-share-a-cluster.ipynb",
+              "title": "Rows that share a cluster",
+              "summary": "Several rows, and the person those rows belong to"
+            },
+            {
+              "path": "glmm/02-rows-are-not-extra-clusters.ipynb",
+              "title": "Rows are not extra clusters",
+              "summary": "Six rows, and only two people"
+            },
+            {
+              "path": "glmm/03-between-clusters-and-within-a-cluster.ipynb",
+              "title": "Between clusters and within a cluster",
+              "summary": "A gap between person means, and a gap inside one person"
+            }
+          ]
+        },
+        {
+          "title": "Linear mixed models",
+          "lessons": [
+            {
+              "path": "glmm/04-a-fixed-mean-plus-a-cluster-shift.ipynb",
+              "title": "A fixed mean plus a cluster shift",
+              "summary": "A shared mean, then a shift for each cluster"
+            },
+            {
+              "path": "glmm/05-cluster-means-from-a-random-intercept.ipynb",
+              "title": "Cluster means from a random intercept",
+              "summary": "The shared intercept, plus each cluster's shift"
+            },
+            {
+              "path": "glmm/06-a-slope-that-stays-a-shift-that-moves.ipynb",
+              "title": "A slope that stays, a shift that moves",
+              "summary": "The same slope, and lines that sit higher or lower"
+            }
+          ]
+        },
+        {
+          "title": "Generalised mixed models",
+          "lessons": [
+            {
+              "path": "glmm/07-a-yes-or-no-outcome-inside-clusters.ipynb",
+              "title": "A yes-or-no outcome inside clusters",
+              "summary": "A proportion for each person, then the mean of those proportions"
+            },
+            {
+              "path": "glmm/08-a-logit-plus-a-cluster-shift.ipynb",
+              "title": "A logit plus a cluster shift",
+              "summary": "A probability that moves with the cluster"
+            },
+            {
+              "path": "glmm/09-a-log-mean-plus-a-cluster-shift.ipynb",
+              "title": "A log mean plus a cluster shift",
+              "summary": "A mean count that moves with the cluster"
+            },
+            {
+              "path": "glmm/10-reading-an-estimate-with-care.ipynb",
+              "title": "Reading an estimate with care",
+              "summary": "What a small illustration can support"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "computational-modelling",
       "title": "Computational modelling",
       "sections": [
