@@ -28,6 +28,24 @@
     return svg;
   }
 
+  function chevronIcon(className) {
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", className);
+    svg.setAttribute("viewBox", "0 0 16 16");
+    svg.setAttribute("width", "14");
+    svg.setAttribute("height", "14");
+    svg.setAttribute("aria-hidden", "true");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "currentColor");
+    path.setAttribute("stroke-width", "1.5");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+    path.setAttribute("d", "M5.8 3.2 10.6 8l-4.8 4.8");
+    svg.appendChild(path);
+    return svg;
+  }
+
   function lessonLink(item) {
     var path = String(item.path || "");
     var link = document.createElement("a");
@@ -35,6 +53,7 @@
     link.href = "notebook.html?path=" + path.split("/").map(encodeURIComponent).join("/");
     link.appendChild(notebookIcon());
     var text = document.createElement("span");
+    text.className = "lesson-text";
     var name = document.createElement("span");
     name.className = "lesson-name";
     name.textContent = item.title || path;
@@ -44,11 +63,54 @@
     text.appendChild(name);
     text.appendChild(summary);
     link.appendChild(text);
-    var open = document.createElement("span");
-    open.className = "lesson-open";
-    open.textContent = "Open notebook";
-    link.appendChild(open);
+    link.appendChild(chevronIcon("lesson-chevron"));
     return link;
+  }
+
+  function notebookCount(count) {
+    return count === 1 ? "1 notebook" : count + " notebooks";
+  }
+
+  function setModuleOpen(button, panel, open) {
+    button.setAttribute("aria-expanded", open ? "true" : "false");
+    panel.hidden = !open;
+  }
+
+  function moduleBlock(group, section, index) {
+    var open = index === 0;
+    var panelId = "module-panel-" + group.id + "-" + index;
+    var block = document.createElement("div");
+    block.className = "lesson-section";
+    var heading = document.createElement("h3");
+    heading.className = "subgroup";
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "module-toggle";
+    button.setAttribute("aria-expanded", open ? "true" : "false");
+    button.setAttribute("aria-controls", panelId);
+    var title = document.createElement("span");
+    title.className = "module-title";
+    title.textContent = section.title;
+    var count = document.createElement("span");
+    count.className = "module-count";
+    count.textContent = notebookCount(section.lessons.length);
+    button.appendChild(title);
+    button.appendChild(count);
+    button.appendChild(chevronIcon("module-chevron"));
+    heading.appendChild(button);
+    var panel = document.createElement("div");
+    panel.className = "module-lessons";
+    panel.id = panelId;
+    panel.hidden = !open;
+    section.lessons.forEach(function (item) {
+      panel.appendChild(lessonLink(item));
+    });
+    button.addEventListener("click", function () {
+      setModuleOpen(button, panel, button.getAttribute("aria-expanded") !== "true");
+    });
+    block.appendChild(heading);
+    block.appendChild(panel);
+    return block;
   }
 
   function slug(text) {
@@ -138,19 +200,14 @@
       panel.setAttribute("aria-label", group.title);
       tab.setAttribute("aria-controls", panel.id);
       if (group.sections.length) {
-        group.sections.forEach(function (section) {
-          var block = document.createElement("div");
-          block.className = "lesson-section";
-          if (section.title) {
-            var heading = document.createElement("h3");
-            heading.className = "subgroup";
-            heading.textContent = section.title;
-            block.appendChild(heading);
+        group.sections.forEach(function (section, index) {
+          if (!section.title) {
+            section.lessons.forEach(function (item) {
+              panel.appendChild(lessonLink(item));
+            });
+            return;
           }
-          section.lessons.forEach(function (item) {
-            block.appendChild(lessonLink(item));
-          });
-          panel.appendChild(block);
+          panel.appendChild(moduleBlock(group, section, index));
         });
       } else {
         group.lessons.forEach(function (item) {

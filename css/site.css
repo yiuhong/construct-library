@@ -278,10 +278,10 @@ h1 {
 
 .lesson {
   display: grid;
-  grid-template-columns: 16px minmax(0, 1fr) auto;
-  column-gap: 18px;
-  align-items: start;
-  padding: 18px 0 16px;
+  grid-template-columns: 16px minmax(0, 1fr) 14px;
+  column-gap: 14px;
+  align-items: center;
+  padding: 10px 0;
   border-top: 1px solid var(--line);
   color: inherit;
   text-decoration: none;
@@ -291,37 +291,96 @@ h1 {
   border-bottom: 1px solid var(--line);
 }
 
-.catalog .cat-tabs ~ .lessons .lesson:first-child {
+.catalog .cat-tabs ~ .lessons > .lesson:first-child {
   border-top: 0;
 }
 
+.lesson-text {
+  min-width: 0;
+}
+
+.lesson-section {
+  border-top: 1px solid var(--line);
+}
+
+.lesson-section:first-child {
+  border-top: 0;
+}
+
+.lesson-section:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.lesson-section .lesson:last-child {
+  border-bottom: 0;
+}
+
 .lesson-section .subgroup {
-  margin: 22px 0 0;
-  font-size: 13px;
+  margin: 0;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.3;
   color: var(--ink);
 }
 
-.lesson-section:first-child .subgroup {
-  margin-top: 18px;
+.module-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 12px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
 }
 
-.lesson-section .lesson:first-of-type {
-  border-top: 0;
+.module-title {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-.lesson:hover .lesson-open {
+.module-count {
+  flex: 0 0 auto;
+  color: var(--label);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.lesson-chevron,
+.module-chevron {
+  display: block;
+  flex: 0 0 auto;
+  color: var(--open);
+}
+
+.module-toggle[aria-expanded="true"] .module-chevron {
+  transform: rotate(90deg);
+}
+
+.lesson:hover .lesson-chevron,
+.module-toggle:hover .module-chevron {
   color: var(--ink);
 }
 
-.lesson:focus-visible {
+.lesson:focus-visible,
+.module-toggle:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
 
+.module-lessons[hidden] {
+  display: none;
+}
+
 .lesson-icon {
-  margin-top: 1px;
+  display: block;
 }
 
 .lesson-name {
@@ -334,17 +393,10 @@ h1 {
 
 .lesson-summary {
   display: block;
-  margin-top: 3px;
+  margin-top: 2px;
   font-size: 13px;
   line-height: 1.35;
   color: var(--summary);
-}
-
-.lesson-open {
-  margin-top: 1px;
-  font-size: 14px;
-  line-height: 1.3;
-  color: var(--open);
 }
 
 .site-footer {
@@ -549,15 +601,6 @@ body.notebook .site-footer {
   .library-main {
     width: 100%;
     padding: 28px var(--pad) 20px;
-  }
-
-  .lesson {
-    grid-template-columns: 16px minmax(0, 1fr);
-    row-gap: 6px;
-  }
-
-  .lesson-open {
-    grid-column: 2;
   }
 
   .cat-tabs {
