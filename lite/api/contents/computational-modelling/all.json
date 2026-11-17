@@ -10,7 +10,7 @@
       "mimetype": null,
       "name": "08-hits-false-alarms-and-confidence.ipynb",
       "path": "computational-modelling/08-hits-false-alarms-and-confidence.ipynb",
-      "size": 6429,
+      "size": 7288,
       "type": "notebook",
       "writable": true
     },
@@ -24,7 +24,7 @@
       "mimetype": null,
       "name": "07-comparing-models.ipynb",
       "path": "computational-modelling/07-comparing-models.ipynb",
-      "size": 6376,
+      "size": 7320,
       "type": "notebook",
       "writable": true
     },
@@ -38,7 +38,7 @@
       "mimetype": null,
       "name": "09-what-a-good-fit-does-not-prove.ipynb",
       "path": "computational-modelling/09-what-a-good-fit-does-not-prove.ipynb",
-      "size": 5532,
+      "size": 6632,
       "type": "notebook",
       "writable": true
     },
@@ -52,7 +52,7 @@
       "mimetype": null,
       "name": "05-parameter-recovery.ipynb",
       "path": "computational-modelling/05-parameter-recovery.ipynb",
-      "size": 8289,
+      "size": 9474,
       "type": "notebook",
       "writable": true
     },
@@ -66,7 +66,7 @@
       "mimetype": null,
       "name": "02-linear-regression-as-a-model.ipynb",
       "path": "computational-modelling/02-linear-regression-as-a-model.ipynb",
-      "size": 5459,
+      "size": 6419,
       "type": "notebook",
       "writable": true
     },
@@ -80,7 +80,7 @@
       "mimetype": null,
       "name": "03-a-simple-process-model.ipynb",
       "path": "computational-modelling/03-a-simple-process-model.ipynb",
-      "size": 6456,
+      "size": 7396,
       "type": "notebook",
       "writable": true
     },
@@ -94,7 +94,7 @@
       "mimetype": null,
       "name": "06-likelihood-and-model-fitting.ipynb",
       "path": "computational-modelling/06-likelihood-and-model-fitting.ipynb",
-      "size": 4160,
+      "size": 5054,
       "type": "notebook",
       "writable": true
     },
@@ -108,7 +108,7 @@
       "mimetype": null,
       "name": "04-simulating-data.ipynb",
       "path": "computational-modelling/04-simulating-data.ipynb",
-      "size": 6732,
+      "size": 7930,
       "type": "notebook",
       "writable": true
     },
@@ -122,7 +122,7 @@
       "mimetype": null,
       "name": "01-what-a-model-is.ipynb",
       "path": "computational-modelling/01-what-a-model-is.ipynb",
-      "size": 4214,
+      "size": 5189,
       "type": "notebook",
       "writable": true
     }

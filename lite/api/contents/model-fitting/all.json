@@ -10,7 +10,7 @@
       "mimetype": null,
       "name": "03-uncertainty-and-a-simple-bootstrap.ipynb",
       "path": "model-fitting/03-uncertainty-and-a-simple-bootstrap.ipynb",
-      "size": 4311,
+      "size": 5210,
       "type": "notebook",
       "writable": true
     },
@@ -24,7 +24,7 @@
       "mimetype": null,
       "name": "02-starting-values-and-local-minima.ipynb",
       "path": "model-fitting/02-starting-values-and-local-minima.ipynb",
-      "size": 3885,
+      "size": 4723,
       "type": "notebook",
       "writable": true
     },
@@ -38,7 +38,7 @@
       "mimetype": null,
       "name": "04-when-a-fit-fails.ipynb",
       "path": "model-fitting/04-when-a-fit-fails.ipynb",
-      "size": 3879,
+      "size": 4743,
       "type": "notebook",
       "writable": true
     },
@@ -52,7 +52,7 @@
       "mimetype": null,
       "name": "01-numerical-optimisation.ipynb",
       "path": "model-fitting/01-numerical-optimisation.ipynb",
-      "size": 7044,
+      "size": 8151,
       "type": "notebook",
       "writable": true
     }
