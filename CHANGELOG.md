@@ -7,14 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Plotting and packages, after Python basics and before Basic mathematics: three lessons. Matplotlib figures and labels, including a short animation that plays in the notebook page. A pandas table and a plot. A straight-line fit with scipy. Each notebook ends with a short self-check. The public version stays 0.1.0.
+- Computational modelling, Module 1: nine short lessons in `content/computational-modelling/`, on a Computational modelling tab after Basic mathematics. The lessons run from what a model is through a caution on identifiability and overfitting. Each ends with a short self-check. Expected results live in `content/check.py` under ids `cm01-1` and `cm01-2`, and the same pattern through `cm09-2`. The public version stays 0.1.0.
+- Three of those lessons play a short animation in the cell output, from Matplotlib's JavaScript player. The process model fills the two counters. Simulating data adds one score at a time. Parameter recovery shows recovered slopes tightening as the sample grows. Drag the slider under the figure, or press Play. The caution lesson has no animation.
+- Computational modelling lessons for model fitting, model comparison, choice and response time, learning and updating, neural and psychometric links, and building your own model. Catalog titles are unnumbered. Each lesson ends with a Check yourself task. Expected results are in `content/check.py` under the ids `mf`, `mc`, `crt`, `lu`, `np`, and `byo`. The public version stays 0.1.0.
+- Four of those lessons play a short animation in the notebook, from Matplotlib's HTML player: Numerical optimisation, An accumulator model, Learning curves, and A psychometric curve. Run the cell, then press play or drag the slider.
+
 ### Changed
 
 - Check yourself cells in Python basics and Basic mathematics start from a blank. The expected result is stored in `content/check.py` under a short id. A match prints `That matches.` A first miss prints `Not yet.` and the hint. Run that check again, or pass `show=True`, to print the expected result.
-
-### Added
-
-- Computational modelling lessons for model fitting, model comparison, choice and response time, learning and updating, neural and psychometric links, and building your own model. Catalog titles are unnumbered. Each lesson ends with a Check yourself task. Expected results are in `content/check.py` under the ids `mf`, `mc`, `crt`, `lu`, `np`, and `byo`. The public version stays 0.1.0.
-- Four of those lessons play a short animation in the notebook, from Matplotlib's HTML player: Numerical optimisation, An accumulator model, Learning curves, and A psychometric curve. Run the cell, then press play or drag the slider.
+- Screens narrower than 1280px use a shorter title bar and a tighter footer. On the notebook page the JupyterLite file panel is hidden at those widths so the cells can use the space. From 641px to 1279px, Lab's left activity bar stays as a slim rail. Below 640px both activity bars are hidden. At 1280px and above, the frame and the open file panel are unchanged. The public version stays 0.1.0.
 
 ## 0.1.0 — 17 November 2026
 
