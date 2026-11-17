@@ -11,8 +11,8 @@ import math
 
 
 # Expected results for Check yourself. Keys are stable ids: pb for Python
-# basics, bm for Basic mathematics, cm for Computational modelling, then
-# the lesson number and the check.
+# basics, pp for Plotting and packages, bm for Basic mathematics, cm for
+# Computational modelling, then the lesson number and the check.
 _EXPECTED = {
     "pb01-1": 60,
     "pb01-2": 32,
@@ -26,6 +26,12 @@ _EXPECTED = {
     "pb05-2": 4,
     "pb06-1": 9,
     "pb06-2": 3.142,
+    "pp01-1": 6,
+    "pp01-2": 7,
+    "pp02-1": 15,
+    "pp02-2": 5,
+    "pp03-1": 2,
+    "pp03-2": 9,
     "bm01-1": 0.75,
     "bm01-2": 8,
     "bm02-1": 20,

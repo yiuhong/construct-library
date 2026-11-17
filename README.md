@@ -30,9 +30,9 @@ python3 -m http.server 8080
 
 Open the printed local URL (for example `http://127.0.0.1:8080/`).
 
-The library page lists the lessons in four categories: Getting started, Python basics, Basic mathematics, and Computational modelling. Open one and the Python (Pyodide) kernel starts on its own. If a kernel picker appears, choose Python (Pyodide). Wait for the Python runtime to finish downloading, click the code cell, and press Shift+Enter. Printed output and plots appear under the cell that produced them.
+The library page lists the lessons in five categories: Getting started, Python basics, Plotting and packages, Basic mathematics, and Computational modelling. Open one and the Python (Pyodide) kernel starts on its own. If a kernel picker appears, choose Python (Pyodide). Wait for the Python runtime to finish downloading, click the code cell, and press Shift+Enter. Printed output and plots appear under the cell that produced them.
 
-The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyodide/v314.0.6/full/pyodide.mjs) (Python 3.14.2) from that release’s CDN. A cell that imports matplotlib also downloads matplotlib 3.10.8 and numpy 2.4.6 from the same release. Later visits reuse the browser cache.
+The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyodide/v314.0.6/full/pyodide.mjs) (Python 3.14.2) from that release’s CDN. A cell that imports matplotlib also downloads matplotlib 3.10.8 and numpy 2.4.6 from the same release. A cell that imports pandas or scipy downloads that library from the same release. Later visits reuse the browser cache.
 
 ## What is in the repository
 
@@ -41,9 +41,10 @@ The first visit downloads pinned [Pyodide 314.0.6](https://cdn.jsdelivr.net/pyod
 - `content/` holds one folder per category. Each folder numbers its notebooks from `01`, so the JupyterLite file browser lists them in lesson order. The numbers start again in the next folder. Catalog titles stay unnumbered. Python only.
   - `content/getting-started/` has `01-jupyter-basics.ipynb` through `06-imports-and-plots.ipynb`.
   - `content/python-basics/` has `01-python-as-a-calculator.ipynb` through `06-modules-and-help.ipynb`.
+  - `content/python-plotting/` has `01-matplotlib-figures-and-labels.ipynb` through `03-straight-line-fit.ipynb`. The matplotlib lesson plays a short animation in the page.
   - `content/basic-mathematics/` has `01-numbers-and-notation.ipynb` through `18-distributions.ipynb`. On the library page those lessons sit under headings inside the Basic mathematics tab: Foundations, Chance and summary, Arrays, Calculus, and Fitting.
   - `content/computational-modelling/` has `01-what-a-model-is.ipynb` through `09-what-a-good-fit-does-not-prove.ipynb`. On the library page those nine lessons sit in one Computational modelling tab, with no section headings. This is Module 1. The process model, the simulation lesson, and parameter recovery each play a short animation in the cell output. Drag the slider under the figure, or press Play.
-- `content/check.py` is a small helper. The Python basics, Basic mathematics, and Computational modelling lessons import it for the short task at the end of each notebook. The cell starts with a blank and passes a short check id plus the value the learner computed. The expected results live in `check.py`. A match prints a confirmation. The first miss prints a hint. Calling the same check again, or passing `show=True`, prints the expected result.
+- `content/check.py` is a small helper. The Python basics, Plotting and packages, Basic mathematics, and Computational modelling lessons import it for the short task at the end of each notebook. The cell starts with a blank and passes a short check id plus the value the learner computed. The expected results live in `check.py`. A match prints a confirmation. The first miss prints a hint. Calling the same check again, or passing `show=True`, prints the expected result.
 - `library.json` lists the lessons in those groups. A group can include `sections`, and the library page shows each section title as a heading inside that category tab. Its `materials` array is empty. Notes, readings, and explainers can be added later under `materials/` and listed from that array. The library page shows a Materials section only when the array has entries.
 - `lite/` is the built JupyterLite site (jupyterlite-core 0.8.7 and jupyterlite-pyodide-kernel 0.8.7), with the Lab application only.
 - `cite.html` is the citation, the credit line, and how to reuse a lesson. `license.html` says which license covers teaching material and which covers source code.
