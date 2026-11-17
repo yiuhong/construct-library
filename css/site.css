@@ -94,6 +94,8 @@ body.notebook {
 }
 
 body.notebook .topbar {
+  position: relative;
+  z-index: 2;
   flex-wrap: nowrap;
   gap: 16px;
 }
@@ -116,6 +118,7 @@ body.notebook .wordmark-link {
 }
 
 .lesson-nav-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -142,6 +145,33 @@ body.notebook .wordmark-link {
 
 .lesson-nav-mid {
   display: none;
+}
+
+.lesson-nav-tip {
+  position: absolute;
+  top: calc(100% + 22px);
+  right: 0;
+  z-index: 3;
+  display: none;
+  box-sizing: border-box;
+  width: 12rem;
+  max-width: max-content;
+  padding: 5px 8px;
+  border: 1px solid #c6c6c6;
+  background: #fff;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: left;
+  pointer-events: none;
+}
+
+.lesson-nav-link:hover .lesson-nav-tip:not(:empty),
+.lesson-nav-link:focus-visible .lesson-nav-tip:not(:empty) {
+  display: block;
 }
 
 .replay-tour {
@@ -420,6 +450,10 @@ body.notebook .site-footer {
     display: inline;
   }
 
+  .lesson-nav-tip {
+    top: calc(100% + 16px);
+  }
+
   .library-main {
     padding: 40px 28px 28px;
   }
@@ -502,6 +536,10 @@ body.notebook .site-footer {
     justify-content: center;
     min-width: 32px;
     min-height: 32px;
+  }
+
+  .lesson-nav-tip {
+    top: calc(100% + 8px);
   }
 
   .lesson-nav-back {
