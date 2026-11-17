@@ -10,7 +10,7 @@
       "mimetype": null,
       "name": "02-a-basic-bayesian-update.ipynb",
       "path": "learning-and-updating/02-a-basic-bayesian-update.ipynb",
-      "size": 5623,
+      "size": 7186,
       "type": "notebook",
       "writable": true
     },
@@ -24,7 +24,7 @@
       "mimetype": null,
       "name": "03-learning-curves.ipynb",
       "path": "learning-and-updating/03-learning-curves.ipynb",
-      "size": 5842,
+      "size": 7873,
       "type": "notebook",
       "writable": true
     },
@@ -38,7 +38,7 @@
       "mimetype": null,
       "name": "01-incremental-learning.ipynb",
       "path": "learning-and-updating/01-incremental-learning.ipynb",
-      "size": 5461,
+      "size": 6804,
       "type": "notebook",
       "writable": true
     }

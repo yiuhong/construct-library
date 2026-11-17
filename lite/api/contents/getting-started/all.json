@@ -10,7 +10,7 @@
       "mimetype": null,
       "name": "04-errors-and-interrupting.ipynb",
       "path": "getting-started/04-errors-and-interrupting.ipynb",
-      "size": 2819,
+      "size": 2897,
       "type": "notebook",
       "writable": true
     },
@@ -24,7 +24,7 @@
       "mimetype": null,
       "name": "01-jupyter-basics.ipynb",
       "path": "getting-started/01-jupyter-basics.ipynb",
-      "size": 3430,
+      "size": 4022,
       "type": "notebook",
       "writable": true
     },
@@ -38,7 +38,7 @@
       "mimetype": null,
       "name": "03-cell-order-and-kernel.ipynb",
       "path": "getting-started/03-cell-order-and-kernel.ipynb",
-      "size": 3483,
+      "size": 3771,
       "type": "notebook",
       "writable": true
     },
@@ -52,7 +52,7 @@
       "mimetype": null,
       "name": "02-markdown-and-equations.ipynb",
       "path": "getting-started/02-markdown-and-equations.ipynb",
-      "size": 2914,
+      "size": 3101,
       "type": "notebook",
       "writable": true
     },
@@ -66,7 +66,7 @@
       "mimetype": null,
       "name": "06-imports-and-plots.ipynb",
       "path": "getting-started/06-imports-and-plots.ipynb",
-      "size": 3190,
+      "size": 3983,
       "type": "notebook",
       "writable": true
     },
@@ -80,7 +80,7 @@
       "mimetype": null,
       "name": "05-saving-a-copy.ipynb",
       "path": "getting-started/05-saving-a-copy.ipynb",
-      "size": 2528,
+      "size": 2694,
       "type": "notebook",
       "writable": true
     }

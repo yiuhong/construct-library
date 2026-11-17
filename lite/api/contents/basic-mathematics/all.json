@@ -10,7 +10,7 @@
       "mimetype": null,
       "name": "09-vectors.ipynb",
       "path": "basic-mathematics/09-vectors.ipynb",
-      "size": 4376,
+      "size": 5770,
       "type": "notebook",
       "writable": true
     },
@@ -24,7 +24,7 @@
       "mimetype": null,
       "name": "04-linear-equations.ipynb",
       "path": "basic-mathematics/04-linear-equations.ipynb",
-      "size": 4340,
+      "size": 5682,
       "type": "notebook",
       "writable": true
     },
@@ -38,7 +38,7 @@
       "mimetype": null,
       "name": "07-expected-value.ipynb",
       "path": "basic-mathematics/07-expected-value.ipynb",
-      "size": 4473,
+      "size": 5559,
       "type": "notebook",
       "writable": true
     },
@@ -52,7 +52,7 @@
       "mimetype": null,
       "name": "16-optimisation.ipynb",
       "path": "basic-mathematics/16-optimisation.ipynb",
-      "size": 4319,
+      "size": 5514,
       "type": "notebook",
       "writable": true
     },
@@ -66,7 +66,7 @@
       "mimetype": null,
       "name": "11-matrix-operations.ipynb",
       "path": "basic-mathematics/11-matrix-operations.ipynb",
-      "size": 4998,
+      "size": 6752,
       "type": "notebook",
       "writable": true
     },
@@ -80,7 +80,7 @@
       "mimetype": null,
       "name": "01-numbers-and-notation.ipynb",
       "path": "basic-mathematics/01-numbers-and-notation.ipynb",
-      "size": 4474,
+      "size": 5857,
       "type": "notebook",
       "writable": true
     },
@@ -94,7 +94,7 @@
       "mimetype": null,
       "name": "03-functions.ipynb",
       "path": "basic-mathematics/03-functions.ipynb",
-      "size": 4347,
+      "size": 5489,
       "type": "notebook",
       "writable": true
     },
@@ -108,7 +108,7 @@
       "mimetype": null,
       "name": "10-matrices-as-tables.ipynb",
       "path": "basic-mathematics/10-matrices-as-tables.ipynb",
-      "size": 4649,
+      "size": 5997,
       "type": "notebook",
       "writable": true
     },
@@ -122,7 +122,7 @@
       "mimetype": null,
       "name": "12-eigenvalues.ipynb",
       "path": "basic-mathematics/12-eigenvalues.ipynb",
-      "size": 4737,
+      "size": 6275,
       "type": "notebook",
       "writable": true
     },
@@ -136,7 +136,7 @@
       "mimetype": null,
       "name": "13-limits.ipynb",
       "path": "basic-mathematics/13-limits.ipynb",
-      "size": 4094,
+      "size": 5147,
       "type": "notebook",
       "writable": true
     },
@@ -150,7 +150,7 @@
       "mimetype": null,
       "name": "14-derivatives.ipynb",
       "path": "basic-mathematics/14-derivatives.ipynb",
-      "size": 4904,
+      "size": 6495,
       "type": "notebook",
       "writable": true
     },
@@ -164,7 +164,7 @@
       "mimetype": null,
       "name": "15-integrals.ipynb",
       "path": "basic-mathematics/15-integrals.ipynb",
-      "size": 4499,
+      "size": 5725,
       "type": "notebook",
       "writable": true
     },
@@ -178,7 +178,7 @@
       "mimetype": null,
       "name": "02-variables-and-expressions.ipynb",
       "path": "basic-mathematics/02-variables-and-expressions.ipynb",
-      "size": 4589,
+      "size": 6023,
       "type": "notebook",
       "writable": true
     },
@@ -192,7 +192,7 @@
       "mimetype": null,
       "name": "06-probability-basics.ipynb",
       "path": "basic-mathematics/06-probability-basics.ipynb",
-      "size": 4515,
+      "size": 5866,
       "type": "notebook",
       "writable": true
     },
@@ -206,7 +206,7 @@
       "mimetype": null,
       "name": "17-likelihood-and-fitting.ipynb",
       "path": "basic-mathematics/17-likelihood-and-fitting.ipynb",
-      "size": 5832,
+      "size": 7535,
       "type": "notebook",
       "writable": true
     },
@@ -220,7 +220,7 @@
       "mimetype": null,
       "name": "05-sums-and-averages.ipynb",
       "path": "basic-mathematics/05-sums-and-averages.ipynb",
-      "size": 4327,
+      "size": 5734,
       "type": "notebook",
       "writable": true
     },
@@ -234,7 +234,7 @@
       "mimetype": null,
       "name": "18-distributions.ipynb",
       "path": "basic-mathematics/18-distributions.ipynb",
-      "size": 6343,
+      "size": 8156,
       "type": "notebook",
       "writable": true
     },
@@ -248,7 +248,7 @@
       "mimetype": null,
       "name": "08-variance-and-spread.ipynb",
       "path": "basic-mathematics/08-variance-and-spread.ipynb",
-      "size": 5392,
+      "size": 7490,
       "type": "notebook",
       "writable": true
     }
