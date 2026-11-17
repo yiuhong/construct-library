@@ -3,15 +3,44 @@
  * The queries use the iframe width, which matches the notebook page.
  *
  * JupyterLite 0.8.7 Lab has no setting and no URL that collapses the
- * file panel while staying in the standard multiple-document layout.
- * The panel is absolutely positioned, so this sheet hides it below
- * 1280px and gives that width to the notebook. From 641px to 1279px
- * Lab's own left activity bar stays in place as the slim rail. Below
- * 640px both activity bars are hidden. Nothing here is applied at
- * 1280px or above, and nothing is written to the Lab workspace.
+ * file panel while staying in the standard multiple-document layout,
+ * and writing that collapse into the saved workspace would also close
+ * it on a wide screen. js/lab-frame.js closes it for the session only
+ * when the iframe is 641px to 1279px wide.
+ *
+ * Until that script has caught up, the rules below keep a still-open
+ * file panel from painting. They stop as soon as the document element
+ * has construct-file-panel-live, so an open panel is fully visible
+ * and a closed one keeps the width JupyterLite gave it (none).
+ *
+ * Below 640px both activity bars and the file panel stay hidden.
+ * Nothing here is applied at 1280px or above, and nothing is written
+ * to the Lab workspace by this sheet.
  */
 
-@media (max-width: 1279px) {
+@media (min-width: 641px) and (max-width: 1279px) {
+  html:not(.construct-file-panel-live) #jp-main-split-panel > .jp-SideArea[data-side="left"],
+  html:not(.construct-file-panel-live) #jp-main-split-panel > .jp-SideArea[data-side="left"] + .lm-SplitPanel-handle {
+    display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+  }
+
+  html:not(.construct-file-panel-live) #jp-main-vsplit-panel,
+  html:not(.construct-file-panel-live) #jp-main-split-panel,
+  html:not(.construct-file-panel-live) #jp-main-dock-panel {
+    min-width: 0 !important;
+  }
+
+  html:not(.construct-file-panel-live) #jp-main-split-panel,
+  html:not(.construct-file-panel-live) #jp-main-dock-panel {
+    left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
   #jp-main-split-panel > .jp-SideArea[data-side="left"],
   #jp-main-split-panel > .jp-SideArea[data-side="left"] + .lm-SplitPanel-handle {
     display: none !important;
@@ -20,20 +49,6 @@
     max-width: 0 !important;
   }
 
-  #jp-main-vsplit-panel,
-  #jp-main-split-panel,
-  #jp-main-dock-panel {
-    min-width: 0 !important;
-  }
-
-  #jp-main-split-panel,
-  #jp-main-dock-panel {
-    left: 0 !important;
-    width: 100% !important;
-  }
-}
-
-@media (max-width: 640px) {
   #jp-main-content-panel > .jp-SideBar {
     display: none !important;
     width: 0 !important;
@@ -42,7 +57,8 @@
   }
 
   #jp-main-vsplit-panel,
-  #jp-main-split-panel {
+  #jp-main-split-panel,
+  #jp-main-dock-panel {
     left: 0 !important;
     width: 100% !important;
     min-width: 0 !important;
