@@ -1,0 +1,50 @@
+/*
+ * Injected into the JupyterLite Lab iframe by notebook.html.
+ * The queries use the iframe width, which matches the notebook page.
+ *
+ * JupyterLite 0.8.7 Lab has no setting and no URL that collapses the
+ * file panel while staying in the standard multiple-document layout.
+ * The panel is absolutely positioned, so this sheet hides it below
+ * 1280px and gives that width to the notebook. From 641px to 1279px
+ * Lab's own left activity bar stays in place as the slim rail. Below
+ * 640px both activity bars are hidden. Nothing here is applied at
+ * 1280px or above, and nothing is written to the Lab workspace.
+ */
+
+@media (max-width: 1279px) {
+  #jp-main-split-panel > .jp-SideArea[data-side="left"],
+  #jp-main-split-panel > .jp-SideArea[data-side="left"] + .lm-SplitPanel-handle {
+    display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+  }
+
+  #jp-main-vsplit-panel,
+  #jp-main-split-panel,
+  #jp-main-dock-panel {
+    min-width: 0 !important;
+  }
+
+  #jp-main-split-panel,
+  #jp-main-dock-panel {
+    left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #jp-main-content-panel > .jp-SideBar {
+    display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+  }
+
+  #jp-main-vsplit-panel,
+  #jp-main-split-panel {
+    left: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}

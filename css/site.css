@@ -281,6 +281,11 @@ h1 {
   white-space: nowrap;
 }
 
+.footer-lite-short,
+.footer-stop {
+  display: none;
+}
+
 .site-footer a {
   color: inherit;
   text-decoration-line: underline;
@@ -332,14 +337,85 @@ body.notebook .site-footer {
   color: var(--ink);
 }
 
+@media (max-width: 1279px) {
+  :root {
+    --bar-h: 44px;
+    --mark-h: 28px;
+  }
+
+  .topbar {
+    padding: 0 16px 0 20px;
+  }
+
+  .topbar-actions {
+    gap: 16px;
+  }
+
+  .library-main {
+    padding: 40px 28px 28px;
+  }
+
+  .site-footer {
+    padding: 0 20px 16px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .site-footer p {
+    max-width: none;
+  }
+
+  .footer-lite,
+  .footer-break,
+  .footer-contact,
+  .footer-tail,
+  .footer-updated {
+    display: none;
+  }
+
+  .footer-lite-short,
+  .footer-stop {
+    display: inline;
+  }
+
+  .footer-suffix {
+    white-space: nowrap;
+  }
+
+  body.notebook .site-footer {
+    padding: 4px 16px 6px;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     --pad: 20px;
+    --bar-h: 40px;
+    --mark-h: 22px;
+  }
+
+  .topbar {
+    padding: 0 12px 0 16px;
+  }
+
+  .wordmark-link {
+    min-width: 0;
+  }
+
+  .wordmark {
+    height: auto;
+    width: auto;
+    max-height: var(--mark-h);
+    max-width: calc(100vw - 108px);
+  }
+
+  .replay-tour {
+    display: none;
   }
 
   .library-main {
     width: 100%;
-    padding-top: 36px;
+    padding: 28px var(--pad) 20px;
   }
 
   .lesson {
@@ -353,6 +429,19 @@ body.notebook .site-footer {
 
   .cat-tabs {
     gap: 22px;
+  }
+
+  .site-footer {
+    padding: 0 var(--pad) 14px;
+  }
+
+  .footer-lite-short,
+  .footer-mid {
+    display: none;
+  }
+
+  body.notebook .site-footer {
+    padding: 4px 12px 6px;
   }
 }
 

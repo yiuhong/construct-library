@@ -84,6 +84,7 @@
   }
 
   function revealFileBrowser() {
+    if (window.innerWidth < 1280) return;
     if (boxOf(fileBrowser()) || revealedFiles) return;
     var tab = document.querySelector('.lm-TabBar-tab[data-id="filebrowser"]');
     if (!tab) return;
@@ -170,10 +171,12 @@
     }
   ];
 
+  var allSteps = steps.slice();
+
   function labReady() {
     if (!boxOf(document.querySelector('.jp-NotebookPanel-toolbar [data-jp-item-name="run"]'))) return false;
     if (!boxOf(menuBar())) return false;
-    if (!boxOf(fileBrowser())) return false;
+    if (window.innerWidth >= 1280 && !boxOf(fileBrowser())) return false;
     var cells = document.querySelectorAll(".jp-Notebook .jp-Cell");
     var i;
     var settled = false;
@@ -423,6 +426,9 @@
 
   function openTour() {
     ensureUi();
+    steps = allSteps.filter(function (step) {
+      return step.title !== "Files" || boxOf(fileBrowser());
+    });
     index = 0;
     placedFor = -1;
     running = true;
