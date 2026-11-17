@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.873694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "02-an-accumulator-model.ipynb",
+      "path": "choice-and-response-time/02-an-accumulator-model.ipynb",
+      "size": 5919,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.873694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "01-signal-detection-in-more-depth.ipynb",
+      "path": "choice-and-response-time/01-signal-detection-in-more-depth.ipynb",
+      "size": 5368,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.873694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "03-accuracy-and-response-time.ipynb",
+      "path": "choice-and-response-time/03-accuracy-and-response-time.ipynb",
+      "size": 4403,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-11-17T10:46:22.873694Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-11-17T10:46:22.873694Z",
+  "mimetype": null,
+  "name": "choice-and-response-time",
+  "path": "choice-and-response-time",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

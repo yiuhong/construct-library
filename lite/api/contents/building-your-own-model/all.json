@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.873694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "02-simulate-fit-and-recover.ipynb",
+      "path": "building-your-own-model/02-simulate-fit-and-recover.ipynb",
+      "size": 4809,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.873694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "01-from-a-hypothesis-to-equations.ipynb",
+      "path": "building-your-own-model/01-from-a-hypothesis-to-equations.ipynb",
+      "size": 3793,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.873694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "03-report-limitations.ipynb",
+      "path": "building-your-own-model/03-report-limitations.ipynb",
+      "size": 4228,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-11-17T10:46:22.873694Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-11-17T10:46:22.873694Z",
+  "mimetype": null,
+  "name": "building-your-own-model",
+  "path": "building-your-own-model",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

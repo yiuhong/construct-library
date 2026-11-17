@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "02-encoding-and-decoding.ipynb",
+      "path": "neural-and-psychometric-links/02-encoding-and-decoding.ipynb",
+      "size": 4046,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "01-a-psychometric-curve.ipynb",
+      "path": "neural-and-psychometric-links/01-a-psychometric-curve.ipynb",
+      "size": 6299,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "03-a-behavioural-model-and-a-neural-summary.ipynb",
+      "path": "neural-and-psychometric-links/03-a-behavioural-model-and-a-neural-summary.ipynb",
+      "size": 3693,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-11-17T10:46:22.877694Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-11-17T10:46:22.877694Z",
+  "mimetype": null,
+  "name": "neural-and-psychometric-links",
+  "path": "neural-and-psychometric-links",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

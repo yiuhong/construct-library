@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.855922Z",
+      "mimetype": null,
+      "name": "03-uncertainty-and-a-simple-bootstrap.ipynb",
+      "path": "model-fitting/03-uncertainty-and-a-simple-bootstrap.ipynb",
+      "size": 4311,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.855922Z",
+      "mimetype": null,
+      "name": "02-starting-values-and-local-minima.ipynb",
+      "path": "model-fitting/02-starting-values-and-local-minima.ipynb",
+      "size": 3885,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.855922Z",
+      "mimetype": null,
+      "name": "04-when-a-fit-fails.ipynb",
+      "path": "model-fitting/04-when-a-fit-fails.ipynb",
+      "size": 3879,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:46:00.285532Z",
+      "mimetype": null,
+      "name": "01-numerical-optimisation.ipynb",
+      "path": "model-fitting/01-numerical-optimisation.ipynb",
+      "size": 7044,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-11-17T10:46:22.877694Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-11-17T10:46:22.877694Z",
+  "mimetype": null,
+  "name": "model-fitting",
+  "path": "model-fitting",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

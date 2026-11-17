@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "02-a-basic-bayesian-update.ipynb",
+      "path": "learning-and-updating/02-a-basic-bayesian-update.ipynb",
+      "size": 4678,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "03-learning-curves.ipynb",
+      "path": "learning-and-updating/03-learning-curves.ipynb",
+      "size": 4981,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:46:22.877694Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:17.859922Z",
+      "mimetype": null,
+      "name": "01-incremental-learning.ipynb",
+      "path": "learning-and-updating/01-incremental-learning.ipynb",
+      "size": 4528,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-11-17T10:46:22.877694Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-11-17T10:46:22.877694Z",
+  "mimetype": null,
+  "name": "learning-and-updating",
+  "path": "learning-and-updating",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
