@@ -10,7 +10,7 @@
       "mimetype": null,
       "name": "06-modules-and-help.ipynb",
       "path": "python-basics/06-modules-and-help.ipynb",
-      "size": 4448,
+      "size": 5725,
       "type": "notebook",
       "writable": true
     },
@@ -24,7 +24,7 @@
       "mimetype": null,
       "name": "01-python-as-a-calculator.ipynb",
       "path": "python-basics/01-python-as-a-calculator.ipynb",
-      "size": 4343,
+      "size": 5650,
       "type": "notebook",
       "writable": true
     },
@@ -38,7 +38,7 @@
       "mimetype": null,
       "name": "02-types-and-variables.ipynb",
       "path": "python-basics/02-types-and-variables.ipynb",
-      "size": 4711,
+      "size": 6095,
       "type": "notebook",
       "writable": true
     },
@@ -52,7 +52,7 @@
       "mimetype": null,
       "name": "03-lists-and-dictionaries.ipynb",
       "path": "python-basics/03-lists-and-dictionaries.ipynb",
-      "size": 4509,
+      "size": 6023,
       "type": "notebook",
       "writable": true
     },
@@ -66,7 +66,7 @@
       "mimetype": null,
       "name": "04-conditionals-and-loops.ipynb",
       "path": "python-basics/04-conditionals-and-loops.ipynb",
-      "size": 5139,
+      "size": 6823,
       "type": "notebook",
       "writable": true
     },
@@ -80,7 +80,7 @@
       "mimetype": null,
       "name": "05-functions.ipynb",
       "path": "python-basics/05-functions.ipynb",
-      "size": 4394,
+      "size": 5818,
       "type": "notebook",
       "writable": true
     }

@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Check yourself how-to text now says that if the blank is inside a function, include `return` so the function gives a value back. The comment above each function-body blank says the same. Comments above an `answer = ...` blank do not. The blanks stay blank, and `content/check.py` is unchanged. The public version stays 0.1.0.
+- Teaching code cells, including Getting started, and the Check yourself cells now carry slightly longer comments, with a short note on smaller steps such as an assignment, a loop, or a plot. The public version stays 0.1.0.
 - Every Check yourself section lists one question per numbered line, including the values, any rounding, and what to return. In the code cell, a short comment above each blank names that question and shows where to type, in place of `...`. The blanks stay blank, and `content/check.py` is unchanged. The public version stays 0.1.0.
 - Teaching code cells, including Getting started, carry a short comment on what the code is doing. The public version stays 0.1.0.
 - The library front door has five category tabs. Computational modelling now uses the same subsection headings as Basic mathematics: Foundations (the nine Module 1 lessons), then Model fitting in practice, Model comparison and selection, Choice and response time, Learning and updating, Neural and psychometric links, and Building your own model. Tab spacing is slightly tighter so those five labels sit on one row in the library column. Lesson files, titles, and order are unchanged. The public version stays 0.1.0.
