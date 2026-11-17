@@ -96,6 +96,10 @@
         link.rel = "stylesheet";
         link.href = new URL("css/lab-frame.css", window.location.href).href;
         doc.head.appendChild(link);
+        var frameScript = doc.createElement("script");
+        frameScript.id = "construct-lab-frame";
+        frameScript.src = new URL("js/lab-frame.js", window.location.href).href;
+        doc.head.appendChild(frameScript);
       }
 
       function injectTour() {
