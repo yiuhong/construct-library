@@ -1,0 +1,33 @@
+cff-version: "1.2.0"
+message: "If you use Project Construct, please cite it using the metadata from preferred-citation in this file. Teaching text, explanations, and figures are CC BY 4.0. Source code is MIT (see LICENSE-CODE)."
+type: software
+title: "Project Construct: A hands-on library for mathematical and computational psychology and neuroscience"
+abstract: "A hands-on library for mathematical and computational psychology and neuroscience. Lessons start with the basic mathematics and move on to their applications in computational modelling. Each lesson opens as a Jupyter notebook that runs in the browser. Teaching text, explanations, and figures are CC BY 4.0. Source code is MIT."
+authors:
+  - family-names: Ko
+    given-names: "Yiu Hong"
+    orcid: "https://orcid.org/0000-0003-4436-0166"
+    email: yiuhong.ko@gmail.com
+    website: "https://yiuhong.github.io/"
+version: "0.1.0"
+date-released: "2026-11-17"
+url: "https://yiuhong.github.io/construct-library/"
+repository-code: "https://github.com/yiuhong/construct-library"
+license: CC-BY-4.0
+keywords:
+  - "open educational resources"
+  - psychology
+  - neuroscience
+  - "computational modelling"
+  - mathematics
+  - teaching
+preferred-citation:
+  type: website
+  title: "Project Construct: A hands-on library for mathematical and computational psychology and neuroscience"
+  authors:
+    - family-names: Ko
+      given-names: "Yiu Hong"
+      orcid: "https://orcid.org/0000-0003-4436-0166"
+  year: 2026
+  version: "0.1.0"
+  url: "https://yiuhong.github.io/construct-library/"
