@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-11-17T10:45:54.928544Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:44:21.220883Z",
+      "mimetype": null,
+      "name": "01-matplotlib-figures-and-labels.ipynb",
+      "path": "python-plotting/01-matplotlib-figures-and-labels.ipynb",
+      "size": 6317,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:45:54.928544Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:43:51.081154Z",
+      "mimetype": null,
+      "name": "03-straight-line-fit.ipynb",
+      "path": "python-plotting/03-straight-line-fit.ipynb",
+      "size": 4175,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-11-17T10:45:54.928544Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-17T10:43:51.081154Z",
+      "mimetype": null,
+      "name": "02-pandas-table-and-plot.ipynb",
+      "path": "python-plotting/02-pandas-table-and-plot.ipynb",
+      "size": 4578,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-11-17T10:45:54.928544Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-11-17T10:45:54.928544Z",
+  "mimetype": null,
+  "name": "python-plotting",
+  "path": "python-plotting",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

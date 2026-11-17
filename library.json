@@ -73,6 +73,27 @@
       ]
     },
     {
+      "id": "python-plotting",
+      "title": "Plotting and packages",
+      "lessons": [
+        {
+          "path": "python-plotting/01-matplotlib-figures-and-labels.ipynb",
+          "title": "Matplotlib figures and labels",
+          "summary": "A scatter, a line, and a line that grows"
+        },
+        {
+          "path": "python-plotting/02-pandas-table-and-plot.ipynb",
+          "title": "A pandas table and a plot",
+          "summary": "Build a small table, then plot two columns"
+        },
+        {
+          "path": "python-plotting/03-straight-line-fit.ipynb",
+          "title": "A straight-line fit",
+          "summary": "Points, and the straight line scipy fits"
+        }
+      ]
+    },
+    {
       "id": "basic-mathematics",
       "title": "Basic mathematics",
       "sections": [
