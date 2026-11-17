@@ -10,7 +10,7 @@
       "mimetype": null,
       "name": "02-aic-and-bic.ipynb",
       "path": "model-comparison/02-aic-and-bic.ipynb",
-      "size": 4842,
+      "size": 5767,
       "type": "notebook",
       "writable": true
     },
@@ -24,7 +24,7 @@
       "mimetype": null,
       "name": "03-cross-validation.ipynb",
       "path": "model-comparison/03-cross-validation.ipynb",
-      "size": 3779,
+      "size": 4717,
       "type": "notebook",
       "writable": true
     },
@@ -38,7 +38,7 @@
       "mimetype": null,
       "name": "01-nested-model-comparisons.ipynb",
       "path": "model-comparison/01-nested-model-comparisons.ipynb",
-      "size": 4279,
+      "size": 5129,
       "type": "notebook",
       "writable": true
     },
@@ -52,7 +52,7 @@
       "mimetype": null,
       "name": "04-evidence-versus-prediction.ipynb",
       "path": "model-comparison/04-evidence-versus-prediction.ipynb",
-      "size": 4073,
+      "size": 4943,
       "type": "notebook",
       "writable": true
     }

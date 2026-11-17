@@ -10,7 +10,7 @@
       "mimetype": null,
       "name": "01-matplotlib-figures-and-labels.ipynb",
       "path": "python-plotting/01-matplotlib-figures-and-labels.ipynb",
-      "size": 6317,
+      "size": 7400,
       "type": "notebook",
       "writable": true
     },
@@ -24,7 +24,7 @@
       "mimetype": null,
       "name": "03-straight-line-fit.ipynb",
       "path": "python-plotting/03-straight-line-fit.ipynb",
-      "size": 4175,
+      "size": 4990,
       "type": "notebook",
       "writable": true
     },
@@ -38,7 +38,7 @@
       "mimetype": null,
       "name": "02-pandas-table-and-plot.ipynb",
       "path": "python-plotting/02-pandas-table-and-plot.ipynb",
-      "size": 4578,
+      "size": 5491,
       "type": "notebook",
       "writable": true
     }
