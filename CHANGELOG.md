@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Plotting and packages, after Python basics and before Basic mathematics: three lessons. Matplotlib figures and labels, including a short animation that plays in the notebook page. A pandas table and a plot. A straight-line fit with scipy. Each notebook ends with a short self-check. The public version stays 0.1.0.
+- Computational modelling, Module 1: nine short lessons in `content/computational-modelling/`, on a Computational modelling tab after Basic mathematics. The lessons run from what a model is through a caution on identifiability and overfitting. Each ends with a short self-check. Expected results live in `content/check.py` under ids `cm01-1` and `cm01-2`, and the same pattern through `cm09-2`. The public version stays 0.1.0.
+- Three of those lessons play a short animation in the cell output, from Matplotlib's JavaScript player. The process model fills the two counters. Simulating data adds one score at a time. Parameter recovery shows recovered slopes tightening as the sample grows. Drag the slider under the figure, or press Play. The caution lesson has no animation.
 
 ### Changed
 
