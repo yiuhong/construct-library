@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Check yourself cells in Python basics and Basic mathematics start from a blank. The expected result is stored in `content/check.py` under a short id. A match prints `That matches.` A first miss prints `Not yet.` and the hint. Run that check again, or pass `show=True`, to print the expected result.
+- Screens narrower than 1280px use a shorter title bar and a tighter footer. On the notebook page the JupyterLite file panel is hidden at those widths so the cells can use the space. From 641px to 1279px, Lab's left activity bar stays as a slim rail. Below 640px both activity bars are hidden. At 1280px and above, the frame and the open file panel are unchanged. The public version stays 0.1.0.
 
 ## 0.1.0 — 17 November 2026
 
