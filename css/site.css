@@ -234,7 +234,7 @@ h1 {
 .cat-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
+  gap: 16px;
   margin: 0 0 4px;
   border-bottom: 1px solid var(--line);
 }
