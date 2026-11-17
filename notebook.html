@@ -11,10 +11,23 @@
     <a class="wordmark-link" href="./">
       <img class="wordmark" src="assets/project-construct-wordmark.svg" alt="Project Construct" height="40">
     </a>
-    <span class="topbar-actions">
+    <div class="topbar-actions">
+      <nav class="lesson-nav" id="lesson-nav" aria-label="Lessons" hidden>
+        <a class="lesson-nav-link lesson-nav-prev" id="lesson-prev" hidden aria-label="Previous lesson">
+          <svg class="lesson-nav-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10.2 3.2 5.4 8l4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="lesson-nav-full">Previous lesson</span>
+          <span class="lesson-nav-mid">Previous</span>
+        </a>
+        <a class="lesson-nav-link lesson-nav-next" id="lesson-next" hidden aria-label="Next lesson">
+          <span class="lesson-nav-full">Next lesson</span>
+          <span class="lesson-nav-mid">Next</span>
+          <svg class="lesson-nav-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M5.8 3.2 10.6 8l-4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="lesson-nav-link lesson-nav-back" id="lesson-back" href="index.html" hidden aria-label="Back to library">Back to library</a>
+      </nav>
       <button type="button" class="replay-tour" id="replay-tour" hidden>Replay tour</button>
       <a class="library-link" href="./">Library</a>
-    </span>
+    </div>
   </header>
   <iframe class="lite-frame" id="lite" title="Jupyter notebook"></iframe>
   <footer class="site-footer">
@@ -22,6 +35,7 @@
     <a rel="author noopener noreferrer" href="https://yiuhong.github.io/" target="_blank">Yiu Hong Ko<span class="visually-hidden"> (opens in a new tab)</span></a><span class="footer-contact"> · <a href="mailto:yiuhong.ko@gmail.com">yiuhong.ko@gmail.com</a> · <a href="https://orcid.org/0000-0003-4436-0166" aria-label="ORCID iD 0000-0003-4436-0166">ORCID 0000-0003-4436-0166</a></span>. <span class="footer-keep">Content <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span> · <span class="footer-keep">Code <a href="LICENSE-CODE">MIT</a></span>. <a href="cite.html">Cite &amp; reuse</a> · <span class="footer-suffix"><a href="license.html">Licenses</a><span class="footer-mid"> · <a href="CHANGELOG.md">Changelog</a></span><span class="footer-tail"> · <a href="CONTRIBUTING.md">Contribute</a>. <a href="https://github.com/yiuhong/construct-library/issues">Spotted a mistake?</a> · <a href="https://github.com/yiuhong/construct-library">View source on GitHub</a>.</span><span class="footer-stop">.</span> <span class="footer-keep">Version <span data-site-field="version">0.1.0</span></span></span><span class="footer-updated"> · <span class="footer-keep">Updated <time datetime="2026-11-17" data-site-field="updatedDisplay" data-site-datetime="updated">17 November 2026</time></span></span>.</p>
   </footer>
   <script src="js/removed-notebooks.js"></script>
+  <script src="js/lesson-nav.js"></script>
   <script>
     (function () {
       var basicsName = "getting-started/01-jupyter-basics.ipynb";
@@ -100,6 +114,46 @@
       if (!safe) {
         showMissing();
         return;
+      }
+
+      var lessonNav = document.getElementById("lesson-nav");
+      var lessonPrev = document.getElementById("lesson-prev");
+      var lessonNext = document.getElementById("lesson-next");
+      var lessonBack = document.getElementById("lesson-back");
+
+      function showLessonNav(info) {
+        if (!lessonNav || !info || !window.constructLessonNav) return;
+        if (lessonPrev) {
+          if (info.previous) {
+            lessonPrev.href = window.constructLessonNav.notebookHref(info.previous);
+            lessonPrev.hidden = false;
+          } else {
+            lessonPrev.hidden = true;
+          }
+        }
+        if (info.next && lessonNext) {
+          lessonNext.href = window.constructLessonNav.notebookHref(info.next);
+          lessonNext.hidden = false;
+          if (lessonBack) lessonBack.hidden = true;
+        } else if (lessonNext) {
+          lessonNext.hidden = true;
+          if (lessonBack) lessonBack.hidden = false;
+        }
+        lessonNav.hidden = false;
+      }
+
+      if (window.constructLessonNav) {
+        fetch("library.json")
+          .then(function (response) {
+            if (!response.ok) throw new Error("library.json");
+            return response.json();
+          })
+          .then(function (data) {
+            var paths = window.constructLessonNav.pathsFromCatalog(data);
+            var info = window.constructLessonNav.neighbours(paths, path);
+            if (info) showLessonNav(info);
+          })
+          .catch(function () {});
       }
 
       if (basics && replay) {
