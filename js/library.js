@@ -158,6 +158,24 @@
     return Array.prototype.slice.call(nav.querySelectorAll(".cat-tab"));
   }
 
+  function hasArt(groupId) {
+    var root = document.querySelector("[data-course-art]");
+    if (!root || !groupId) return false;
+    var imgs = root.querySelectorAll("[data-course-art-id]");
+    for (var i = 0; i < imgs.length; i++) {
+      if (imgs[i].getAttribute("data-course-art-id") === groupId) return true;
+    }
+    return false;
+  }
+
+  function showCourseArt(groupId) {
+    var root = document.querySelector("[data-course-art]");
+    if (!root) return;
+    Array.prototype.forEach.call(root.querySelectorAll("[data-course-art-id]"), function (img) {
+      img.classList.toggle("is-shown", img.getAttribute("data-course-art-id") === groupId);
+    });
+  }
+
   function activate() {
     var tabList = tabs();
     var panelList = panels();
@@ -176,6 +194,7 @@
     panelList.forEach(function (panel) {
       panel.hidden = panel.getAttribute("data-group-panel") !== current;
     });
+    showCourseArt(!known && hasArt(hash) ? hash : current);
   }
 
   function renderGroups(groups) {
