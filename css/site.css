@@ -201,10 +201,12 @@ body.notebook .wordmark-link {
   padding: 60px var(--pad) 48px;
 }
 
-/* Quiet course drawing in the empty column beside the 800px catalogue.
-   Shown from 1280px. Its top is set in js/library.js so the drawing stays
-   centred from the page heading to the end of the lesson list. The
-   catalogue stays an 800px left column. The wordmark and footer are
+/* Quiet course drawing to the right of the catalogue. From 1280px the
+   front-page catalogue widens to 1120px. The drawing is 400px wide, with
+   a 20px gap, so it sits at 1140px and is shown from 1600px, where that
+   400px fits without overlapping the list. Its top is set in js/library.js
+   so the drawing stays centred from the page heading to the end of the
+   lesson list. Below 1280px the catalogue is unchanged. The wordmark is
    unchanged. */
 .course-art {
   display: none;
@@ -215,10 +217,20 @@ body.notebook .wordmark-link {
     position: relative;
   }
 
+  body.library .library-main:not(.doc) {
+    width: min(1120px, 100%);
+  }
+
+  body.library .library-main:not(.doc) ~ .site-footer p {
+    max-width: calc(1120px - 2 * var(--pad));
+  }
+}
+
+@media (min-width: 1600px) {
   .course-art {
     display: block;
     position: absolute;
-    left: 820px;
+    left: 1140px;
     width: 400px;
     margin: 0;
     pointer-events: none;

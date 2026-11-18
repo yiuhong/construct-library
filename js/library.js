@@ -375,7 +375,8 @@
     var heading = document.querySelector(".library-main h1");
     var panel = document.querySelector("[data-group-panel]:not([hidden])");
     if (!root || !heading || !panel) return;
-    if (window.matchMedia("(max-width: 1279px)").matches) {
+    // Hidden below 1600px, where the 400px drawing fits beside the catalogue.
+    if (window.matchMedia("(max-width: 1599px)").matches) {
       root.style.top = "";
       return;
     }
