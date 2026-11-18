@@ -18,6 +18,8 @@
       "id": "getting-started",
       "area": "foundation",
       "title": "Getting started",
+      "level": "Start here",
+      "listMark": true,
       "lessons": [
         {
           "path": "getting-started/01-jupyter-basics.ipynb",
@@ -55,6 +57,8 @@
       "id": "python-basics",
       "area": "foundation",
       "title": "Python basics",
+      "level": "First course",
+      "after": "after Getting started",
       "lessons": [
         {
           "path": "python-basics/01-python-as-a-calculator.ipynb",
@@ -92,6 +96,8 @@
       "id": "python-plotting",
       "area": "foundation",
       "title": "Plotting and packages",
+      "level": "First course",
+      "after": "after Python basics",
       "lessons": [
         {
           "path": "python-plotting/01-matplotlib-figures-and-labels.ipynb",
@@ -114,6 +120,8 @@
       "id": "basic-mathematics",
       "area": "foundation",
       "title": "Basic mathematics",
+      "level": "Core course",
+      "after": "after Python basics",
       "sections": [
         {
           "title": "Foundations",
@@ -236,6 +244,8 @@
       "id": "descriptive-statistics",
       "area": "statistics",
       "title": "Descriptive statistics",
+      "level": "Core course",
+      "after": "after Python basics and plotting",
       "lessons": [
         {
           "path": "descriptive-statistics/01-a-table-of-counts.ipynb",
@@ -278,6 +288,8 @@
       "id": "introductory-statistics",
       "area": "statistics",
       "title": "Introductory statistics",
+      "level": "Core course",
+      "after": "after Descriptive statistics",
       "sections": [
         {
           "title": "Probability and sampling",
@@ -375,6 +387,8 @@
       "id": "non-parametric-tests",
       "area": "statistics",
       "title": "Non-parametric tests",
+      "level": "Later course",
+      "after": "after Introductory statistics",
       "sections": [
         {
           "title": "Ranks and related scores",
@@ -457,6 +471,8 @@
       "id": "glmm",
       "area": "statistics",
       "title": "Mixed models / GLMM",
+      "level": "Later course",
+      "after": "after Introductory statistics",
       "sections": [
         {
           "title": "Clustered data",
@@ -529,6 +545,8 @@
       "id": "factor-analysis-sem",
       "area": "statistics",
       "title": "Factor analysis and SEM",
+      "level": "Later course",
+      "after": "after intro stats and maths",
       "sections": [
         {
           "title": "Principal component analysis",
@@ -611,6 +629,8 @@
       "id": "computational-modelling",
       "area": "modelling",
       "title": "Computational modelling",
+      "level": "Later course",
+      "after": "after Basic mathematics",
       "sections": [
         {
           "title": "Foundations",
@@ -798,6 +818,8 @@
       "id": "machine-learning",
       "area": "modelling",
       "title": "Machine learning",
+      "level": "Later course",
+      "after": "after maths and intro stats",
       "sections": [
         {
           "title": "Learning from data",
