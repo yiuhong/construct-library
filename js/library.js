@@ -1,7 +1,12 @@
 (function () {
   var catalog = document.querySelector("[data-catalog]");
-  var nav = document.querySelector("[data-cat-tabs]");
+  var menu = document.querySelector("[data-course-menu]");
+  var detail = document.querySelector("[data-course-detail]");
+  var switcherButton = document.querySelector("[data-course-switcher]");
+  var switcherName = document.querySelector("[data-course-switcher-name]");
+  var courseTitle = document.querySelector("[data-course-title]");
   var materialsRoot = document.querySelector("[data-materials]");
+  var menuOpen = false;
 
   function notebookIcon() {
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -121,10 +126,36 @@
       .replace(/^-+|-+$/g, "");
   }
 
+  function titleFromId(id) {
+    return String(id || "")
+      .split("-")
+      .map(function (word) {
+        if (!word) return "";
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ")
+      .trim();
+  }
+
   function lessonList(list) {
     return (list || []).filter(function (item) {
       return item && item.path;
     });
+  }
+
+  function areasFrom(data) {
+    var source = Array.isArray(data.areas) ? data.areas : [];
+    var areas = [];
+    var seen = {};
+    source.forEach(function (area) {
+      if (!area) return;
+      var title = String(area.title || "").trim();
+      var id = slug(area.id || title);
+      if (!id || !title || seen[id]) return;
+      seen[id] = true;
+      areas.push({ id: id, title: title });
+    });
+    return areas;
   }
 
   function groupsFrom(data) {
@@ -144,9 +175,57 @@
       var title = group.title || "Lessons";
       var id = slug(group.id || title);
       if (!id) return;
-      groups.push({ id: id, title: title, lessons: lessons, sections: sections });
+      groups.push({
+        id: id,
+        title: title,
+        area: slug(group.area || ""),
+        lessons: lessons,
+        sections: sections
+      });
     });
     return groups;
+  }
+
+  // Menu headings organise the course list only. They are not a content
+  // type and not a URL level. A course joins a heading through its area.
+  function coursesByArea(areas, groups) {
+    var buckets = [];
+    var byId = {};
+    areas.forEach(function (area) {
+      var bucket = { id: area.id, title: area.title, courses: [] };
+      buckets.push(bucket);
+      byId[area.id] = bucket;
+    });
+    var unknown = {};
+    var unknownOrder = [];
+    var loose = [];
+    groups.forEach(function (group) {
+      if (group.area && byId[group.area]) {
+        byId[group.area].courses.push(group);
+        return;
+      }
+      if (group.area) {
+        if (!unknown[group.area]) {
+          unknown[group.area] = {
+            id: group.area,
+            title: titleFromId(group.area),
+            courses: []
+          };
+          unknownOrder.push(unknown[group.area]);
+        }
+        unknown[group.area].courses.push(group);
+        return;
+      }
+      loose.push(group);
+    });
+    var result = buckets.filter(function (bucket) {
+      return bucket.courses.length;
+    });
+    unknownOrder.forEach(function (bucket) {
+      result.push(bucket);
+    });
+    if (loose.length) result.push({ id: "courses", title: "", courses: loose });
+    return result;
   }
 
   function panels() {
@@ -154,9 +233,97 @@
     return Array.prototype.slice.call(catalog.querySelectorAll("[data-group-panel]"));
   }
 
-  function tabs() {
-    if (!nav) return [];
-    return Array.prototype.slice.call(nav.querySelectorAll(".cat-tab"));
+  function courseLinks() {
+    if (!menu) return [];
+    return Array.prototype.slice.call(menu.querySelectorAll(".course-link"));
+  }
+
+  function isPhone() {
+    return window.matchMedia("(max-width: 640px)").matches;
+  }
+
+  function syncSwitcher() {
+    if (!switcherButton) return;
+    var expanded = !isPhone() || menuOpen;
+    switcherButton.setAttribute("aria-expanded", expanded ? "true" : "false");
+  }
+
+  function setSwitcherOpen(open) {
+    menuOpen = !!open;
+    if (menu) menu.classList.toggle("is-collapsed", !menuOpen);
+    syncSwitcher();
+  }
+
+  function focusSelectedCourse() {
+    var links = courseLinks();
+    var current = null;
+    links.forEach(function (link) {
+      if (!current && link.classList.contains("is-selected")) current = link;
+    });
+    if (!current && links.length) current = links[0];
+    if (current) current.focus();
+  }
+
+  function onCourseChosen(event) {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (event.button && event.button !== 0) return;
+    if (!isPhone()) return;
+    setSwitcherOpen(false);
+    if (switcherButton) switcherButton.focus();
+  }
+
+  function courseLink(group) {
+    var link = document.createElement("a");
+    link.className = "course-link";
+    link.href = "#" + group.id;
+    link.setAttribute("data-group", group.id);
+    link.textContent = group.title;
+    link.addEventListener("click", onCourseChosen);
+    return link;
+  }
+
+  function areaBlock(area) {
+    var block = document.createElement("div");
+    block.className = "course-group";
+    var list = document.createElement("div");
+    if (area.title) {
+      var label = document.createElement("p");
+      label.className = "kicker";
+      label.id = "course-area-" + area.id;
+      label.textContent = area.title;
+      list.setAttribute("role", "group");
+      list.setAttribute("aria-labelledby", label.id);
+      block.appendChild(label);
+    }
+    area.courses.forEach(function (group) {
+      list.appendChild(courseLink(group));
+    });
+    block.appendChild(list);
+    return block;
+  }
+
+  function coursePanel(group) {
+    var panel = document.createElement("div");
+    panel.className = "lessons";
+    panel.id = "panel-" + group.id;
+    panel.setAttribute("data-group-panel", group.id);
+    panel.setAttribute("aria-label", group.title);
+    if (group.sections.length) {
+      group.sections.forEach(function (section, index) {
+        if (!section.title) {
+          section.lessons.forEach(function (item) {
+            panel.appendChild(lessonLink(item));
+          });
+          return;
+        }
+        panel.appendChild(moduleBlock(group, section, index));
+      });
+    } else {
+      group.lessons.forEach(function (item) {
+        panel.appendChild(lessonLink(item));
+      });
+    }
+    return panel;
   }
 
   function hasArt(groupId) {
@@ -204,65 +371,50 @@
   }
 
   function activate() {
-    var tabList = tabs();
+    var linkList = courseLinks();
     var panelList = panels();
-    if (!tabList.length || !panelList.length) return;
+    if (!linkList.length || !panelList.length) return;
     var hash = location.hash.replace(/^#/, "");
     var known = panelList.some(function (panel) {
       return panel.getAttribute("data-group-panel") === hash;
     });
-    var current = known ? hash : tabList[0].getAttribute("data-group");
-    tabList.forEach(function (tab) {
-      var on = tab.getAttribute("data-group") === current;
-      tab.classList.toggle("is-selected", on);
-      if (on) tab.setAttribute("aria-current", "page");
-      else tab.removeAttribute("aria-current");
+    var current = known ? hash : linkList[0].getAttribute("data-group");
+    var currentTitle = "";
+    linkList.forEach(function (link) {
+      var on = link.getAttribute("data-group") === current;
+      link.classList.toggle("is-selected", on);
+      if (on) {
+        link.setAttribute("aria-current", "page");
+        currentTitle = link.textContent;
+      } else {
+        link.removeAttribute("aria-current");
+      }
     });
     panelList.forEach(function (panel) {
-      panel.hidden = panel.getAttribute("data-group-panel") !== current;
+      var on = panel.getAttribute("data-group-panel") === current;
+      panel.hidden = !on;
+      if (on && currentTitle) panel.setAttribute("aria-label", currentTitle);
     });
+    if (currentTitle) {
+      if (courseTitle) courseTitle.textContent = currentTitle;
+      if (switcherName) switcherName.textContent = currentTitle;
+      if (switcherButton) switcherButton.setAttribute("aria-label", "Course: " + currentTitle);
+    }
     showCourseArt(!known && hasArt(hash) ? hash : current);
     placeCourseArt();
   }
 
-  function renderGroups(groups) {
-    if (!catalog || !nav || !groups.length) return;
-    nav.textContent = "";
+  function renderGroups(groups, areas) {
+    if (!catalog || !menu || !detail || !groups.length) return;
+    menu.textContent = "";
     panels().forEach(function (panel) {
       panel.remove();
     });
-    var anchor = nav;
+    coursesByArea(areas, groups).forEach(function (area) {
+      menu.appendChild(areaBlock(area));
+    });
     groups.forEach(function (group) {
-      var tab = document.createElement("a");
-      tab.className = "cat-tab";
-      tab.href = "#" + group.id;
-      tab.setAttribute("data-group", group.id);
-      tab.textContent = group.title;
-      nav.appendChild(tab);
-
-      var panel = document.createElement("div");
-      panel.className = "lessons";
-      panel.id = "panel-" + group.id;
-      panel.setAttribute("data-group-panel", group.id);
-      panel.setAttribute("aria-label", group.title);
-      tab.setAttribute("aria-controls", panel.id);
-      if (group.sections.length) {
-        group.sections.forEach(function (section, index) {
-          if (!section.title) {
-            section.lessons.forEach(function (item) {
-              panel.appendChild(lessonLink(item));
-            });
-            return;
-          }
-          panel.appendChild(moduleBlock(group, section, index));
-        });
-      } else {
-        group.lessons.forEach(function (item) {
-          panel.appendChild(lessonLink(item));
-        });
-      }
-      anchor.insertAdjacentElement("afterend", panel);
-      anchor = panel;
+      detail.appendChild(coursePanel(group));
     });
     activate();
   }
@@ -273,14 +425,66 @@
     return href;
   }
 
-  window.addEventListener("hashchange", activate);
-  window.addEventListener("resize", placeCourseArt);
+  if (switcherButton) {
+    switcherButton.addEventListener("click", function () {
+      if (!isPhone()) return;
+      setSwitcherOpen(!menuOpen);
+    });
+    switcherButton.addEventListener("keydown", function (event) {
+      if (event.key !== "ArrowDown" || !isPhone()) return;
+      event.preventDefault();
+      setSwitcherOpen(true);
+      focusSelectedCourse();
+    });
+  }
+
+  if (menu) {
+    menu.addEventListener("keydown", function (event) {
+      var links = courseLinks();
+      if (!links.length) return;
+      var index = links.indexOf(document.activeElement);
+      if (index === -1) return;
+      var next = -1;
+      if (event.key === "ArrowDown") next = (index + 1) % links.length;
+      else if (event.key === "ArrowUp") next = (index - 1 + links.length) % links.length;
+      else if (event.key === "Home") next = 0;
+      else if (event.key === "End") next = links.length - 1;
+      else return;
+      event.preventDefault();
+      links[next].focus();
+    });
+  }
+
+  document.addEventListener("click", function (event) {
+    if (!isPhone() || !menuOpen) return;
+    var target = event.target;
+    if (!target) return;
+    if (switcherButton && (target === switcherButton || switcherButton.contains(target))) return;
+    if (menu && (target === menu || menu.contains(target))) return;
+    setSwitcherOpen(false);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape" || !isPhone() || !menuOpen) return;
+    setSwitcherOpen(false);
+    if (switcherButton) switcherButton.focus();
+  });
+
+  window.addEventListener("hashchange", function () {
+    activate();
+    if (isPhone()) setSwitcherOpen(false);
+  });
+  window.addEventListener("resize", function () {
+    syncSwitcher();
+    placeCourseArt();
+  });
   if (window.ResizeObserver && catalog) {
     var artObserver = new ResizeObserver(function () {
       placeCourseArt();
     });
     artObserver.observe(catalog);
   }
+  syncSwitcher();
   activate();
 
   if (!catalog) return;
@@ -291,7 +495,7 @@
       return response.json();
     })
     .then(function (data) {
-      renderGroups(groupsFrom(data));
+      renderGroups(groupsFrom(data), areasFrom(data));
 
       var materials = data.materials || [];
       if (!materialsRoot || !materials.length) return;

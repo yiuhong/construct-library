@@ -1,7 +1,22 @@
 {
+  "areas": [
+    {
+      "id": "foundation",
+      "title": "Foundation"
+    },
+    {
+      "id": "statistics",
+      "title": "Statistics"
+    },
+    {
+      "id": "modelling",
+      "title": "Modelling"
+    }
+  ],
   "groups": [
     {
       "id": "getting-started",
+      "area": "foundation",
       "title": "Getting started",
       "lessons": [
         {
@@ -38,6 +53,7 @@
     },
     {
       "id": "python-basics",
+      "area": "foundation",
       "title": "Python basics",
       "lessons": [
         {
@@ -74,6 +90,7 @@
     },
     {
       "id": "python-plotting",
+      "area": "foundation",
       "title": "Plotting and packages",
       "lessons": [
         {
@@ -95,6 +112,7 @@
     },
     {
       "id": "basic-mathematics",
+      "area": "foundation",
       "title": "Basic mathematics",
       "sections": [
         {
@@ -216,6 +234,7 @@
     },
     {
       "id": "descriptive-statistics",
+      "area": "statistics",
       "title": "Descriptive statistics",
       "lessons": [
         {
@@ -257,6 +276,7 @@
     },
     {
       "id": "introductory-statistics",
+      "area": "statistics",
       "title": "Introductory statistics",
       "sections": [
         {
@@ -353,6 +373,7 @@
     },
     {
       "id": "non-parametric-tests",
+      "area": "statistics",
       "title": "Non-parametric tests",
       "sections": [
         {
@@ -434,6 +455,7 @@
     },
     {
       "id": "glmm",
+      "area": "statistics",
       "title": "Mixed models / GLMM",
       "sections": [
         {
@@ -505,6 +527,7 @@
     },
     {
       "id": "factor-analysis-sem",
+      "area": "statistics",
       "title": "Factor analysis and SEM",
       "sections": [
         {
@@ -586,6 +609,7 @@
     },
     {
       "id": "computational-modelling",
+      "area": "modelling",
       "title": "Computational modelling",
       "sections": [
         {
@@ -772,6 +796,7 @@
     },
     {
       "id": "machine-learning",
+      "area": "modelling",
       "title": "Machine learning",
       "sections": [
         {

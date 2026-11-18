@@ -3,7 +3,7 @@
  * The sequence matches the library page: groups in catalogue order, and,
  * where a group has sections, the lessons inside those sections. Top-level
  * lessons are used only when the group has no sections, which is how the
- * front door renders a tab. Each entry keeps the catalogue title, so the
+ * front door renders a course. Each entry keeps the catalogue title, so the
  * title bar can name the previous or next lesson.
  */
 (function (root) {

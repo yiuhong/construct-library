@@ -202,9 +202,10 @@ body.notebook .wordmark-link {
 }
 
 /* Quiet course drawing in the empty column beside the 800px catalogue.
-   Desktop only. Its top is set in js/library.js so the drawing stays
-   centred from the heading to the end of the lesson list. The catalogue,
-   tabs, wordmark, and footer are unchanged. */
+   Shown from 1280px. Its top is set in js/library.js so the drawing stays
+   centred from the page heading to the end of the lesson list. The
+   catalogue stays an 800px left column. The wordmark and footer are
+   unchanged. */
 .course-art {
   display: none;
 }
@@ -264,44 +265,127 @@ h1 {
   color: var(--label);
 }
 
-.cat-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin: 0 0 4px;
-  border-bottom: 1px solid var(--line);
+.course-layout {
+  display: grid;
+  grid-template-columns: minmax(11.5rem, 13.75rem) minmax(0, 1fr);
+  column-gap: 32px;
+  align-items: start;
 }
 
-.cat-tabs .cat-tab,
-.cat-tabs .cat-tab:visited {
+.course-switcher {
+  display: none;
+}
+
+.course-menu {
+  min-width: 0;
+}
+
+.course-group + .course-group {
+  margin-top: 18px;
+}
+
+.course-group .kicker {
+  margin: 0 0 4px;
+  padding-left: 12px;
+}
+
+.course-link,
+.course-link:visited {
+  display: block;
   margin: 0;
-  padding: 0 0 10px;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  background: transparent;
-  color: var(--label);
+  padding: 4px 8px 4px 10px;
+  border-left: 2px solid transparent;
+  color: var(--ink);
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.35;
   text-decoration: none;
 }
 
-.cat-tabs .cat-tab.is-selected,
-.cat-tabs .cat-tab.is-selected:visited {
-  margin-bottom: -1px;
-  border-bottom-color: var(--ink);
-  color: var(--ink);
+.course-link.is-selected,
+.course-link.is-selected:visited {
+  border-left-color: var(--ink);
   font-weight: 600;
 }
 
-.cat-tabs .cat-tab:hover,
-.cat-tabs .cat-tab:hover:visited {
+.course-link:hover,
+.course-link:hover:visited {
   color: var(--ink);
 }
 
-.cat-tabs .cat-tab:focus-visible {
+.course-link:focus-visible {
   outline: 2px solid var(--ink);
-  outline-offset: 3px;
+  outline-offset: 2px;
+}
+
+.course-detail {
+  min-width: 0;
+}
+
+.course-kicker {
+  margin-bottom: 6px;
+}
+
+.course-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.course-detail .lessons {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.course-switcher-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid #d6d6d6;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+}
+
+.course-switcher-button:hover {
+  border-color: #bdbdbd;
+}
+
+.course-switcher-button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.course-switcher-name {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.course-switcher-chevron {
+  display: block;
+  flex: 0 0 auto;
+  color: var(--open);
+  transform: rotate(90deg);
+}
+
+.course-switcher-button[aria-expanded="true"] .course-switcher-chevron {
+  transform: rotate(-90deg);
+}
+
+.course-switcher-button:hover .course-switcher-chevron {
+  color: var(--ink);
 }
 
 .lessons {
@@ -324,7 +408,8 @@ h1 {
   border-bottom: 1px solid var(--line);
 }
 
-.catalog .cat-tabs ~ .lessons > .lesson:first-child {
+.course-detail .lessons > .lesson:first-child,
+.course-detail .lesson-section:first-child {
   border-top: 0;
 }
 
@@ -636,8 +721,45 @@ body.notebook .site-footer {
     padding: 28px var(--pad) 20px;
   }
 
-  .cat-tabs {
-    gap: 22px;
+  .course-layout {
+    display: block;
+  }
+
+  .course-switcher {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .course-switcher .kicker {
+    margin-bottom: 8px;
+  }
+
+  .course-menu {
+    margin: 2px 0 16px;
+  }
+
+  .course-menu.is-collapsed {
+    display: none;
+  }
+
+  .course-detail .course-kicker {
+    display: none;
+  }
+
+  .course-detail .lessons {
+    margin-top: 0;
+  }
+
+  .course-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .site-footer {
