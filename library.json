@@ -423,6 +423,87 @@
       ]
     },
     {
+      "id": "factor-analysis-sem",
+      "title": "Factor analysis and SEM",
+      "sections": [
+        {
+          "title": "Principal component analysis",
+          "lessons": [
+            {
+              "path": "factor-analysis-sem/01-many-correlated-variables.ipynb",
+              "title": "Many correlated variables",
+              "summary": "Three test scores that rise together"
+            },
+            {
+              "path": "factor-analysis-sem/02-new-axes-for-a-cloud-of-points.ipynb",
+              "title": "New axes for a cloud of points",
+              "summary": "An axis through a cloud, turned until the spread is large"
+            },
+            {
+              "path": "factor-analysis-sem/03-scores-loadings-and-how-many-components.ipynb",
+              "title": "Scores, loadings, and how many components",
+              "summary": "A student's place on a component, and the share of spread"
+            },
+            {
+              "path": "factor-analysis-sem/04-what-pca-does-not-claim.ipynb",
+              "title": "What PCA does not claim",
+              "summary": "A direction of spread is not a cause"
+            }
+          ]
+        },
+        {
+          "title": "Factor analysis",
+          "lessons": [
+            {
+              "path": "factor-analysis-sem/05-shared-variance-and-unique-variance.ipynb",
+              "title": "Shared variance and unique variance",
+              "summary": "A shared part, and a part that belongs to one item"
+            },
+            {
+              "path": "factor-analysis-sem/06-loadings-in-a-common-factor-model.ipynb",
+              "title": "Loadings in a common factor model",
+              "summary": "A loading, and the covariance it implies"
+            },
+            {
+              "path": "factor-analysis-sem/07-rotation-and-simple-structure.ipynb",
+              "title": "Rotation and simple structure",
+              "summary": "A turn that lines each item up with one factor"
+            },
+            {
+              "path": "factor-analysis-sem/08-how-many-factors-and-a-hypothesized-pattern.ipynb",
+              "title": "How many factors, and a hypothesized pattern",
+              "summary": "A pattern that fixes a loading at zero"
+            }
+          ]
+        },
+        {
+          "title": "Structural equation models",
+          "lessons": [
+            {
+              "path": "factor-analysis-sem/09-path-diagrams-and-indirect-effects.ipynb",
+              "title": "Path diagrams and indirect effects",
+              "summary": "An effect that passes through a third variable"
+            },
+            {
+              "path": "factor-analysis-sem/10-a-measurement-model.ipynb",
+              "title": "A measurement model",
+              "summary": "Three items standing for one latent variable"
+            },
+            {
+              "path": "factor-analysis-sem/11-a-small-model-with-two-latent-variables.ipynb",
+              "title": "A small model with two latent variables",
+              "summary": "A path between two latent variables"
+            },
+            {
+              "path": "factor-analysis-sem/12-what-fit-means-and-when-not-to-use-it.ipynb",
+              "title": "What fit means, and when not to use it",
+              "summary": "A small gap, and what it does not prove"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "computational-modelling",
       "title": "Computational modelling",
       "sections": [

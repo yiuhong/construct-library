@@ -18,6 +18,8 @@ import math
 # psychometric links, byo building your own model.
 # Statistics courses: ds descriptive statistics, is introductory statistics,
 # glmm mixed models.
+# Factor analysis and SEM: pca principal component analysis, fa factor
+# analysis, sem structural equation models.
 _EXPECTED = {
     "pb01-1": 60,
     "pb01-2": 32,
@@ -193,6 +195,30 @@ _EXPECTED = {
     "glmm09-2": 2,
     "glmm10-1": 2,
     "glmm10-2": 2,
+    "pca01-1": 20,
+    "pca01-2": 3,
+    "pca02-1": 20,
+    "pca02-2": 40,
+    "pca03-1": 0.9,
+    "pca03-2": 8,
+    "pca04-1": 8,
+    "pca04-2": 4,
+    "fa05-1": 8,
+    "fa05-2": 4,
+    "fa06-1": 0.48,
+    "fa06-2": 0.3,
+    "fa07-1": 0,
+    "fa07-2": 0.48,
+    "fa08-1": 0.16,
+    "fa08-2": 0,
+    "sem09-1": 6,
+    "sem09-2": 7,
+    "sem10-1": 2,
+    "sem10-2": 5,
+    "sem11-1": 2,
+    "sem11-2": 0.5,
+    "sem12-1": 1,
+    "sem12-2": 17,
 }
 
 
