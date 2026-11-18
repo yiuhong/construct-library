@@ -352,6 +352,87 @@
       ]
     },
     {
+      "id": "non-parametric-tests",
+      "title": "Non-parametric tests",
+      "sections": [
+        {
+          "title": "Ranks and related scores",
+          "lessons": [
+            {
+              "path": "non-parametric-tests/01-when-a-mean-is-a-poor-summary.ipynb",
+              "title": "When a mean is a poor summary",
+              "summary": "One rating that pulls the mean above the cluster"
+            },
+            {
+              "path": "non-parametric-tests/02-ranks-instead-of-raw-scores.ipynb",
+              "title": "Ranks instead of raw scores",
+              "summary": "Average ranks, a tie, and a gap that shrinks"
+            },
+            {
+              "path": "non-parametric-tests/03-a-sign-test.ipynb",
+              "title": "A sign test",
+              "summary": "The direction of each change, and a zero left out"
+            },
+            {
+              "path": "non-parametric-tests/04-two-related-samples.ipynb",
+              "title": "Two related samples",
+              "summary": "Ranks of paired changes, and the smaller rank sum"
+            }
+          ]
+        },
+        {
+          "title": "Comparing groups",
+          "lessons": [
+            {
+              "path": "non-parametric-tests/05-two-independent-groups.ipynb",
+              "title": "Two independent groups",
+              "summary": "A count of which group wins each pair"
+            },
+            {
+              "path": "non-parametric-tests/06-several-independent-groups.ipynb",
+              "title": "Several independent groups",
+              "summary": "Three groups, ranked in one list"
+            },
+            {
+              "path": "non-parametric-tests/07-several-related-samples.ipynb",
+              "title": "Several related samples",
+              "summary": "Ranks inside each person, then the column totals"
+            },
+            {
+              "path": "non-parametric-tests/08-after-a-significant-rank-test.ipynb",
+              "title": "After a significant rank test",
+              "summary": "Which pair differs, in an uncorrected sketch"
+            }
+          ]
+        },
+        {
+          "title": "Association and limits",
+          "lessons": [
+            {
+              "path": "non-parametric-tests/09-rank-correlation.ipynb",
+              "title": "Rank correlation",
+              "summary": "Spearman's correlation of two rank columns"
+            },
+            {
+              "path": "non-parametric-tests/10-counts-in-a-table.ipynb",
+              "title": "Counts in a table",
+              "summary": "A chi-square and Fisher's test for counts, not ranks"
+            },
+            {
+              "path": "non-parametric-tests/11-a-permutation-sketch.ipynb",
+              "title": "A permutation sketch",
+              "summary": "Every way to label six scores, and the share"
+            },
+            {
+              "path": "non-parametric-tests/12-what-these-tests-do-not-claim.ipynb",
+              "title": "What these tests do not claim",
+              "summary": "Six claims a small rank test does not make"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "glmm",
       "title": "Mixed models / GLMM",
       "sections": [

@@ -21,6 +21,7 @@ import math
 # Factor analysis and SEM: pca principal component analysis, fa factor
 # analysis, sem structural equation models.
 # Machine learning: ml.
+# Non-parametric tests: npt.
 _EXPECTED = {
     "pb01-1": 60,
     "pb01-2": 32,
@@ -244,6 +245,30 @@ _EXPECTED = {
     "ml11-2": 2,
     "ml12-1": 6,
     "ml12-2": 4,
+    "npt01-1": 6,
+    "npt01-2": 3,
+    "npt02-1": 1,
+    "npt02-2": 2.5,
+    "npt03-1": 4,
+    "npt03-2": 6,
+    "npt04-1": 13,
+    "npt04-2": 2,
+    "npt05-1": 13,
+    "npt05-2": 3,
+    "npt06-1": 24,
+    "npt06-2": 3,
+    "npt07-1": 3,
+    "npt07-2": 4,
+    "npt08-1": 3,
+    "npt08-2": 0,
+    "npt09-1": 0.8,
+    "npt09-2": 4,
+    "npt10-1": 20,
+    "npt10-2": 5.5,
+    "npt11-1": 4,
+    "npt11-2": 20,
+    "npt12-1": 6,
+    "npt12-2": 4,
 }
 
 
