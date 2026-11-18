@@ -291,7 +291,10 @@ h1 {
 
 .course-link,
 .course-link:visited {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
   margin: 0;
   padding: 4px 8px 4px 10px;
   border-left: 2px solid transparent;
@@ -300,6 +303,19 @@ h1 {
   font-weight: 400;
   line-height: 1.35;
   text-decoration: none;
+}
+
+.course-link-name {
+  min-width: 0;
+}
+
+.course-list-mark {
+  flex: 0 0 auto;
+  color: var(--label);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  white-space: nowrap;
 }
 
 .course-link.is-selected,
@@ -333,6 +349,22 @@ h1 {
   letter-spacing: -0.01em;
   line-height: 1.3;
   color: var(--ink);
+}
+
+/* The same difficulty line sits under the course title and, on a phone,
+   under the switcher. The switcher copy is hidden with the switcher on
+   wide pages. Below 640px the title copy is hidden and the switcher copy
+   is the one on screen. */
+.course-note {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--summary);
+}
+
+.course-note[hidden] {
+  display: none;
 }
 
 .course-detail .lessons {
@@ -734,8 +766,16 @@ body.notebook .site-footer {
     margin-bottom: 8px;
   }
 
+  .course-switcher .course-note {
+    margin-top: 8px;
+  }
+
+  .course-note-detail {
+    display: none;
+  }
+
   .course-menu {
-    margin: 2px 0 16px;
+    margin: 0 0 16px;
   }
 
   .course-menu.is-collapsed {

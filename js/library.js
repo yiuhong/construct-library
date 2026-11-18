@@ -7,6 +7,8 @@
   var courseTitle = document.querySelector("[data-course-title]");
   var materialsRoot = document.querySelector("[data-materials]");
   var menuOpen = false;
+  var coursesById = {};
+  var notesLive = false;
 
   function notebookIcon() {
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -175,10 +177,18 @@
       var title = group.title || "Lessons";
       var id = slug(group.id || title);
       if (!id) return;
+      var level = String(group.level || "").trim();
+      var after = String(group.after || "").trim();
+      var listMark = "";
+      if (typeof group.listMark === "string") listMark = group.listMark.trim();
+      else if (group.listMark === true) listMark = level;
       groups.push({
         id: id,
         title: title,
         area: slug(group.area || ""),
+        level: level,
+        after: after,
+        listMark: listMark,
         lessons: lessons,
         sections: sections
       });
@@ -272,12 +282,51 @@
     if (switcherButton) switcherButton.focus();
   }
 
+  // Copy for the difficulty line lives on the course in library.json.
+  // A level and what to take first join with a middle dot.
+  function compactLabel(group) {
+    if (!group) return "";
+    if (group.level && group.after) return group.level + " \u00b7 " + group.after;
+    return group.level || "";
+  }
+
+  function linkTitle(link) {
+    var name = link.querySelector(".course-link-name");
+    if (name) return name.textContent;
+    return link.textContent;
+  }
+
+  function showCourseNote(label) {
+    var notes = document.querySelectorAll("[data-course-note]");
+    Array.prototype.forEach.call(notes, function (note) {
+      note.textContent = label;
+      note.hidden = !label;
+      if (notesLive) note.setAttribute("aria-live", "polite");
+    });
+    if (!switcherButton) return;
+    if (label) switcherButton.setAttribute("aria-describedby", "course-note-switcher");
+    else switcherButton.removeAttribute("aria-describedby");
+  }
+
   function courseLink(group) {
     var link = document.createElement("a");
     link.className = "course-link";
     link.href = "#" + group.id;
     link.setAttribute("data-group", group.id);
-    link.textContent = group.title;
+    var name = document.createElement("span");
+    name.className = "course-link-name";
+    name.textContent = group.title;
+    link.appendChild(name);
+    if (group.listMark) {
+      var mark = document.createElement("span");
+      mark.className = "course-list-mark";
+      var pause = document.createElement("span");
+      pause.className = "visually-hidden";
+      pause.textContent = ", ";
+      mark.appendChild(pause);
+      mark.appendChild(document.createTextNode(group.listMark));
+      link.appendChild(mark);
+    }
     link.addEventListener("click", onCourseChosen);
     return link;
   }
@@ -385,7 +434,7 @@
       link.classList.toggle("is-selected", on);
       if (on) {
         link.setAttribute("aria-current", "page");
-        currentTitle = link.textContent;
+        currentTitle = linkTitle(link);
       } else {
         link.removeAttribute("aria-current");
       }
@@ -400,12 +449,17 @@
       if (switcherName) switcherName.textContent = currentTitle;
       if (switcherButton) switcherButton.setAttribute("aria-label", "Course: " + currentTitle);
     }
+    if (coursesById[current]) showCourseNote(compactLabel(coursesById[current]));
     showCourseArt(!known && hasArt(hash) ? hash : current);
     placeCourseArt();
   }
 
   function renderGroups(groups, areas) {
     if (!catalog || !menu || !detail || !groups.length) return;
+    coursesById = {};
+    groups.forEach(function (group) {
+      coursesById[group.id] = group;
+    });
     menu.textContent = "";
     panels().forEach(function (panel) {
       panel.remove();
@@ -417,6 +471,7 @@
       detail.appendChild(coursePanel(group));
     });
     activate();
+    notesLive = true;
   }
 
   function safeHref(href) {
