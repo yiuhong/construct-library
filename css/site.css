@@ -201,6 +201,39 @@ body.notebook .wordmark-link {
   padding: 60px var(--pad) 48px;
 }
 
+/* Quiet course drawing in the empty column beside the 800px catalogue.
+   Desktop only. Its top is set in js/library.js so the drawing stays
+   centred from the heading to the end of the lesson list. The catalogue,
+   tabs, wordmark, and footer are unchanged. */
+.course-art {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  body.library {
+    position: relative;
+  }
+
+  .course-art {
+    display: block;
+    position: absolute;
+    left: 820px;
+    width: 400px;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .course-art img {
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .course-art img.is-shown {
+    display: block;
+  }
+}
+
 h1 {
   margin: 0 0 18px;
   font-size: 20px;

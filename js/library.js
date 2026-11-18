@@ -107,6 +107,7 @@
     });
     button.addEventListener("click", function () {
       setModuleOpen(button, panel, button.getAttribute("aria-expanded") !== "true");
+      placeCourseArt();
     });
     block.appendChild(heading);
     block.appendChild(panel);
@@ -158,6 +159,50 @@
     return Array.prototype.slice.call(nav.querySelectorAll(".cat-tab"));
   }
 
+  function hasArt(groupId) {
+    var root = document.querySelector("[data-course-art]");
+    if (!root || !groupId) return false;
+    var imgs = root.querySelectorAll("[data-course-art-id]");
+    for (var i = 0; i < imgs.length; i++) {
+      if (imgs[i].getAttribute("data-course-art-id") === groupId) return true;
+    }
+    return false;
+  }
+
+  function showCourseArt(groupId) {
+    var root = document.querySelector("[data-course-art]");
+    if (!root) return;
+    Array.prototype.forEach.call(root.querySelectorAll("[data-course-art-id]"), function (img) {
+      img.classList.toggle("is-shown", img.getAttribute("data-course-art-id") === groupId);
+    });
+  }
+
+  function placeCourseArt() {
+    var root = document.querySelector("[data-course-art]");
+    var heading = document.querySelector(".library-main h1");
+    var panel = document.querySelector("[data-group-panel]:not([hidden])");
+    if (!root || !heading || !panel) return;
+    if (window.matchMedia("(max-width: 1279px)").matches) {
+      root.style.top = "";
+      return;
+    }
+    var artHeight = root.offsetHeight;
+    if (!artHeight) return;
+    var origin = root.offsetParent || document.documentElement;
+    var originTop = origin.getBoundingClientRect().top;
+    var headingTop = heading.getBoundingClientRect().top - originTop;
+    var listBottom = panel.getBoundingClientRect().bottom - originTop;
+    var span = listBottom - headingTop;
+    var top = artHeight >= span ? headingTop : headingTop + (span - artHeight) / 2;
+    var footer = document.querySelector(".site-footer");
+    if (footer) {
+      var footerTop = footer.getBoundingClientRect().top - originTop;
+      if (top + artHeight > footerTop) top = Math.min(headingTop, footerTop - artHeight);
+    }
+    if (top < 0) top = 0;
+    root.style.top = top + "px";
+  }
+
   function activate() {
     var tabList = tabs();
     var panelList = panels();
@@ -176,6 +221,8 @@
     panelList.forEach(function (panel) {
       panel.hidden = panel.getAttribute("data-group-panel") !== current;
     });
+    showCourseArt(!known && hasArt(hash) ? hash : current);
+    placeCourseArt();
   }
 
   function renderGroups(groups) {
@@ -227,6 +274,13 @@
   }
 
   window.addEventListener("hashchange", activate);
+  window.addEventListener("resize", placeCourseArt);
+  if (window.ResizeObserver && catalog) {
+    var artObserver = new ResizeObserver(function () {
+      placeCourseArt();
+    });
+    artObserver.observe(catalog);
+  }
   activate();
 
   if (!catalog) return;
