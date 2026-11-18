@@ -20,6 +20,7 @@ import math
 # glmm mixed models.
 # Factor analysis and SEM: pca principal component analysis, fa factor
 # analysis, sem structural equation models.
+# Machine learning: ml.
 _EXPECTED = {
     "pb01-1": 60,
     "pb01-2": 32,
@@ -219,6 +220,30 @@ _EXPECTED = {
     "sem11-2": 0.5,
     "sem12-1": 1,
     "sem12-2": 17,
+    "ml01-1": 9,
+    "ml01-2": 2,
+    "ml02-1": 3,
+    "ml02-2": 2,
+    "ml03-1": 7,
+    "ml03-2": 2,
+    "ml04-1": 0,
+    "ml04-2": 1,
+    "ml05-1": 5,
+    "ml05-2": 1,
+    "ml06-1": "pass",
+    "ml06-2": "revise",
+    "ml07-1": "revise",
+    "ml07-2": "pass",
+    "ml08-1": 2,
+    "ml08-2": 5,
+    "ml09-1": 2,
+    "ml09-2": 3,
+    "ml10-1": 2,
+    "ml10-2": 1,
+    "ml11-1": 4,
+    "ml11-2": 2,
+    "ml12-1": 6,
+    "ml12-2": 4,
 }
 
 
