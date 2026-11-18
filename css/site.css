@@ -291,10 +291,7 @@ h1 {
 
 .course-link,
 .course-link:visited {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
+  display: block;
   margin: 0;
   padding: 4px 8px 4px 10px;
   border-left: 2px solid transparent;
@@ -303,19 +300,6 @@ h1 {
   font-weight: 400;
   line-height: 1.35;
   text-decoration: none;
-}
-
-.course-link-name {
-  min-width: 0;
-}
-
-.course-list-mark {
-  flex: 0 0 auto;
-  color: var(--label);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.35;
-  white-space: nowrap;
 }
 
 .course-link.is-selected,

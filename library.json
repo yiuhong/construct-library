@@ -19,7 +19,6 @@
       "area": "foundation",
       "title": "Getting started",
       "level": "Beginner",
-      "listMark": "Start here",
       "lessons": [
         {
           "path": "getting-started/01-jupyter-basics.ipynb",

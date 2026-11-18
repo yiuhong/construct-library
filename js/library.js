@@ -178,15 +178,11 @@
       var id = slug(group.id || title);
       if (!id) return;
       var level = String(group.level || "").trim();
-      var listMark = "";
-      if (typeof group.listMark === "string") listMark = group.listMark.trim();
-      else if (group.listMark === true) listMark = level;
       groups.push({
         id: id,
         title: title,
         area: slug(group.area || ""),
         level: level,
-        listMark: listMark,
         lessons: lessons,
         sections: sections
       });
@@ -287,8 +283,6 @@
   }
 
   function linkTitle(link) {
-    var name = link.querySelector(".course-link-name");
-    if (name) return name.textContent;
     return link.textContent;
   }
 
@@ -309,20 +303,7 @@
     link.className = "course-link";
     link.href = "#" + group.id;
     link.setAttribute("data-group", group.id);
-    var name = document.createElement("span");
-    name.className = "course-link-name";
-    name.textContent = group.title;
-    link.appendChild(name);
-    if (group.listMark) {
-      var mark = document.createElement("span");
-      mark.className = "course-list-mark";
-      var pause = document.createElement("span");
-      pause.className = "visually-hidden";
-      pause.textContent = ", ";
-      mark.appendChild(pause);
-      mark.appendChild(document.createTextNode(group.listMark));
-      link.appendChild(mark);
-    }
+    link.textContent = group.title;
     link.addEventListener("click", onCourseChosen);
     return link;
   }
