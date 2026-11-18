@@ -178,7 +178,6 @@
       var id = slug(group.id || title);
       if (!id) return;
       var level = String(group.level || "").trim();
-      var after = String(group.after || "").trim();
       var listMark = "";
       if (typeof group.listMark === "string") listMark = group.listMark.trim();
       else if (group.listMark === true) listMark = level;
@@ -187,7 +186,6 @@
         title: title,
         area: slug(group.area || ""),
         level: level,
-        after: after,
         listMark: listMark,
         lessons: lessons,
         sections: sections
@@ -282,11 +280,9 @@
     if (switcherButton) switcherButton.focus();
   }
 
-  // Copy for the difficulty line lives on the course in library.json.
-  // A level and what to take first join with a middle dot.
+  // The difficulty line is the course's level word from library.json.
   function compactLabel(group) {
     if (!group) return "";
-    if (group.level && group.after) return group.level + " \u00b7 " + group.after;
     return group.level || "";
   }
 
