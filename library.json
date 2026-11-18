@@ -688,6 +688,87 @@
           ]
         }
       ]
+    },
+    {
+      "id": "machine-learning",
+      "title": "Machine learning",
+      "sections": [
+        {
+          "title": "Learning from data",
+          "lessons": [
+            {
+              "path": "machine-learning/01-prediction-and-explanation.ipynb",
+              "title": "Prediction and explanation",
+              "summary": "A line used to name a score it did not fit"
+            },
+            {
+              "path": "machine-learning/02-features-labels-and-a-simple-table.ipynb",
+              "title": "Features, labels, and a simple table",
+              "summary": "A numeric column scaled, and a category coded as columns"
+            },
+            {
+              "path": "machine-learning/03-training-and-testing.ipynb",
+              "title": "Training and testing",
+              "summary": "A prediction scored on a row the fit did not use"
+            },
+            {
+              "path": "machine-learning/04-overfitting-and-generalisation.ipynb",
+              "title": "Overfitting and generalisation",
+              "summary": "A zero training error, and a miss on a new row"
+            }
+          ]
+        },
+        {
+          "title": "Supervised learning",
+          "lessons": [
+            {
+              "path": "machine-learning/05-predicting-a-number.ipynb",
+              "title": "Predicting a number",
+              "summary": "Two columns naming a held-out score"
+            },
+            {
+              "path": "machine-learning/06-predicting-a-category.ipynb",
+              "title": "Predicting a category",
+              "summary": "A cutoff that writes pass or revise"
+            },
+            {
+              "path": "machine-learning/07-neighbours-and-trees.ipynb",
+              "title": "Neighbours and trees",
+              "summary": "The nearest label, and one split"
+            },
+            {
+              "path": "machine-learning/08-measuring-performance.ipynb",
+              "title": "Measuring performance",
+              "summary": "A test error, and errors across three folds"
+            }
+          ]
+        },
+        {
+          "title": "Unsupervised learning and limits",
+          "lessons": [
+            {
+              "path": "machine-learning/09-grouping-similar-observations.ipynb",
+              "title": "Grouping similar observations",
+              "summary": "Two groups from scores, with no label used"
+            },
+            {
+              "path": "machine-learning/10-principal-components-briefly.ipynb",
+              "title": "Principal components, briefly",
+              "summary": "Two matching columns, and a pointer to another course"
+            },
+            {
+              "path": "machine-learning/11-when-a-model-looks-better-than-it-is.ipynb",
+              "title": "When a model looks better than it is",
+              "summary": "A high count that ignored the quiz"
+            },
+            {
+              "path": "machine-learning/12-what-these-examples-leave-out.ipynb",
+              "title": "What these examples leave out",
+              "summary": "Six families these examples do not cover"
+            }
+          ]
+        }
+      ]
     }
   ],
   "materials": []
