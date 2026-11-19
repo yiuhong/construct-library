@@ -22,6 +22,7 @@ import math
 # analysis, sem structural equation models.
 # Machine learning: ml.
 # Non-parametric tests: npt.
+# Matplotlib: mpl.
 _EXPECTED = {
     "pb01-1": 60,
     "pb01-2": 32,
@@ -269,6 +270,32 @@ _EXPECTED = {
     "npt11-2": 20,
     "npt12-1": 6,
     "npt12-2": 4,
+    "mpl01-1": 1,
+    "mpl01-2": 8,
+    "mpl02-1": 8,
+    "mpl02-2": 3,
+    "mpl03-1": 2,
+    "mpl03-2": 5,
+    "mpl04-1": 8,
+    "mpl04-2": 4,
+    "mpl05-1": 8,
+    "mpl05-2": 15,
+    "mpl06-1": 3,
+    "mpl06-2": 5,
+    "mpl07-1": 10,
+    "mpl07-2": 10 ** (-1 / 5),
+    "mpl08-1": 6,
+    "mpl08-2": 10,
+    "mpl09-1": 6,
+    "mpl09-2": 4,
+    "mpl10-1": 9,
+    "mpl10-2": 3,
+    "mpl11-1": "Revision hours",
+    "mpl11-2": 2,
+    "mpl12-1": 3,
+    "mpl12-2": 7,
+    "mpl13-1": 600,
+    "mpl13-2": 900,
 }
 
 
