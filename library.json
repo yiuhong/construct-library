@@ -329,41 +329,36 @@
       "area": "statistics",
       "title": "Descriptive statistics",
       "level": "Intermediate",
-      "lessons": [
+      "sections": [
         {
-          "path": "descriptive-statistics/01-a-table-of-counts.ipynb",
-          "title": "A table of counts",
-          "summary": "Counts of labels, and each count as a proportion"
+          "title": "Summaries",
+          "lessons": [
+            {
+              "path": "descriptive-statistics/01-a-table-of-measurements.ipynb",
+              "title": "A table of measurements",
+              "summary": "Twelve students, and counts of a yes or no"
+            },
+            {
+              "path": "descriptive-statistics/02-centre-and-spread.ipynb",
+              "title": "Centre and spread",
+              "summary": "A mean, a median, and the spread of one quiz"
+            }
+          ]
         },
         {
-          "path": "descriptive-statistics/02-mean-and-median.ipynb",
-          "title": "Mean and median",
-          "summary": "Two centres, and an outlier that moves only one"
-        },
-        {
-          "path": "descriptive-statistics/03-range-and-standard-deviation.ipynb",
-          "title": "Range and standard deviation",
-          "summary": "The gap from minimum to maximum, and a typical distance"
-        },
-        {
-          "path": "descriptive-statistics/04-a-display-for-one-variable.ipynb",
-          "title": "A display for one variable",
-          "summary": "Bin counts, and what a wider bin hides"
-        },
-        {
-          "path": "descriptive-statistics/05-one-variable-in-two-groups.ipynb",
-          "title": "One variable in two groups",
-          "summary": "Two group means, drawn as separate dots"
-        },
-        {
-          "path": "descriptive-statistics/06-two-variables-together.ipynb",
-          "title": "Two variables together",
-          "summary": "A scatter, and the sum of paired deviations"
-        },
-        {
-          "path": "descriptive-statistics/07-choosing-a-display.ipynb",
-          "title": "Choosing a display",
-          "summary": "Bar, histogram, or scatter, from the measurements"
+          "title": "Displays",
+          "lessons": [
+            {
+              "path": "descriptive-statistics/03-displays-for-one-variable-and-for-two-groups.ipynb",
+              "title": "Displays for one variable and for two groups",
+              "summary": "A bar, a histogram, and two seminar means"
+            },
+            {
+              "path": "descriptive-statistics/04-two-variables-together.ipynb",
+              "title": "Two variables together",
+              "summary": "Hours and scores, and when a scatter fits"
+            }
+          ]
         }
       ]
     },
@@ -379,22 +374,12 @@
             {
               "path": "introductory-statistics/01-an-event-and-its-complement.ipynb",
               "title": "An event and its complement",
-              "summary": "A probability, and one minus that probability"
+              "summary": "Pass or fail in the coursework cohort"
             },
             {
-              "path": "introductory-statistics/02-a-sample-and-the-population.ipynb",
-              "title": "A sample and the population",
-              "summary": "A sample mean that need not match the whole list"
-            },
-            {
-              "path": "introductory-statistics/03-two-samples-two-means.ipynb",
-              "title": "Two samples, two means",
-              "summary": "The same list, and two samples with different means"
-            },
-            {
-              "path": "introductory-statistics/04-the-mean-of-the-sample-means.ipynb",
-              "title": "The mean of the sample means",
-              "summary": "Every sample of a fixed size, then the average of their means"
+              "path": "introductory-statistics/02-samples-and-the-mean-of-the-sample-means.ipynb",
+              "title": "Samples and the mean of the sample means",
+              "summary": "Every pair of scores, then the average of their means"
             }
           ]
         },
@@ -402,19 +387,9 @@
           "title": "Estimation",
           "lessons": [
             {
-              "path": "introductory-statistics/05-a-point-estimate.ipynb",
-              "title": "A point estimate",
-              "summary": "The sample mean as a single estimate"
-            },
-            {
-              "path": "introductory-statistics/06-an-interval-around-the-estimate.ipynb",
-              "title": "An interval around the estimate",
-              "summary": "About two standard errors either side of the mean"
-            },
-            {
-              "path": "introductory-statistics/07-the-standard-error.ipynb",
-              "title": "The standard error",
-              "summary": "Sample spread, divided by the square root of the sample size"
+              "path": "introductory-statistics/03-a-point-estimate-the-standard-error-and-an-interval.ipynb",
+              "title": "A point estimate, the standard error, and an interval",
+              "summary": "A sample mean, its standard error, then an interval"
             }
           ]
         },
@@ -422,19 +397,9 @@
           "title": "Comparing groups",
           "lessons": [
             {
-              "path": "introductory-statistics/08-a-difference-of-group-means.ipynb",
-              "title": "A difference of group means",
-              "summary": "How far two group centres sit apart"
-            },
-            {
-              "path": "introductory-statistics/09-the-same-difference-as-a-line.ipynb",
-              "title": "The same difference as a line",
-              "summary": "A 0/1 slope that equals the group gap"
-            },
-            {
-              "path": "introductory-statistics/10-residuals-from-the-group-line.ipynb",
-              "title": "Residuals from the group line",
-              "summary": "Observed minus the group prediction"
+              "path": "introductory-statistics/04-a-group-difference-as-a-line-and-the-residuals.ipynb",
+              "title": "A group difference as a line, and the residuals",
+              "summary": "Rest and trained, written as a line"
             }
           ]
         },
@@ -442,24 +407,14 @@
           "title": "Linear models and GLM",
           "lessons": [
             {
-              "path": "introductory-statistics/11-a-line-for-the-mean.ipynb",
-              "title": "A line for the mean",
-              "summary": "Intercept and slope as a mean at each input"
+              "path": "introductory-statistics/05-a-line-for-the-mean-with-a-group-and-a-slope.ipynb",
+              "title": "A line for the mean, with a group and a slope",
+              "summary": "Hours and a group, in one line for the mean"
             },
             {
-              "path": "introductory-statistics/12-a-group-and-a-slope-in-one-line.ipynb",
-              "title": "A group and a slope in one line",
-              "summary": "One equation with a group term and a slope"
-            },
-            {
-              "path": "introductory-statistics/13-a-yes-or-no-outcome.ipynb",
-              "title": "A yes-or-no outcome",
-              "summary": "A logit link from a line to a probability"
-            },
-            {
-              "path": "introductory-statistics/14-a-count-outcome.ipynb",
-              "title": "A count outcome",
-              "summary": "A log link from a line to a mean count"
+              "path": "introductory-statistics/06-a-yes-or-no-outcome-and-a-count-outcome.ipynb",
+              "title": "A yes-or-no outcome and a count outcome",
+              "summary": "A logit for pass, and a log link for attempts"
             }
           ]
         }
