@@ -513,19 +513,9 @@
           "title": "Clustered data",
           "lessons": [
             {
-              "path": "glmm/01-rows-that-share-a-cluster.ipynb",
-              "title": "Rows that share a cluster",
-              "summary": "Several rows, and the person those rows belong to"
-            },
-            {
-              "path": "glmm/02-rows-are-not-extra-clusters.ipynb",
-              "title": "Rows are not extra clusters",
-              "summary": "Six rows, and only two people"
-            },
-            {
-              "path": "glmm/03-between-clusters-and-within-a-cluster.ipynb",
-              "title": "Between clusters and within a cluster",
-              "summary": "A gap between person means, and a gap inside one person"
+              "path": "glmm/01-rows-clusters-and-two-kinds-of-variation.ipynb",
+              "title": "Rows, clusters, and two kinds of variation",
+              "summary": "Six people, four quizzes each, and two kinds of gap"
             }
           ]
         },
@@ -533,19 +523,9 @@
           "title": "Linear mixed models",
           "lessons": [
             {
-              "path": "glmm/04-a-fixed-mean-plus-a-cluster-shift.ipynb",
-              "title": "A fixed mean plus a cluster shift",
-              "summary": "A shared mean, then a shift for each cluster"
-            },
-            {
-              "path": "glmm/05-cluster-means-from-a-random-intercept.ipynb",
-              "title": "Cluster means from a random intercept",
-              "summary": "The shared intercept, plus each cluster's shift"
-            },
-            {
-              "path": "glmm/06-a-slope-that-stays-a-shift-that-moves.ipynb",
-              "title": "A slope that stays, a shift that moves",
-              "summary": "The same slope, and lines that sit higher or lower"
+              "path": "glmm/02-a-shared-mean-a-random-intercept-and-a-slope-that-stays.ipynb",
+              "title": "A shared mean, a random intercept, and a slope that stays",
+              "summary": "A shared mean, a shift per person, and one slope for week"
             }
           ]
         },
@@ -553,24 +533,19 @@
           "title": "Generalised mixed models",
           "lessons": [
             {
-              "path": "glmm/07-a-yes-or-no-outcome-inside-clusters.ipynb",
-              "title": "A yes-or-no outcome inside clusters",
-              "summary": "A proportion for each person, then the mean of those proportions"
+              "path": "glmm/03-a-yes-or-no-outcome-with-a-cluster-shift.ipynb",
+              "title": "A yes-or-no outcome with a cluster shift",
+              "summary": "Pass proportions, then a shift on the logit"
             },
             {
-              "path": "glmm/08-a-logit-plus-a-cluster-shift.ipynb",
-              "title": "A logit plus a cluster shift",
-              "summary": "A probability that moves with the cluster"
-            },
-            {
-              "path": "glmm/09-a-log-mean-plus-a-cluster-shift.ipynb",
+              "path": "glmm/04-a-log-mean-plus-a-cluster-shift.ipynb",
               "title": "A log mean plus a cluster shift",
-              "summary": "A mean count that moves with the cluster"
+              "summary": "Practice counts, and a shift on the log of the mean"
             },
             {
-              "path": "glmm/10-reading-an-estimate-with-care.ipynb",
+              "path": "glmm/05-reading-an-estimate-with-care.ipynb",
               "title": "Reading an estimate with care",
-              "summary": "What a small illustration can support"
+              "summary": "A slope on six people is an illustration, not a population estimate"
             }
           ]
         }
