@@ -221,8 +221,16 @@ body.notebook .wordmark-link {
     width: min(1120px, 100%);
   }
 
+  /* Front-page footer only. The paragraph uses the width inside the
+     existing side padding, and the break after the JupyterLite sentence
+     is hidden so the text can wrap onto fewer lines. Cite, license, and
+     the notebook footer keep their own widths. */
   body.library .library-main:not(.doc) ~ .site-footer p {
-    max-width: calc(1120px - 2 * var(--pad));
+    max-width: none;
+  }
+
+  body.library .library-main:not(.doc) ~ .site-footer .footer-break {
+    display: none;
   }
 }
 
