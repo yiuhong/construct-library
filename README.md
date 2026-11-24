@@ -1,12 +1,12 @@
 # Project Construct
 
-![Project Construct](assets/project-construct-wordmark.svg)
+![Project Construct](assets/project-construct-wordmark.svg#gh-light-mode-only)![Project Construct](assets/project-construct-wordmark-dark.svg#gh-dark-mode-only)
 
 Project Construct is an independent lesson library for mathematical and computational psychology and neuroscience. Lessons are Jupyter notebooks that run in the browser.
 
 The site is published with GitHub Pages at https://yiuhong.github.io/construct-library/.
 
-The mark above is the light lockup, [`assets/project-construct-wordmark.svg`](assets/project-construct-wordmark.svg). Yiu Hong Ko is a psychology and cognitive neuroscience researcher in Hong Kong and a registered social worker (RSW).
+The mark above is the light lockup, [`assets/project-construct-wordmark.svg`](assets/project-construct-wordmark.svg), or the light-on-dark lockup, [`assets/project-construct-wordmark-dark.svg`](assets/project-construct-wordmark-dark.svg). Yiu Hong Ko is a psychology and cognitive neuroscience researcher in Hong Kong and a registered social worker (RSW).
 
 ## Cite, license, and contributing
 
