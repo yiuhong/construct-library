@@ -123,19 +123,14 @@
           "title": "Figures and axes",
           "lessons": [
             {
-              "path": "matplotlib/01-figures-and-axes.ipynb",
-              "title": "Figures and axes",
-              "summary": "The page, and the region you draw on"
+              "path": "matplotlib/01-figures-axes-and-size.ipynb",
+              "title": "Figures, axes, and size",
+              "summary": "The page, the region, and the size in inches"
             },
             {
-              "path": "matplotlib/02-figure-size-and-layout.ipynb",
-              "title": "Figure size and layout",
-              "summary": "Width and height, and room for the labels"
-            },
-            {
-              "path": "matplotlib/03-subplots.ipynb",
+              "path": "matplotlib/02-subplots.ipynb",
               "title": "Subplots",
-              "summary": "Two panels on one figure"
+              "summary": "Two panels, then a grid of four"
             }
           ]
         },
@@ -143,39 +138,34 @@
           "title": "Common plots",
           "lessons": [
             {
-              "path": "matplotlib/04-scatterplots.ipynb",
+              "path": "matplotlib/03-scatterplots.ipynb",
               "title": "Scatterplots",
-              "summary": "Colour, size, and more than one group"
+              "summary": "Colour for the seminar, size for practice"
             },
             {
-              "path": "matplotlib/05-bar-charts.ipynb",
+              "path": "matplotlib/04-bar-charts.ipynb",
               "title": "Bar charts",
-              "summary": "A count, drawn from zero"
+              "summary": "Mini-test counts, drawn from zero"
             },
             {
-              "path": "matplotlib/06-histograms.ipynb",
-              "title": "Histograms",
-              "summary": "Bin counts, and a wider bin"
+              "path": "matplotlib/05-histograms-and-kde.ipynb",
+              "title": "Histograms and KDE",
+              "summary": "Bin counts, then a smooth curve on twelve scores"
             },
             {
-              "path": "matplotlib/07-kde-plots.ipynb",
-              "title": "KDE plots",
-              "summary": "A smooth curve on a very small list"
-            },
-            {
-              "path": "matplotlib/08-box-plots.ipynb",
+              "path": "matplotlib/06-box-plots.ipynb",
               "title": "Box plots",
-              "summary": "A median, a middle half, and whiskers"
+              "summary": "A median, a middle half, and a score beyond the whisker"
             },
             {
-              "path": "matplotlib/09-error-bars.ipynb",
+              "path": "matplotlib/07-error-bars.ipynb",
               "title": "Error bars",
-              "summary": "A mean, and a line for the standard error"
+              "summary": "A seminar mean, and the standard error"
             },
             {
-              "path": "matplotlib/10-heat-maps.ipynb",
+              "path": "matplotlib/08-heat-maps.ipynb",
               "title": "Heat maps",
-              "summary": "A table of scores as a grid of colour"
+              "summary": "Monday rows as a grid of colour"
             }
           ]
         },
@@ -183,19 +173,9 @@
           "title": "Polish and export",
           "lessons": [
             {
-              "path": "matplotlib/11-colour-and-labels.ipynb",
-              "title": "Colour and labels",
-              "summary": "A legend, units, and a title that names the measurement"
-            },
-            {
-              "path": "matplotlib/12-annotations.ipynb",
-              "title": "Annotations",
-              "summary": "A note and an arrow on one point"
-            },
-            {
-              "path": "matplotlib/13-saving-a-figure.ipynb",
-              "title": "Saving a figure",
-              "summary": "A PNG whose pixel width follows the inches and the dpi"
+              "path": "matplotlib/09-colour-labels-annotations-and-saving.ipynb",
+              "title": "Colour, labels, annotations, and saving",
+              "summary": "Labels, a note on one score, and the pixel width"
             }
           ]
         }
