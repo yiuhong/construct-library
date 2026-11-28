@@ -4,7 +4,7 @@
 
 Project Construct is an independent lesson library for mathematical and computational psychology and neuroscience. Lessons are Jupyter notebooks that run in the browser.
 
-The site is published with GitHub Pages at https://yiuhong.github.io/construct-library/.
+The site is published with GitHub Pages at https://yiuhong.github.io/project-construct/.
 
 The mark above is the light lockup, [`assets/project-construct-wordmark.svg`](assets/project-construct-wordmark.svg), or the light-on-dark lockup, [`assets/project-construct-wordmark-dark.svg`](assets/project-construct-wordmark-dark.svg). Yiu Hong Ko is a psychology and cognitive neuroscience researcher in Hong Kong and a registered social worker (RSW).
 
@@ -12,11 +12,11 @@ The mark above is the light lockup, [`assets/project-construct-wordmark.svg`](as
 
 Teaching text, explanations, and figures are [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The legal text is [LICENSE](LICENSE). HTML, CSS, JavaScript, and Python that run the site and the notebooks are [MIT](LICENSE-CODE). [license.html](license.html) says which part is which. A page can mix both. JupyterLite and Pyodide keep their own licenses.
 
-To cite the library, use [cite.html](https://yiuhong.github.io/construct-library/cite.html) (APA 7, BibTeX, and a credit line). A machine-readable citation is [`CITATION.cff`](CITATION.cff) (Citation File Format 1.2.0). It names this library, Yiu Hong Ko, the ORCID iD, version 0.1.0, and https://yiuhong.github.io/construct-library/. The file records the teaching material as CC BY 4.0 and notes that source code is MIT.
+To cite the library, use [cite.html](https://yiuhong.github.io/project-construct/cite.html) (APA 7, BibTeX, and a credit line). A machine-readable citation is [`CITATION.cff`](CITATION.cff) (Citation File Format 1.2.0). It names this library, Yiu Hong Ko, the ORCID iD, version 0.1.0, and https://yiuhong.github.io/project-construct/. The file records the teaching material as CC BY 4.0 and notes that source code is MIT.
 
 Yiu Hong Ko · [ORCID 0000-0003-4436-0166](https://orcid.org/0000-0003-4436-0166) · [yiuhong.ko@gmail.com](mailto:yiuhong.ko@gmail.com) · [yiuhong.github.io](https://yiuhong.github.io/)
 
-Mistakes and ideas go to [GitHub Issues](https://github.com/yiuhong/construct-library/issues). Notes for contributors are in [CONTRIBUTING.md](CONTRIBUTING.md). What changed is in [CHANGELOG.md](CHANGELOG.md).
+Mistakes and ideas go to [GitHub Issues](https://github.com/yiuhong/project-construct/issues). Notes for contributors are in [CONTRIBUTING.md](CONTRIBUTING.md). What changed is in [CHANGELOG.md](CHANGELOG.md).
 
 This is version **0.1.0**, dated 17 November 2026. It is the first versioned release: the repository had no version before it. The version and date live in [`js/site-meta.js`](js/site-meta.js). The footer, the cite page, and the license page repeat the same version and date for visitors without JavaScript.
 

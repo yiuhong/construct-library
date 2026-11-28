@@ -4,7 +4,7 @@ Thank you for helping Project Construct.
 
 ## Bugs and ideas
 
-Report a bug, a teaching error, or an idea on [GitHub Issues](https://github.com/yiuhong/construct-library/issues). Name the lesson or the page, what you expected, and what happened. For an idea, start the title with "Idea:".
+Report a bug, a teaching error, or an idea on [GitHub Issues](https://github.com/yiuhong/project-construct/issues). Name the lesson or the page, what you expected, and what happened. For an idea, start the title with "Idea:".
 
 ## Pull requests
 

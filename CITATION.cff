@@ -11,8 +11,8 @@ authors:
     website: "https://yiuhong.github.io/"
 version: "0.1.0"
 date-released: "2026-11-17"
-url: "https://yiuhong.github.io/construct-library/"
-repository-code: "https://github.com/yiuhong/construct-library"
+url: "https://yiuhong.github.io/project-construct/"
+repository-code: "https://github.com/yiuhong/project-construct"
 license: CC-BY-4.0
 keywords:
   - "open educational resources"
@@ -30,4 +30,4 @@ preferred-citation:
       orcid: "https://orcid.org/0000-0003-4436-0166"
   year: 2026
   version: "0.1.0"
-  url: "https://yiuhong.github.io/construct-library/"
+  url: "https://yiuhong.github.io/project-construct/"
